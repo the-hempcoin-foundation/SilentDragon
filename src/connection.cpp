@@ -76,11 +76,11 @@ void ConnectionLoader::doAutoConnect(bool tryEzcashdStart) {
                     if (config->zcashDaemon) {
                         explanation = QString() % QObject::tr("You have komodod set to start as a daemon, which can cause problems "
                             "with SilentDragon\n\n."
-                            "Please remove the following line from your HUSH3.conf and restart SilentDragon\n"
+                            "Please remove the following line from your ILN.conf and restart SilentDragon\n"
                             "daemon=1");
                     } else {
                         explanation = QString() % QObject::tr("Couldn't start the embedded komodod.\n\n" 
-                            "Please try restarting.\n\nIf you previously started komodod with custom arguments, you might need to  reset HUSH3.conf.\n\n" 
+                            "Please try restarting.\n\nIf you previously started komodod with custom arguments, you might need to  reset ILN.conf.\n\n" 
                             "If all else fails, please run zcashd manually.") %  
                             (ezcashd ? QObject::tr("The process returned") + ":\n\n" % ezcashd->errorString() : QString(""));
                     }
@@ -88,16 +88,16 @@ void ConnectionLoader::doAutoConnect(bool tryEzcashdStart) {
                     this->showError(explanation);
                 }                
             } else {
-                // HUSH3.conf exists, there's no connection, and the user asked us not to start zcashd. Error!
+                // ILN.conf exists, there's no connection, and the user asked us not to start zcashd. Error!
                 main->logger->write("Not using embedded and couldn't connect to zcashd");
-                QString explanation = QString() % QObject::tr("Couldn't connect to zcashd configured in HUSH3.conf.\n\n" 
+                QString explanation = QString() % QObject::tr("Couldn't connect to zcashd configured in ILN.conf.\n\n" 
                                       "Not starting embedded zcashd because --no-embedded was passed");
                 this->showError(explanation);
             }
         });
     } else {
         if (Settings::getInstance()->useEmbedded()) {
-            // HUSH3.conf was not found, so create one
+            // ILN.conf was not found, so create one
             createZcashConf();
         } else {
             // Fall back to manual connect
@@ -124,7 +124,7 @@ QString randomPassword() {
 }
 
 /**
- * This will create a new HUSH3.conf, download Zcash parameters.
+ * This will create a new ILN.conf, download Zcash parameters.
  */ 
 void ConnectionLoader::createZcashConf() {
     main->logger->write("createZcashConf");
@@ -175,15 +175,15 @@ void ConnectionLoader::createZcashConf() {
 
     QFile file(confLocation);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
-        main->logger->write("Could not create HUSH3.conf, returning");
+        main->logger->write("Could not create ILN.conf, returning");
         return;
     }
         
     QTextStream out(&file); 
     
     out << "server=1\n";
-    out << "addnode=mainnet.z.cash\n";
-    out << "rpcuser=zec-qt-wallet\n";
+    //out << "addnode=mainnet.z.cash\n";
+    out << "rpcuser=awesomeuser\n";
     out << "rpcpassword=" % randomPassword() << "\n";
     if (!datadir.isEmpty()) {
         out << "datadir=" % datadir % "\n";
@@ -194,7 +194,7 @@ void ConnectionLoader::createZcashConf() {
 
     file.close();
 
-    // Now that HUSH3.conf exists, try to autoconnect again
+    // Now that ILN.conf exists, try to autoconnect again
     this->doAutoConnect();
 }
 
@@ -511,11 +511,11 @@ void ConnectionLoader::showError(QString explanation) {
 
 QString ConnectionLoader::locateZcashConfFile() {
 #ifdef Q_OS_LINUX
-    auto confLocation = QStandardPaths::locate(QStandardPaths::HomeLocation, ".komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QStandardPaths::locate(QStandardPaths::HomeLocation, ".komodo/ILN/ILN.conf");
 #elif defined(Q_OS_DARWIN)
-    auto confLocation = QStandardPaths::locate(QStandardPaths::HomeLocation, "Library/Application Support/Komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QStandardPaths::locate(QStandardPaths::HomeLocation, "Library/Application Support/Komodo/ILN/ILN.conf");
 #else
-    auto confLocation = QStandardPaths::locate(QStandardPaths::AppDataLocation, "../../Komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QStandardPaths::locate(QStandardPaths::AppDataLocation, "../../Komodo/ILN/ILN.conf");
 #endif
 
     main->logger->write("Found zcashconf at " + QDir::cleanPath(confLocation));
@@ -524,11 +524,11 @@ QString ConnectionLoader::locateZcashConfFile() {
 
 QString ConnectionLoader::zcashConfWritableLocation() {
 #ifdef Q_OS_LINUX
-    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)).filePath(".komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)).filePath(".komodo/ILN/ILN.conf");
 #elif defined(Q_OS_DARWIN)
-    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)).filePath("Library/Application Support/Zcash/HUSH3/HUSH3.conf");
+    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)).filePath("Library/Application Support/Zcash/ILN/ILN.conf");
 #else
-    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("../../Komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("../../Komodo/ILN/ILN.conf");
 #endif
 
     main->logger->write("Found zcashconf at " + QDir::cleanPath(confLocation));
@@ -566,7 +566,7 @@ bool ConnectionLoader::verifyParams() {
 }
 
 /**
- * Try to automatically detect a HUSH3/HUSH3.conf file in the correct location and load parameters
+ * Try to automatically detect a HUSH3/ILN.conf file in the correct location and load parameters
  */ 
 std::shared_ptr<ConnectionConfig> ConnectionLoader::autoDetectZcashConf() {    
     auto confLocation = locateZcashConfFile();
@@ -625,7 +625,7 @@ std::shared_ptr<ConnectionConfig> ConnectionLoader::autoDetectZcashConf() {
     if (zcashconf->port.isEmpty()) zcashconf->port = "18031";
     file.close();
 
-    // In addition to the HUSH3/HUSH3.conf file, also double check the params. 
+    // In addition to the HUSH3/ILN.conf file, also double check the params. 
 
     return std::shared_ptr<ConnectionConfig>(zcashconf);
 }
