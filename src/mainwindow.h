@@ -107,6 +107,7 @@ private:
     std::function<void(bool)> addZAddrsToComboList(bool sapling);
 
     void memoButtonClicked(int number, bool includeReplyTo = false);
+    void fileUploadButtonClicked(int number);
     void setMemoEnabled(int number, bool enabled);
     
     void donate();

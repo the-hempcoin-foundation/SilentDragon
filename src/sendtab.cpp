@@ -7,6 +7,7 @@
 #include "settings.h"
 #include "rpc.h"
 #include "recurring.h"
+#include <QFileDialog>
 
 using json = nlohmann::json;
 
@@ -42,6 +43,11 @@ void MainWindow::setupSendTab() {
         this->memoButtonClicked(1);
     });
     setMemoEnabled(1, false);
+
+    // File upload button
+    QObject::connect(ui->FileBtn, &QPushButton::clicked, [=] () {
+        this->fileUploadButtonClicked(1);
+    });
         
     // This is the damnest thing ever. If we do AddressBook::readFromStorage() directly, the whole file
     // doesn't get read. It needs to run in a timer after everything has finished to be able to read
@@ -271,6 +277,15 @@ void MainWindow::addAddressSection() {
     horizontalLayout_13->addWidget(MemoBtn1);
     setMemoEnabled(itemNumber, false);
 
+    auto FileBtn = new QPushButton(verticalGroupBox);
+    FileBtn->setObjectName(QString("FileBtn") % QString::number(itemNumber));
+    FileBtn->setText(tr("File Upload"));    
+    // Connect File Upload button
+    QObject::connect(FileBtn, &QPushButton::clicked, [=] () {
+        this->fileUploadButtonClicked(itemNumber);
+    });
+    horizontalLayout_13->addWidget(FileBtn);
+
     sendAddressLayout->addLayout(horizontalLayout_13);
 
     auto MemoTxt1 = new QLabel(verticalGroupBox);
@@ -309,6 +324,10 @@ void MainWindow::setMemoEnabled(int number, bool enabled) {
         memoBtn->setEnabled(false);
         memoBtn->setToolTip(tr("Only z-addresses can have memos"));
     }
+}
+
+void MainWindow::fileUploadButtonClicked(int number) {
+        qDebug() << "File upload button clicked";
 }
 
 void MainWindow::memoButtonClicked(int number, bool includeReplyTo) {
