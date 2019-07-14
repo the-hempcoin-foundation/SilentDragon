@@ -327,9 +327,31 @@ void MainWindow::setMemoEnabled(int number, bool enabled) {
 }
 
 void MainWindow::fileUploadButtonClicked(int number) {
+    // currently limited to one memo
+    int uploadMaxSize = 512;
     qDebug() << "File upload button clicked";
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), ".", tr(""));
-    qDebug() << "File " << fileName << " selected";
+    //TODO: Choose custom upload directory in settings
+    QString fileName = QFileDialog::getOpenFileName(this, tr("File Upload"), ".", tr(""));
+    QFile file(fileName);
+
+    if (!file.open(QIODevice::ReadOnly))
+    {
+		qDebug() << "File " << fileName << " could not be opened, aborting!";
+        return;
+    }
+
+    QByteArray blob = file.readAll();
+    if (blob.size() > uploadMaxSize) {
+        QMessageBox msg(QMessageBox::Critical, tr("File size too large"),
+            tr("The file size ") + QString::number(blob.size()) + tr(" bytes is greater than ") + QString::number(uploadMaxSize) + tr("bytes"),
+            QMessageBox::Ok, this);
+        msg.exec();
+        return;
+    }
+    auto memoTxt = ui->sendToWidgets->findChild<QLabel *>(QString("MemoTxt") + QString::number(number));
+    memoTxt->setText( blob.data() );
+    qDebug() << "Set memo data to:" << blob.data();
+    qDebug() << "File " << fileName << " selected, " << QString::number(blob.size()) << " bytes";
 }
 
 void MainWindow::memoButtonClicked(int number, bool includeReplyTo) {
