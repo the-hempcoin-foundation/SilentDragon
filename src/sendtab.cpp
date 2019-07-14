@@ -327,7 +327,9 @@ void MainWindow::setMemoEnabled(int number, bool enabled) {
 }
 
 void MainWindow::fileUploadButtonClicked(int number) {
-        qDebug() << "File upload button clicked";
+    qDebug() << "File upload button clicked";
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), ".", tr(""));
+    qDebug() << "File " << fileName << " selected";
 }
 
 void MainWindow::memoButtonClicked(int number, bool includeReplyTo) {
