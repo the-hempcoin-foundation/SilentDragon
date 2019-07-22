@@ -32,7 +32,7 @@
     <message>
         <location filename="../src/connection.ui" line="17"/>
         <source>ZecWallet</source>
-        <translation>ZecWallet</translation>
+        <translation>SilentDragon</translation>
     </message>
     <message>
         <location filename="../src/connection.ui" line="58"/>
@@ -45,7 +45,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
         <source>ZecWallet</source>
-        <translation>ZecWallet</translation>
+        <translation>SilentDragon</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="29"/>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../src/mainwindow.ui" line="62"/>
         <source>Shielded</source>
-        <translation>Privé</translation>
+        <translation>Privée</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="89"/>
         <source>Transparent</source>
-        <translation>Transparant</translation>
+        <translation>Transparente</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="129"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="538"/>
         <source>Recurring payment</source>
-        <translation type="unfinished"></translation>
+        <translation>Paiement récurrent</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="545"/>
@@ -162,14 +162,14 @@
     <message>
         <location filename="../src/mainwindow.ui" line="552"/>
         <source>Edit Schedule</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier le calendrier</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="582"/>
         <location filename="../src/sendtab.cpp" line="598"/>
         <source>Miner Fee</source>
         <translatorcomment>I replaced this with &quot;transaction fee&quot; which sounds much better in French.. I hope it&apos;s correct too.. </translatorcomment>
-        <translation>Frais de transaction</translation>
+        <translation>Frais de minage</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="595"/>
@@ -198,11 +198,11 @@
     <message>
         <location filename="../src/mainwindow.ui" line="696"/>
         <source>t-Addr</source>
-        <translation>Adresse-t</translation>
+        <translation>t-Adresse</translation>
     </message>
     <message>
         <source>z-Addr(Sprout)</source>
-        <translation type="vanished">Adresse-z(Sprout)</translation>
+        <translation type="vanished">z-Adresse(Sprout)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="720"/>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="683"/>
         <source>z-Addr</source>
-        <translation type="unfinished"></translation>
+        <translation>z-Adresse</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="861"/>
@@ -311,7 +311,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1075"/>
         <source>E&amp;xit</source>
-        <translation>Q&amp;uiter</translation>
+        <translation>Q&amp;uitter</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1080"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1098"/>
         <source>Check github.com for &amp;updates</source>
-        <translation>Vérifier &amp;github.com pour des mises à jour</translation>
+        <translation>Vérifier les mises à jour...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1103"/>
@@ -361,7 +361,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1121"/>
         <source>&amp;z-board.net</source>
-        <translation>&amp;z-board.net</translation>
+        <translation> - </translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1124"/>
@@ -371,7 +371,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="1129"/>
         <source>Address &amp;book</source>
-        <translation>Carnet &amp;d&apos;adresse</translation>
+        <translation>Carnet &amp;d&apos;adresses</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1132"/>
@@ -391,23 +391,23 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1147"/>
-        <source>Pay zcash &amp;URI...</source>
-        <translation>PAyer une URI zcash</translation>
+        <source>Pay HUSH URI...</source>
+        <translation>Payer une URI en HUSH</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1152"/>
         <source>Connect mobile &amp;app</source>
-        <translation type="unfinished"></translation>
+        <translation>Connection mobile &amp; application</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1155"/>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1160"/>
-        <source>Request zcash...</source>
-        <translation type="unfinished"></translation>
+        <source>Request HUSH...</source>
+        <translation>Demander un paiement en HUSH</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="479"/>
@@ -417,12 +417,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="518"/>
         <source>You&apos;re using an external hushd. Please restart hushd with -rescan</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous utilisez un hushd externe. Veuillez redémarrer hushd avec -rescan</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="521"/>
         <source>You&apos;re using an external hushd. Please restart hushd with -reindex</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous utilisez un hushd externe. Veuillez redémarrer hushd avec -reindex</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="540"/>
@@ -446,8 +446,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="612"/>
-        <source>Thanks for supporting ZecWallet!</source>
-        <translation>Merci de supporter ZecWallet !</translation>
+        <source>Thanks for supporting SilentDragon!</source>
+        <translation>Merci de supporter SilentDragon !</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="614"/>
@@ -456,8 +456,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="614"/>
-        <source> to support ZecWallet</source>
-        <translation> pour supporter ZecWallet</translation>
+        <source> to support SilentDragon</source>
+        <translation> pour supporter SilentDragon</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="651"/>
@@ -487,28 +487,28 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="580"/>
-        <source>ZecWallet needs to restart to rescan/reindex. ZecWallet will now close, please restart ZecWallet to continue</source>
-        <translation type="unfinished"></translation>
+        <source>SilentDragon needs to restart to rescan/reindex. SilentDragon will now close, please restart SilentDragon to continue</source>
+        <translation>SilentDragon doit redémarrer pour rescan/reindex. SilentDragon va maintenant fermer, veuillez redémarrer SilentDragon pour continuer</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="582"/>
-        <source>Restart ZecWallet</source>
-        <translation type="unfinished"></translation>
+        <source>Restart SilentDragon</source>
+        <translation>Redémarrer SilentDragon</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="822"/>
-        <source>Error paying zcash URI</source>
-        <translation>Erreur lors du payement du URI zcash</translation>
+        <source>Error paying HUSH URI</source>
+        <translation>Erreur lors du payement du URI HUSH</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="823"/>
-        <source>URI should be of the form &apos;zcash:&lt;addr&gt;?amt=x&amp;memo=y</source>
-        <translation>Le format URI doit être comme suit: &apos;zcash:&lt;addr&gt;?amt=x&amp;memo=y</translation>
+        <source>URI should be of the form &apos;hush:&lt;addr&gt;?amt=x&amp;memo=y</source>
+        <translation>Le format URI doit être comme ceci: &apos;hush:&lt;addr&gt;?amt=x&amp;memo=y</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="810"/>
-        <source>Paste Zcash URI</source>
-        <translation>Coller le URI Zcash</translation>
+        <source>Paste HUSH URI</source>
+        <translation>Coller le URI HUSH</translation>
     </message>
     <message>
         <source>Could not understand address</source>
@@ -521,7 +521,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="858"/>
         <source>Please paste your private keys (z-Addr or t-Addr) here, one per line</source>
-        <translation>Veuillez coller votre clef privée (Adresse-z ou Adresse-t) ici. Une clef par ligne</translation>
+        <translation>Veuillez coller votre clef privée (z-Adresse ou t-Adresse) ici. Une clef par ligne</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="859"/>
@@ -591,7 +591,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="974"/>
         <source>Unable to open file</source>
-        <translation>mpossible d&apos;ouvrir le fichier</translation>
+        <translation>Impossible d&apos;ouvrir le fichier</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1069"/>
@@ -635,7 +635,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1169"/>
         <source>View Payment Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la demande de paiement</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1176"/>
@@ -650,7 +650,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1271"/>
         <source>Created new t-Addr</source>
-        <translation>Nouvelle Adresse-t créée</translation>
+        <translation>Créée une nouvelle t-Adresse</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1342"/>
@@ -665,23 +665,23 @@
     <message>
         <location filename="../src/sendtab.cpp" line="203"/>
         <source>Recipient </source>
-        <translation>Destinataire </translation>
+        <translation>Destinataire</translation>
     </message>
     <message>
         <location filename="../src/sendtab.cpp" line="310"/>
         <source>Only z-addresses can have memos</source>
-        <translation>Seules les Adresses-z peuvent avoir un mémo</translation>
+        <translation>Seules les z-Adresses peuvent avoir un mémo</translation>
     </message>
     <message>
         <location filename="../src/sendtab.cpp" line="318"/>
         <source>Memos can only be used with z-addresses</source>
-        <translation>Les mémos peuvent seulement être utilisés avec des Adresses-z</translation>
+        <translation>Les mémos peuvent seulement être utilisés avec des z-Adresses</translation>
     </message>
     <message>
         <location filename="../src/sendtab.cpp" line="319"/>
         <source>The memo field can only be used with a z-address.
 </source>
-        <translation>Le champs mémo ne peut uniquement être utilisé avec une adresse-z.
+        <translation>Le champs mémo ne peut uniquement être utilisé avec une zAdresse.
 </translation>
     </message>
     <message>
@@ -689,7 +689,7 @@
         <source>
 doesn&apos;t look like a z-address</source>
         <translation>
-Cette adresse ne semble pas être de type adresse-z</translation>
+Cette adresse ne semble pas être de type z-Adresse</translation>
     </message>
     <message>
         <source>Reply to</source>
@@ -755,7 +755,7 @@ Cette adresse ne semble pas être de type adresse-z</translation>
     <message>
         <location filename="../src/memoedit.cpp" line="51"/>
         <source>Reply to</source>
-        <translation type="unfinished">Répondre à</translation>
+        <translation>Répondre à</translation>
     </message>
 </context>
 <context>
@@ -763,7 +763,7 @@ Cette adresse ne semble pas être de type adresse-z</translation>
     <message>
         <location filename="../src/mobileappconnector.ui" line="14"/>
         <source>Connect Mobile App</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/mobileappconnector.ui" line="36"/>
@@ -773,7 +773,7 @@ Cette adresse ne semble pas être de type adresse-z</translation>
     <message>
         <location filename="../src/mobileappconnector.ui" line="43"/>
         <source>QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>QR Code</translation>
     </message>
     <message>
         <location filename="../src/mobileappconnector.ui" line="49"/>
@@ -793,7 +793,7 @@ Cette adresse ne semble pas être de type adresse-z</translation>
     <message>
         <location filename="../src/mobileappconnector.ui" line="106"/>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Déconnecter</translation>
     </message>
     <message>
         <location filename="../src/mobileappconnector.ui" line="126"/>
@@ -804,12 +804,12 @@ Cette adresse ne semble pas être de type adresse-z</translation>
     <message>
         <location filename="../src/mobileappconnector.ui" line="136"/>
         <source>Last seen:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dernière fois vue:</translation>
     </message>
     <message>
         <location filename="../src/mobileappconnector.ui" line="153"/>
         <source>Connection type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Type de connection</translation>
     </message>
 </context>
 <context>
@@ -880,27 +880,27 @@ Not starting embedded hushd because --no-embedded was passed</source>
     <message>
         <location filename="../src/connection.cpp" line="146"/>
         <source>Hide Advanced Config</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer la configuration avancée</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="146"/>
         <source>Show Advanced Config</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la configuration avancée</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="159"/>
         <source>Choose data directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir le répertoire de données</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="230"/>
         <source>All Downloads Finished Successfully!</source>
-        <translation>Tous les téléchargements terminés avec succès !</translation>
+        <translation>Tous les téléchargements sont terminés avec succès !</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="253"/>
         <source>Couldn&apos;t download params. Please check the help site for more info.</source>
-        <translation>Impossible de télécharger les paramètres. Veuillez vous rendre sur le site d&apos;aide pour plus d&apos;info.</translation>
+        <translation>Impossible de télécharger les paramètres. Veuillez vous rendre sur le site d&apos;aide pour plus d&apos;informations.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="85"/>
@@ -936,7 +936,7 @@ Not starting embedded hushd because --no-embedded was passed</source>
     <message>
         <location filename="../src/rpc.cpp" line="628"/>
         <source>Block height</source>
-        <translation>Hauteur de bloc</translation>
+        <translation>Hauteur des blocs</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="634"/>
@@ -1025,8 +1025,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1110"/>
-        <source>Please wait for ZecWallet to exit</source>
-        <translation>Veuillez patienter. Fermeture de ZecWallet en cours</translation>
+        <source>Please wait for SilentDragon to exit</source>
+        <translation>Veuillez patienter. Fermeture de SilentDragon en cours</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1111"/>
@@ -1113,8 +1113,8 @@ Veuillez configurer l&apos;hôte/port et utilisateur/mot de passe dans le menu E
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="128"/>
-        <source> doesn&apos;t seem to be a valid Zcash address.</source>
-        <translation> ne semble pas être une adresse Zcash valide.</translation>
+        <source> doesn&apos;t seem to be a valid Hush address.</source>
+        <translation> ne semble pas être une adresse HUSH valide.</translation>
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="138"/>
@@ -1196,12 +1196,12 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/websockets.cpp" line="342"/>
         <source>Connected directly</source>
-        <translation type="unfinished"></translation>
+        <translation>Connecté directement</translation>
     </message>
     <message>
         <location filename="../src/websockets.cpp" line="345"/>
-        <source>Connected over the internet via ZecWallet wormhole service</source>
-        <translation type="unfinished"></translation>
+        <source>Connected over the internet via SilentDragon wormhole service</source>
+        <translation>Connecté sur Internet via le service SilentDragon Wormhole</translation>
     </message>
     <message>
         <location filename="../src/websockets.cpp" line="646"/>
@@ -1211,7 +1211,7 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/websockets.cpp" line="670"/>
         <source>No sapling or transparent addresses with enough balance to spend.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le nœud est toujours en cours de synchronisation.</translation>
     </message>
 </context>
 <context>
@@ -1219,22 +1219,22 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/recurringdialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Dialogue</translation>
     </message>
     <message>
         <location filename="../src/recurringdialog.ui" line="25"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <location filename="../src/recurringdialog.ui" line="32"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <location filename="../src/recurringdialog.ui" line="39"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
 </context>
 <context>
@@ -1242,52 +1242,52 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/requestdialog.ui" line="14"/>
         <source>Payment Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Demande de paiement</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="38"/>
         <source>AddressBook</source>
-        <translation type="unfinished"></translation>
+        <translation>Carnet d&apos;adresses</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="54"/>
         <source>Request From</source>
-        <translation type="unfinished"></translation>
+        <translation>Demande de</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="61"/>
         <source>My Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Mon adresse</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="78"/>
         <source>Amount in </source>
-        <translation type="unfinished"></translation>
+        <translation>Montant en </translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="118"/>
         <source>z address</source>
-        <translation type="unfinished"></translation>
+        <translation>z-Adresse</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="145"/>
         <source>Amount</source>
-        <translation type="unfinished">Montant</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="159"/>
         <source>The recipient will see this address in the &quot;to&quot; field when they pay your request.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le destinataire verra cette adresse dans le champ &quot;à&quot; lorsqu&apos;il paiera votre demande.</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="179"/>
         <source>Amount USD</source>
-        <translation type="unfinished"></translation>
+        <translation>Montant USD</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="202"/>
         <source>Memo</source>
-        <translation type="unfinished">Mémo</translation>
+        <translation>Mémo</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="209"/>
@@ -1296,38 +1296,38 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="219"/>
-        <source>Request payment from a Sapling address. You&apos;ll send a ZEC 0.0001 transaction to the address with a zcash payment URI. The memo will be included in the transaction when the address pays you.</source>
-        <translation type="unfinished"></translation>
+        <source>Request payment from a Sapling address. You&apos;ll send a HUSH 0.0001 transaction to the address with a HUSH payment URI. The memo will be included in the transaction when the address pays you.</source>
+        <translation>Demander un paiement depuis une adresse Sapling. Vous enverrez une transaction HUSH 0.0001 à l&apos;adresse avec un URI de paiement HUSH. Le mémo sera inclus dans la transaction lorsque vous serez payé.</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="50"/>
-        <source>Error paying zcash URI</source>
-        <translation type="unfinished">Erreur lors du payement du URI zcash</translation>
+        <source>Error paying HUSH URI</source>
+        <translation type="unfinished">Erreur lors du payement du URI HUSH</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="51"/>
-        <source>URI should be of the form &apos;zcash:&lt;addr&gt;?amt=x&amp;memo=y</source>
-        <translation type="unfinished">Le format URI doit être comme suit: &apos;zcash:&lt;addr&gt;?amt=x&amp;memo=y</translation>
+        <source>URI should be of the form &apos;hush:&lt;addr&gt;?amt=x&amp;memo=y</source>
+        <translation type="unfinished">Le format URI doit être comme suit: &apos;hush:&lt;addr&gt;?amt=x&amp;memo=y</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="65"/>
         <source>Pay To</source>
-        <translation type="unfinished"></translation>
+        <translation>Payer pour</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="78"/>
         <source>Pay</source>
-        <translation type="unfinished"></translation>
+        <translation>Payer</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="80"/>
         <source>You are paying a payment request. Your address will not be visible to the person requesting this payment.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous payez une demande de paiement. Votre adresse ne sera pas visible pour la personne qui à demandé ce paiement.</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="99"/>
         <source>Can only request from Sapling addresses</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne peut demander que depuis des adresses Sapling</translation>
     </message>
 </context>
 <context>
@@ -1375,7 +1375,7 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/settings.ui" line="168"/>
         <source>Shielded transactions are saved locally and shown in the transactions tab.  If you uncheck this, shielded transactions will not appear in the transactions tab.</source>
-        <translation>Les transactions protégées sont enregistrées localement et affichées dans l’onglet transactions. Si vous décochez cette case, les transactions protégées n&apos;apparaîtront pas dans l&apos;onglet des transactions.</translation>
+        <translation>Les transactions protégées sont enregistrées localement et affichées dans l&apos;onglet transactions. Si vous décochez cette case, les transactions protégées n&apos;apparaîtront pas dans l&apos;onglet des transactions.</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="259"/>
@@ -1385,27 +1385,27 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/settings.ui" line="274"/>
         <source>Troubleshooting</source>
-        <translation type="unfinished"></translation>
+        <translation>Anomalies</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="280"/>
         <source>Reindex</source>
-        <translation type="unfinished"></translation>
+        <translation>Reindex</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="287"/>
-        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart ZecWallet for this to take effect</source>
-        <translation type="unfinished"></translation>
+        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart SilentDragon for this to take effect</source>
+        <translation>Rescanner la blockchain pour détecter toute transaction de portefeuille manquante et corriger le solde de votre portefeuille. Cela peut prendre plusieurs heures. Vous devez redémarrer SilentDragon pour que cela prenne effet</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="297"/>
         <source>Rescan</source>
-        <translation type="unfinished"></translation>
+        <translation>Rescan</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="331"/>
-        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart ZecWallet for this to take effect</source>
-        <translation type="unfinished"></translation>
+        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart SilentDragon for this to take effect</source>
+        <translation>Reconstruisez l&apos;intégralité de la blockchain à partir du bloc genesis en analysant à nouveau tous les fichiers de bloc Cela peut prendre plusieurs heures à plusieurs jours, selon votre matériel. Vous devez redémarrer SilentDragon pour que cela prenne effet</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="161"/>
@@ -1435,7 +1435,7 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/settings.ui" line="245"/>
         <source>Shield change from t-Addresses to your sapling address</source>
-        <translation>Rendre privé le change de l&apos;Adresse-t vers l&apos;Adresse-z</translation>
+        <translation>Rendre privé le changement de la t-Addresse vers la z-Addresse</translation>
     </message>
 </context>
 <context>
@@ -1538,17 +1538,17 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/addressbook.ui" line="26"/>
         <source>Address (z-Addr or t-Addr)</source>
-        <translation>Adresse (Adresse-z ou Adresse-t)</translation>
+        <translation>Adresse (z-Adresse ou t-Adresse)</translation>
     </message>
     <message>
         <location filename="../src/addressbook.ui" line="36"/>
         <source>Label</source>
-        <translation>Etiquette</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <location filename="../src/addressbook.ui" line="65"/>
         <source>Add to Address Book</source>
-        <translation>Ajouter au carnet d&apos;adresse</translation>
+        <translation>Ajouter au carnet d&apos;adresses</translation>
     </message>
     <message>
         <location filename="../src/addressbook.ui" line="95"/>
@@ -1593,43 +1593,43 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <name>createZcashConf</name>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="14"/>
-        <source>Configure zcash.conf</source>
-        <translation type="unfinished"></translation>
+        <source>Configure HUSH3.conf</source>
+        <translation>Configuration du fichier HUSH3.conf</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="61"/>
         <source>Show Advanced Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la configuration avancée</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="86"/>
-        <source>Your zcash node will be configured for you automatically</source>
-        <translation type="unfinished"></translation>
+        <source>Your Hush node will be configured for you automatically</source>
+        <translation>Votre nœud Hush sera configuré pour vous automatiquement</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="102"/>
         <source>Use custom datadir</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser un dossier de données personnalisé</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="109"/>
         <source>Please choose a directory to store your wallet.dat and blockchain</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez choisir un répertoire pour stocker votre wallet.dat et votre blockchain</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="118"/>
         <source>Choose directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisissez un répertoire</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="154"/>
         <source>Connect over Tor</source>
-        <translation type="unfinished"></translation>
+        <translation>Connecter sur Tor</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="161"/>
         <source>Please note that you&apos;ll need to already have a Tor service configured on port 9050</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez noter que vous devez déjà avoir un service Tor configuré sur le port 9050.</translation>
     </message>
 </context>
 <context>
@@ -1637,17 +1637,17 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/newrecurring.ui" line="14"/>
         <source>Edit Schedule</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier le calendrier</translation>
     </message>
     <message>
         <location filename="../src/newrecurring.ui" line="50"/>
         <source>Schedule</source>
-        <translation type="unfinished"></translation>
+        <translation>Calendrier</translation>
     </message>
     <message>
         <location filename="../src/newrecurring.ui" line="57"/>
         <source>Payment Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Description du paiement</translation>
     </message>
     <message>
         <location filename="../src/newrecurring.ui" line="64"/>
@@ -1662,27 +1662,27 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/newrecurring.ui" line="118"/>
         <source>Number of payments</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de paiements</translation>
     </message>
     <message>
         <location filename="../src/newrecurring.ui" line="125"/>
         <source>Amount</source>
-        <translation type="unfinished">Montant</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <location filename="../src/newrecurring.ui" line="168"/>
         <source>Next Payment</source>
-        <translation type="unfinished"></translation>
+        <translation>Prochain paiement</translation>
     </message>
     <message>
         <location filename="../src/newrecurring.ui" line="178"/>
         <source>To</source>
-        <translation type="unfinished">À</translation>
+        <translation>À</translation>
     </message>
     <message>
         <location filename="../src/newrecurring.ui" line="188"/>
         <source>Memo</source>
-        <translation type="unfinished">Mémo</translation>
+        <translation>Mémo</translation>
     </message>
 </context>
 <context>
@@ -1695,7 +1695,7 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <message>
         <location filename="../src/zboard.ui" line="20"/>
         <source>Total Fee</source>
-        <translation>Frais totaux</translation>
+        <translation>Total des frais</translation>
     </message>
     <message>
         <location filename="../src/zboard.ui" line="57"/>
