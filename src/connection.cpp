@@ -460,7 +460,7 @@ void ConnectionLoader::refreshZcashdState(Connection* connection, std::function<
     connection->doRPC(payload,
         [=] (auto) {
             // Success
-            main->logger->write("hushd is online.");
+            main->logger->write("hushd is online!");
             // Delay 1 second to ensure loading (splash) is seen at least 1 second.
             QTimer::singleShot(1000, [=]() { this->doRPCSetConnection(connection); });
         },
@@ -696,6 +696,9 @@ void Connection::doRPC(const json& payload, const std::function<void(json)>& cb,
         return;
     }
 
+    qDebug() << "RPC: " << QString::fromStdString(payload["method"]);
+    qDebug() << "< payload " << QString::fromStdString(payload.dump());
+
     QNetworkReply *reply = restclient->post(*request, QByteArray::fromStdString(payload.dump()));
 
     QObject::connect(reply, &QNetworkReply::finished, [=] {
@@ -724,7 +727,7 @@ void Connection::doRPC(const json& payload, const std::function<void(json)>& cb,
 void Connection::doRPCWithDefaultErrorHandling(const json& payload, const std::function<void(json)>& cb) {
     doRPC(payload, cb, [=] (auto reply, auto parsed) {
         if (!parsed.is_discarded() && !parsed["error"]["message"].is_null()) {
-            this->showTxError(QString::fromStdString(parsed["error"]["message"]));    
+            this->showTxError(QString::fromStdString(parsed["error"]["message"]));
         } else {
             this->showTxError(reply->errorString());
         }
@@ -746,7 +749,7 @@ void Connection::showTxError(const QString& error) {
         return;
 
     shown = true;
-    QMessageBox::critical(main, QObject::tr("Transaction Error"), QObject::tr("There was an error sending the transaction. The error was:") + "\n\n"
+    QMessageBox::critical(main, QObject::tr("Transaction Error"), QObject::tr("There was an error! : ") + "\n\n"
         + error, QMessageBox::StandardButton::Ok);
     shown = false;
 }

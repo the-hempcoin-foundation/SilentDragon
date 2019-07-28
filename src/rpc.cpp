@@ -190,26 +190,43 @@ void RPC::getTPrivKey(QString addr, const std::function<void(json)>& cb) {
     conn->doRPCWithDefaultErrorHandling(payload, cb);
 }
 
-void RPC::importZPrivKey(QString addr, bool rescan, const std::function<void(json)>& cb) {
+void RPC::importZPrivKey(QString privkey, bool rescan, const std::function<void(json)>& cb) {
     json payload = {
         {"jsonrpc", "1.0"},
         {"id", "someid"},
         {"method", "z_importkey"},
-        {"params", { addr.toStdString(), (rescan? "yes" : "no") }},
+        {"params", { privkey.toStdString(), (rescan? "yes" : "no") }},
     };
     
     conn->doRPCWithDefaultErrorHandling(payload, cb);
 }
 
 
-void RPC::importTPrivKey(QString addr, bool rescan, const std::function<void(json)>& cb) {
-    json payload = {
-        {"jsonrpc", "1.0"},
-        {"id", "someid"},
-        {"method", "importprivkey"},
-        {"params", { addr.toStdString(), (rescan? "yes" : "no") }},
-    };
-    
+// TODO: support rescan height and prefix
+void RPC::importTPrivKey(QString privkey, bool rescan, const std::function<void(json)>& cb) {
+    json payload;
+
+    // If privkey starts with 5, K or L, use old-style Hush params, same as BTC+ZEC
+    if( privkey.startsWith("5") || privkey.startsWith("K") || privkey.startsWith("L") ) {
+        qDebug() << "Detected old-style HUSH WIF";
+        payload = {
+            {"jsonrpc", "1.0"},
+            {"id", "someid"},
+            {"method", "importprivkey"},
+            {"params", { privkey.toStdString(), "", "false", "0", "128" }},
+        };
+    } else {
+        qDebug() << "Detected new-style HUSH WIF";
+        payload = {
+            {"jsonrpc", "1.0"},
+            {"id", "someid"},
+            {"method", "importprivkey"},
+            {"params", { privkey.toStdString(), (rescan? "yes" : "no") }},
+        };
+    }
+
+    qDebug() <<  "Importing WIF with rescan=" << rescan;
+
     conn->doRPCWithDefaultErrorHandling(payload, cb);
 }
 
