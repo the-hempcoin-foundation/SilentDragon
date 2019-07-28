@@ -339,28 +339,28 @@ bool ConnectionLoader::startEmbeddedZcashd() {
     // Finally, start hushd
     QDir appPath(QCoreApplication::applicationDirPath());
 #ifdef Q_OS_LINUX
-    auto zcashdProgram = appPath.absoluteFilePath("hushd");
-    if (!QFile(zcashdProgram).exists()) {
-        zcashdProgram = appPath.absoluteFilePath("hushd");
+    auto hushdProgram = appPath.absoluteFilePath("hushd");
+    if (!QFile(hushdProgram).exists()) {
+        hushdProgram = appPath.absoluteFilePath("hushd");
     }
 #elif defined(Q_OS_DARWIN)
-    auto zcashdProgram = appPath.absoluteFilePath("hushd");
+    auto hushdProgram = appPath.absoluteFilePath("hushd");
 #elif defined(Q_OS_WIN64)
-    auto zcashdProgram = appPath.absoluteFilePath("hushd.bat");
+    auto hushdProgram = appPath.absoluteFilePath("hushd.bat");
 #else
     //TODO: Not Linux + not darwin DOES NOT EQUAL windows!!!
-    auto zcashdProgram = appPath.absoluteFilePath("hushd");
+    auto hushdProgram = appPath.absoluteFilePath("hushd");
 #endif
     
-    if (!QFile(zcashdProgram).exists()) {
-        qDebug() << "Can't find hushd at " << zcashdProgram;
-        main->logger->write("Can't find hushd at " + zcashdProgram); 
+    if (!QFile(hushdProgram).exists()) {
+        qDebug() << "Can't find hushd at " << hushdProgram;
+        main->logger->write("Can't find hushd at " + hushdProgram); 
         return false;
     }
 
     ezcashd = std::shared_ptr<QProcess>(new QProcess(main));
     QObject::connect(ezcashd.get(), &QProcess::started, [=] () {
-        qDebug() << "Embedded hushd started";
+        qDebug() << "Embedded hushd started via " + hushdProgram;
     });
 
     QObject::connect(ezcashd.get(), QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
@@ -369,7 +369,7 @@ bool ConnectionLoader::startEmbeddedZcashd() {
     });
 
     QObject::connect(ezcashd.get(), &QProcess::errorOccurred, [&] (QProcess::ProcessError error) {
-        qDebug() << "Couldn't start hushd: " << error;
+        qDebug() << "Couldn't start hushd at " + hushdProgram << error;
     });
 
     std::weak_ptr<QProcess> weak_obj(ezcashd);
@@ -381,12 +381,12 @@ bool ConnectionLoader::startEmbeddedZcashd() {
     });
 
 #ifdef Q_OS_LINUX
-    ezcashd->start(zcashdProgram);
+    ezcashd->start(hushdProgram);
 #elif defined(Q_OS_DARWIN)
-    ezcashd->start(zcashdProgram);
+    ezcashd->start(hushdProgram);
 #else
     ezcashd->setWorkingDirectory(appPath.absolutePath());
-    ezcashd->start(zcashdProgram);
+    ezcashd->start(hushdProgram);
 #endif // Q_OS_LINUX
 
 
