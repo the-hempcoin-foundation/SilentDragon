@@ -76,6 +76,7 @@ public:
     static const QString txidStatusMessage;
     
     static void saveRestore(QDialog* d);
+    static void saveRestoreTableHeader(QTableView* table, QDialog* d, QString tablename) ;
 
     static PaymentURI parseURI(QString paymentURI);
     static QString    paymentURIPretty(PaymentURI);

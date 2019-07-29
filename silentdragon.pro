@@ -53,11 +53,13 @@ SOURCES += \
     src/addressbook.cpp \
     src/logger.cpp \
     src/addresscombo.cpp \
+    src/validateaddress.cpp \
     src/websockets.cpp \
     src/mobileappconnector.cpp \
     src/recurring.cpp \
     src/requestdialog.cpp \
-    src/memoedit.cpp
+    src/memoedit.cpp \
+    src/viewalladdresses.cpp
 
 HEADERS += \
     src/mainwindow.h \
@@ -77,12 +79,14 @@ HEADERS += \
     src/fillediconlabel.h \
     src/addressbook.h \
     src/logger.h \
-    src/addresscombo.h \ 
+    src/addresscombo.h \
+    src/validateaddress.h \
     src/websockets.h \
     src/mobileappconnector.h \
     src/recurring.h \
     src/requestdialog.h \
-    src/memoedit.h
+    src/memoedit.h \
+    src/viewalladdresses.h
 
 FORMS += \
     src/mainwindow.ui \
@@ -92,10 +96,14 @@ FORMS += \
     src/turnstile.ui \
     src/turnstileprogress.ui \
     src/privkey.ui \
-    src/memodialog.ui \ 
+    src/memodialog.ui \
+    src/viewalladdresses.ui \
+    src/validateaddress.ui \
+    src/viewalladdresses.ui \
     src/connection.ui \
     src/zboard.ui \
     src/addressbook.ui \
+    src/viewalladdresses.ui \
     src/mobileappconnector.ui \
     src/createzcashconfdialog.ui \
     src/recurringdialog.ui \
@@ -107,7 +115,8 @@ TRANSLATIONS = res/zec_qt_wallet_es.ts \
                res/zec_qt_wallet_fr.ts \
                res/zec_qt_wallet_de.ts \
                res/zec_qt_wallet_pt.ts \
-               res/zec_qt_wallet_it.ts 
+               res/zec_qt_wallet_it.ts \
+               res/zec_qt_wallet_zh.ts
 
 include(singleapplication/singleapplication.pri)
 DEFINES += QAPPLICATION_CLASS=QApplication

@@ -756,7 +756,7 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_10">
                <item>
-                <widget class="AddressCombo" name="listRecieveAddresses">
+                <widget class="AddressCombo" name="listReceiveAddresses">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -769,9 +769,16 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="btnRecieveNewAddr">
+                <widget class="QPushButton" name="btnReceiveNewAddr">
                  <property name="text">
                   <string>New Address</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btnViewAllAddresses">
+                 <property name="text">
+                  <string>View All Addresses</string>
                  </property>
                 </widget>
                </item>
@@ -825,7 +832,7 @@
                  </widget>
                 </item>
                 <item row="0" column="1" colspan="2">
-                 <widget class="QPlainTextEdit" name="txtRecieve">
+                 <widget class="QPlainTextEdit" name="txtReceive">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                     <horstretch>0</horstretch>
@@ -1335,6 +1342,7 @@
      <string>&amp;Apps</string>
     </property>
     <addaction name="actionConnect_Mobile_App"/>
+    <addaction name="actionValidate_Address"/>
     <addaction name="separator"/>
     <addaction name="actionz_board_net"/>
     <addaction name="actionTurnstile_Migration"/>
@@ -1451,6 +1459,11 @@
     <string>Request HUSH...</string>
    </property>
   </action>
+  <action name="actionValidate_Address">
+   <property name="text">
+    <string>Validate Address</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -1483,9 +1496,9 @@
   <tabstop>cancelSendButton</tabstop>
   <tabstop>rdioZSAddr</tabstop>
   <tabstop>rdioTAddr</tabstop>
-  <tabstop>listRecieveAddresses</tabstop>
-  <tabstop>btnRecieveNewAddr</tabstop>
-  <tabstop>txtRecieve</tabstop>
+  <tabstop>listReceiveAddresses</tabstop>
+  <tabstop>btnReceiveNewAddr</tabstop>
+  <tabstop>txtReceive</tabstop>
   <tabstop>rcvLabel</tabstop>
   <tabstop>rcvUpdateLabel</tabstop>
   <tabstop>transactionsTable</tabstop>

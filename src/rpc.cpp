@@ -230,6 +230,18 @@ void RPC::importTPrivKey(QString privkey, bool rescan, const std::function<void(
     conn->doRPCWithDefaultErrorHandling(payload, cb);
 }
 
+void RPC::validateAddress(QString address, const std::function<void(json)>& cb) {
+    QString method = address.startsWith("z") ? "z_validateaddress" : "validateaddress";
+
+    json payload = {
+        {"jsonrpc", "1.0"},
+        {"id", "someid"},
+        {"method", method.toStdString() },
+        {"params", { address.toStdString() } },
+    };
+    
+    conn->doRPCWithDefaultErrorHandling(payload, cb);
+}
 
 void RPC::getBalance(const std::function<void(json)>& cb) {
     json payload = {

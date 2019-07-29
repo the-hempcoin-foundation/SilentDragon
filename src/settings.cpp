@@ -40,6 +40,15 @@ void Settings::saveSettings(const QString& host, const QString& port, const QStr
     init();
 }
 
+void Settings::saveRestoreTableHeader(QTableView* table, QDialog* d, QString tablename) {
+    table->horizontalHeader()->restoreState(QSettings().value(tablename).toByteArray());
+    table->horizontalHeader()->setStretchLastSection(true);
+
+    QObject::connect(d, &QDialog::finished, [=](auto) {
+        QSettings().setValue(tablename, table->horizontalHeader()->saveState());
+    });
+}
+
 void Settings::setUsingZcashConf(QString confLocation) {
     if (!confLocation.isEmpty())
         _confLocation = confLocation;

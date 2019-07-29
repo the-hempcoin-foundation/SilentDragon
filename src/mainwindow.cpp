@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "addressbook.h"
+#include "viewalladdresses.h"
+#include "validateaddress.h"
 #include "ui_mainwindow.h"
 #include "ui_mobileappconnector.h"
 #include "ui_addressbook.h"
@@ -9,6 +11,8 @@
 #include "ui_settings.h"
 #include "ui_turnstile.h"
 #include "ui_turnstileprogress.h"
+#include "ui_viewalladdresses.h"
+#include "ui_validateaddress.h"
 #include "rpc.h"
 #include "balancestablemodel.h"
 #include "settings.h"
@@ -75,6 +79,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // z-Board.net
     QObject::connect(ui->actionz_board_net, &QAction::triggered, this, &MainWindow::postToZBoard);
 
+    // Validate Address
+    QObject::connect(ui->actionValidate_Address, &QAction::triggered, this, &MainWindow::validateAddress);
+
     // Connect mobile app
     QObject::connect(ui->actionConnect_Mobile_App, &QAction::triggered, this, [=] () {
         if (rpc->getConnection() == nullptr)
@@ -109,7 +116,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setupSendTab();
     setupTransactionsTab();
-    setupRecieveTab();
+    setupReceiveTab();
     setupBalancesTab();
     setupTurnstileDialog();
     setupZcashdTab();
@@ -628,6 +635,48 @@ void MainWindow::donate() {
     ui->tabWidget->setCurrentIndex(1);
 }
 
+/**
+ * Validate an address
+ */
+void MainWindow::validateAddress() {
+    // Make sure everything is up and running
+    if (!getRPC() || !getRPC()->getConnection())
+        return;
+
+    // First thing is ask the user for an address
+    bool ok;
+    auto address = QInputDialog::getText(this, tr("Enter Address to validate"), 
+        tr("Transparent or Shielded Address:") + QString(" ").repeated(140),    // Pad the label so the dialog box is wide enough
+        QLineEdit::Normal, "", &ok);
+    if (!ok)
+        return;
+
+    getRPC()->validateAddress(address, [=] (json props) {
+        QDialog d(this);
+        Ui_ValidateAddress va;
+        va.setupUi(&d);
+        Settings::saveRestore(&d);
+        Settings::saveRestoreTableHeader(va.tblProps, &d, "validateaddressprops");
+        va.tblProps->horizontalHeader()->setStretchLastSection(true);
+
+        va.lblAddress->setText(address);
+
+        QList<QPair<QString, QString>> propsList;
+        for (auto it = props.begin(); it != props.end(); it++) {
+
+            propsList.append(
+                QPair<QString, QString>(
+                    QString::fromStdString(it.key()), QString::fromStdString(it.value().dump()))
+            );
+        }
+
+        ValidateAddressesModel model(va.tblProps, propsList);
+        va.tblProps->setModel(&model);
+
+        d.exec();
+    });
+
+}
 
 void MainWindow::postToZBoard() {
     QDialog d(this);
@@ -827,7 +876,7 @@ void MainWindow::payZcashURI(QString uri, QString myAddr) {
         return;
 
     // Extract the address
-    qDebug() << "Recieved URI " << uri;
+    qDebug() << "Received URI " << uri;
     PaymentURI paymentInfo = Settings::parseURI(uri);
     if (!paymentInfo.error.isEmpty()) {
         QMessageBox::critical(this, tr("Error paying pirate URI"), 
@@ -1238,7 +1287,6 @@ void MainWindow::setupTransactionsTab() {
 }
 
 void MainWindow::addNewZaddr(bool sapling) {
-
     rpc->newZaddr(sapling, [=] (json reply) {
         QString addr = QString::fromStdString(reply.get<json::string_t>());
         // Make sure the RPC class reloads the z-addrs for future use
@@ -1246,8 +1294,8 @@ void MainWindow::addNewZaddr(bool sapling) {
 
         // Just double make sure the z-address is still checked
         if ( sapling && ui->rdioZSAddr->isChecked() ) {
-            ui->listRecieveAddresses->insertItem(0, addr); 
-            ui->listRecieveAddresses->setCurrentIndex(0);
+            ui->listReceiveAddresses->insertItem(0, addr); 
+            ui->listReceiveAddresses->setCurrentIndex(0);
 
             ui->statusBar->showMessage(QString::fromStdString("Created new zAddr") %
                                        (sapling ? "(Sapling)" : "(Sprout)"), 
@@ -1263,14 +1311,14 @@ std::function<void(bool)> MainWindow::addZAddrsToComboList(bool sapling) {
     return [=] (bool checked) { 
         if (checked && this->rpc->getAllZAddresses() != nullptr) { 
             auto addrs = this->rpc->getAllZAddresses();
-            ui->listRecieveAddresses->clear();
+            ui->listReceiveAddresses->clear();
 
             std::for_each(addrs->begin(), addrs->end(), [=] (auto addr) {
                 if ( (sapling &&  Settings::getInstance()->isSaplingAddress(addr)) ||
                     (!sapling && !Settings::getInstance()->isSaplingAddress(addr))) {
                         if (rpc->getAllBalances()) {
                             auto bal = rpc->getAllBalances()->value(addr);
-                            ui->listRecieveAddresses->addItem(addr, bal);
+                            ui->listReceiveAddresses->addItem(addr, bal);
                         }
                 }
             }); 
@@ -1283,15 +1331,17 @@ std::function<void(bool)> MainWindow::addZAddrsToComboList(bool sapling) {
     };
 }
 
-void MainWindow::setupRecieveTab() {
+void MainWindow::setupReceiveTab() {
     auto addNewTAddr = [=] () {
         rpc->newTaddr([=] (json reply) {
             QString addr = QString::fromStdString(reply.get<json::string_t>());
+            // Make sure the RPC class reloads the t-addrs for future use
+            rpc->refreshAddresses();
 
             // Just double make sure the t-address is still checked
             if (ui->rdioTAddr->isChecked()) {
-                ui->listRecieveAddresses->insertItem(0, addr);
-                ui->listRecieveAddresses->setCurrentIndex(0);
+                ui->listReceiveAddresses->insertItem(0, addr);
+                ui->listReceiveAddresses->setCurrentIndex(0);
 
                 ui->statusBar->showMessage(tr("Created new t-Addr"), 10 * 1000);
             }
@@ -1304,14 +1354,58 @@ void MainWindow::setupRecieveTab() {
         // want to reuse t-addrs
         if (checked && this->rpc->getUTXOs() != nullptr) { 
             updateTAddrCombo(checked);
-            addNewTAddr();
         } 
+
+        // Toggle the "View all addresses" button as well
+        ui->btnViewAllAddresses->setVisible(checked);
+    });
+
+    // View all addresses goes to "View all private keys"
+    QObject::connect(ui->btnViewAllAddresses, &QPushButton::clicked, [=] () {
+        // If there's no RPC, return
+        if (!getRPC())
+            return;
+
+        QDialog d(this);
+        Ui_ViewAddressesDialog viewaddrs;
+        viewaddrs.setupUi(&d);
+        Settings::saveRestore(&d);
+        Settings::saveRestoreTableHeader(viewaddrs.tblAddresses, &d, "viewalladdressestable");
+        viewaddrs.tblAddresses->horizontalHeader()->setStretchLastSection(true);
+
+        ViewAllAddressesModel model(viewaddrs.tblAddresses, *getRPC()->getAllTAddresses(), getRPC());
+        viewaddrs.tblAddresses->setModel(&model);
+
+        QObject::connect(viewaddrs.btnExportAll, &QPushButton::clicked,  this, &MainWindow::exportAllKeys);
+
+        viewaddrs.tblAddresses->setContextMenuPolicy(Qt::CustomContextMenu);
+        QObject::connect(viewaddrs.tblAddresses, &QTableView::customContextMenuRequested, [=] (QPoint pos) {
+            QModelIndex index = viewaddrs.tblAddresses->indexAt(pos);
+            if (index.row() < 0) return;
+
+            index = index.sibling(index.row(), 0);
+            QString addr = viewaddrs.tblAddresses->model()->data(index).toString();
+
+            QMenu menu(this);
+            menu.addAction(tr("Export Private Key"), [=] () {                
+                if (addr.isEmpty())
+                    return;
+
+                this->exportKeys(addr);
+            });
+            menu.addAction(tr("Copy Address"), [=]() {
+                QGuiApplication::clipboard()->setText(addr);
+            });
+            menu.exec(viewaddrs.tblAddresses->viewport()->mapToGlobal(pos));
+        });
+
+        d.exec();
     });
 
     QObject::connect(ui->rdioZSAddr, &QRadioButton::toggled, addZAddrsToComboList(true));
 
     // Explicitly get new address button.
-    QObject::connect(ui->btnRecieveNewAddr, &QPushButton::clicked, [=] () {
+    QObject::connect(ui->btnReceiveNewAddr, &QPushButton::clicked, [=] () {
         if (!rpc->getConnection())
             return;
 
@@ -1327,9 +1421,10 @@ void MainWindow::setupRecieveTab() {
         if (tab == 2) {
             // Switched to receive tab, select the z-addr radio button
             ui->rdioZSAddr->setChecked(true);
+            ui->btnViewAllAddresses->setVisible(false);
             
             // And then select the first one
-            ui->listRecieveAddresses->setCurrentIndex(0);
+            ui->listReceiveAddresses->setCurrentIndex(0);
         }
     });
 
@@ -1338,15 +1433,15 @@ void MainWindow::setupRecieveTab() {
     ui->rcvLabel->setValidator(v);
 
     // Select item in address list
-    QObject::connect(ui->listRecieveAddresses, 
+    QObject::connect(ui->listReceiveAddresses, 
         QOverload<int>::of(&QComboBox::currentIndexChanged), [=] (int index) {
-        QString addr = ui->listRecieveAddresses->itemText(index);
+        QString addr = ui->listReceiveAddresses->itemText(index);
         if (addr.isEmpty()) {
             // Draw empty stuff
 
             ui->rcvLabel->clear();
             ui->rcvBal->clear();
-            ui->txtRecieve->clear();
+            ui->txtReceive->clear();
             ui->qrcodeDisplay->clear();
             return;
         }
@@ -1361,7 +1456,7 @@ void MainWindow::setupRecieveTab() {
         
         ui->rcvLabel->setText(label);
         ui->rcvBal->setText(Settings::getZECUSDDisplayFormat(rpc->getAllBalances()->value(addr)));
-        ui->txtRecieve->setPlainText(addr);       
+        ui->txtReceive->setPlainText(addr);       
         ui->qrcodeDisplay->setQrcodeString(addr);
         if (rpc->getUsedAddresses()->value(addr, false)) {
             ui->rcvBal->setToolTip(tr("Address has been previously used"));
@@ -1373,7 +1468,7 @@ void MainWindow::setupRecieveTab() {
 
     // Receive tab add/update label
     QObject::connect(ui->rcvUpdateLabel, &QPushButton::clicked, [=]() {
-        QString addr = ui->listRecieveAddresses->currentText();
+        QString addr = ui->listReceiveAddresses->currentText();
         if (addr.isEmpty())
             return;
 
@@ -1407,9 +1502,9 @@ void MainWindow::setupRecieveTab() {
         }
     });
 
-    // Recieve Export Key
+    // Receive Export Key
     QObject::connect(ui->exportKey, &QPushButton::clicked, [=]() {
-        QString addr = ui->listRecieveAddresses->currentText();
+        QString addr = ui->listReceiveAddresses->currentText();
         if (addr.isEmpty())
             return;
 
@@ -1417,16 +1512,17 @@ void MainWindow::setupRecieveTab() {
     });
 }
 
+
 void MainWindow::updateTAddrCombo(bool checked) {
     if (checked) {
         auto utxos = this->rpc->getUTXOs();
-        ui->listRecieveAddresses->clear();
+        ui->listReceiveAddresses->clear();
 
         std::for_each(utxos->begin(), utxos->end(), [=](auto& utxo) {
             auto addr = utxo.address;
-            if (addr.startsWith("R") && ui->listRecieveAddresses->findText(addr) < 0) {
+            if (addr.startsWith("R") && ui->listReceiveAddresses->findText(addr) < 0) {
                 auto bal = rpc->getAllBalances()->value(addr);
-                ui->listRecieveAddresses->addItem(addr, bal);
+                ui->listReceiveAddresses->addItem(addr, bal);
             }
         });
     }
