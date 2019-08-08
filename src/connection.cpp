@@ -574,14 +574,31 @@ QString ConnectionLoader::zcashParamsDir() {
 bool ConnectionLoader::verifyParams() {
     QDir paramsDir(zcashParamsDir());
 
-    qDebug() << "Verifying param files exist";
+    qDebug() << "Verifying sapling param files exist";
 
-    if (!QFile(paramsDir.filePath("sapling-output.params")).exists()) return false;
-    if (!QFile(paramsDir.filePath("sapling-spend.params")).exists()) return false;
 
-    qDebug() << "All param files found!";
+    if( QFile( QDir(".").filePath("sapling-output.params") ).exists() && QFile( QDir(".").filePath("sapling-output.params") ).exists() ) {
+        qDebug() << "Found params in .";
+        return true;
+    }
 
-    return true;
+    if( QFile( QDir("..").filePath("sapling-output.params") ).exists() && QFile( QDir("..").filePath("sapling-output.params") ).exists() ) {
+        qDebug() << "Found params in ..";
+        return true;
+    }
+
+    if( QFile( QDir("..").filePath("hush3/sapling-output.params") ).exists() && QFile( QDir("..").filePath("hush3/sapling-output.params") ).exists() ) {
+        qDebug() << "Found params in ../hush3";
+        return true;
+    }
+
+    if (QFile(paramsDir.filePath("sapling-output.params")).exists() && QFile(paramsDir.filePath("sapling-spend.params")).exists()) {
+        qDebug() << "Found params in " << paramsDir;
+        return true;
+    }
+
+    qDebug() << "Did not find Sapling params!";
+    return false;
 }
 
 /**
