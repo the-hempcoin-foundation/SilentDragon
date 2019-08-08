@@ -1,21 +1,42 @@
-SilentDragon desktop wallet for HUSH ($HUSH) that runs on Linux, Windows and macOS.
+# SilentDragon
+
+SilentDragon desktop wallet for HUSH ($HUSH) runs on Linux, Windows and macOS.
+This is experimental software under active development!
 
 ![Screenshots](silentdragon.png?raw=true)
+
+## PRIVACY NOTICE
+
+SilentDragon contacts a few different external websites to get various
+bits of data.
+    * coingecko.com for price data API
+    * explorer.myhush.org for explorer links
+    * dexstats.info for address utilities
+
+This means your IP address is known to these servers. Enable Tor setting
+in SilentDragon to prevent this, or better yet, use TAILS: https://tails.boum.org/
+
 # Installation
 
 Head over to the releases page and grab the latest installers or binary. https://github.com/MyHush/SilentDragon/releases
 
 ## hushd
-SilentDragon needs a Hush full node running hushd. If you already have a hushd node running, SilentDragon will connect to it. 
 
-If you don't have one, SilentDragon will start its embedded hushd node. 
+SilentDragon needs a Hush full node running hushd. If you already have a hushd node running, SilentDragon will connect to it.
 
-Additionally, if this is the first time you're running SilentDragon or a hushd daemon, SilentDragon will download the zcash params (~1.7 GB) and configure `HUSH3.conf` for you. 
+If you don't have one, SilentDragon will start its embedded hushd node.
+
+Additionally, if this is the first time you're running SilentDragon or a hushd daemon, SilentDragon will find Sapling params (~50 MB) and configure `HUSH3.conf` for you. 
 
 Pass `--no-embedded` to disable the embedded hushd and force SilentDragon to connect to an external node.
 
 ## Compiling from source
-SilentDragon is written in C++ 14, and can be compiled with g++/clang++/visual c++. It also depends on Qt5, which you can get from [here](https://www.qt.io/download). Note that if you are compiling from source, you won't get the embedded hushd by default. You can either run an external hushd, or compile hushd as well. 
+
+SilentDragon is written in C++ 14, and can be compiled with g++/clang++/visual
+c++. It also depends on Qt5, which you can get from
+[here](https://www.qt.io/download). Note that if you are compiling from source,
+you won't get the embedded hushd by default. You can either run an external
+hushd, or compile hushd as well.
 
 
 ### Building on Linux
