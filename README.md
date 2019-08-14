@@ -1,6 +1,6 @@
-# SilentDragon
+# HempPay
 
-SilentDragon desktop wallet for HUSH ($HUSH) runs on Linux, Windows and macOS.
+SilentDragon desktop wallet for THC ($THC) runs on Linux, Windows and macOS.
 This is experimental software under active development!
 
 ![Screenshots](silentdragon.png?raw=true)
@@ -10,7 +10,7 @@ This is experimental software under active development!
 SilentDragon contacts a few different external websites to get various
 bits of data.
     * coingecko.com for price data API
-    * explorer.myhush.org for explorer links
+    * XXX for explorer links
     * dexstats.info for address utilities
 
 This means your IP address is known to these servers. Enable Tor setting
@@ -18,13 +18,13 @@ in SilentDragon to prevent this, or better yet, use TAILS: https://tails.boum.or
 
 # Installation
 
-Head over to the releases page and grab the latest installers or binary. https://github.com/MyHush/SilentDragon/releases
+Head over to the releases page and grab the latest installers or binary. XXXX
 
-## hushd
+## thcd
 
-SilentDragon needs a Hush full node running hushd. If you already have a hushd node running, SilentDragon will connect to it.
+HempPay needs a Hush full node running. If you already have a full node running, this wallet will connect to it.
 
-If you don't have one, SilentDragon will start its embedded hushd node.
+If you don't have one, HempPay will start its embedded hushd node.
 
 Additionally, if this is the first time you're running SilentDragon or a hushd daemon, SilentDragon will find Sapling params (~50 MB) and configure `HUSH3.conf` for you. 
 
@@ -43,8 +43,8 @@ hushd, or compile hushd as well.
 
 ```
 sudo apt-get install qt5-default qt5-qmake libqt5websockets5-dev
-git clone https://github.com/MyHush/SilentDragon.git
-cd SilentDragon
+git clone https://github.com/the-hempcoin-foundation/HempPAY.git
+cd HempPAY
 qmake silentdragon.pro CONFIG+=debug
 make -j$(nproc)
 
@@ -56,8 +56,8 @@ You need Visual Studio 2017 (The free C++ Community Edition works just fine).
 
 From the VS Tools command prompt
 ```
-git clone  https://github.com/MyHush/SilentDragon.git
-cd SilentDragon
+git clone  https://github.com/the-hempcoin-foundation/HempPAY.git
+cd HempPAY
 c:\Qt5\bin\qmake.exe silentdragon.pro -spec win32-msvc CONFIG+=debug
 nmake
 
