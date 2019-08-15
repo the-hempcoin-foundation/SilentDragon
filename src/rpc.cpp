@@ -208,7 +208,7 @@ void RPC::importTPrivKey(QString privkey, bool rescan, const std::function<void(
 
     // If privkey starts with 5, K or L, use old-style Hush params, same as BTC+ZEC
     if( privkey.startsWith("5") || privkey.startsWith("K") || privkey.startsWith("L") ) {
-        qDebug() << "Detected old-style HUSH WIF";
+        qDebug() << "Detected old-style THC WIF";
         payload = {
             {"jsonrpc", "1.0"},
             {"id", "someid"},
@@ -216,7 +216,7 @@ void RPC::importTPrivKey(QString privkey, bool rescan, const std::function<void(
             {"params", { privkey.toStdString(), "", "false", "0", "128" }},
         };
     } else {
-        qDebug() << "Detected new-style HUSH WIF";
+        qDebug() << "Detected new-style THC WIF";
         payload = {
             {"jsonrpc", "1.0"},
             {"id", "someid"},
@@ -705,7 +705,7 @@ void RPC::getInfoThenRefresh(bool force) {
                 (isSyncing ? ("/" % QString::number(progress*100, 'f', 2) % "%") : QString()) %
                 ") " %
                 " Notarized: " % QString::number(notarized) %
-                " HUSH/USD=$" % QString::number( (double) Settings::getInstance()->getZECPrice() );
+                " THC/USD=$" % QString::number( (double) Settings::getInstance()->getZECPrice() );
             main->statusLabel->setText(statusText);   
 
             auto zecPrice = Settings::getUSDFormat(1);
@@ -719,7 +719,7 @@ void RPC::getInfoThenRefresh(bool force) {
             tooltip = tooltip % "(v " % QString::number(Settings::getInstance()->getZcashdVersion()) % ")";
 
             if (!zecPrice.isEmpty()) {
-                tooltip = "1 HUSH = " % zecPrice % "\n" % tooltip;
+                tooltip = "1 THC = " % zecPrice % "\n" % tooltip;
             }
             main->statusLabel->setToolTip(tooltip);
             main->statusIcon->setToolTip(tooltip);
@@ -1109,7 +1109,7 @@ void RPC::checkForUpdate(bool silent) {
     });
 }
 
-// Get the HUSH prices
+// Get the THC prices
 void RPC::refreshZECPrice() {
     if  (conn == nullptr)
         return noConnection();
@@ -1152,7 +1152,7 @@ void RPC::refreshZECPrice() {
                 qDebug() << "Found hush key in price json";
                 // TODO: support BTC/EUR prices as well
                 //QString price = QString::fromStdString(hush["usd"].get<json::string_t>());
-                qDebug() << "HUSH = $" << QString::number((double)hush["usd"]);
+                qDebug() << "THC = $" << QString::number((double)hush["usd"]);
                 Settings::getInstance()->setZECPrice( hush["usd"] );
 
                 return;

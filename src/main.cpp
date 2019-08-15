@@ -160,7 +160,7 @@ public:
         parser.addOption(noembeddedOption);
 
         // Positional argument will specify a zcash payment URI
-        parser.addPositionalArgument("hushURI", "An optional HUSH URI to pay");
+        parser.addPositionalArgument("hushURI", "An optional THC URI to pay");
 
         parser.process(a);
 

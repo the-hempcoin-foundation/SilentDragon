@@ -13,7 +13,7 @@ case $key in
     shift # past value
     ;;
     -h|--hush_path)
-    HUSH_DIR="$2"
+    THC_DIR="$2"
     shift # past argument
     shift # past value
     ;;
@@ -35,8 +35,8 @@ if [ -z $QT_PATH ]; then
     exit 1; 
 fi
 
-if [ -z $HUSH_DIR ]; then
-    echo "HUSH_DIR is not set. Please set it to the base directory of a compiled hushd";
+if [ -z $THC_DIR ]; then
+    echo "THC_DIR is not set. Please set it to the base directory of a compiled hushd";
     exit 1;
 fi
 
@@ -45,8 +45,8 @@ if [ -z $APP_VERSION ]; then
     exit 1;
 fi
 
-if [ ! -f $HUSH_DIR/src/hushd ]; then
-    echo "Could not find compiled hushd in $HUSH_DIR/src/.";
+if [ ! -f $THC_DIR/src/hushd ]; then
+    echo "Could not find compiled hushd in $THC_DIR/src/.";
     exit 1;
 fi
 
@@ -80,10 +80,10 @@ echo -n "Deploying.............."
 mkdir artifacts >/dev/null 2>&1
 rm -f artifcats/hemppay.dmg >/dev/null 2>&1
 rm -f artifacts/rw* >/dev/null 2>&1
-cp $HUSH_DIR/src/hushd hemppay.app/Contents/MacOS/
-cp $HUSH_DIR/src/hush-cli hemppay.app/Contents/MacOS/
-cp $HUSH_DIR/src/komodod hemppay.app/Contents/MacOS/
-cp $HUSH_DIR/src/komodo-cli hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/hushd hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/hush-cli hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/komodod hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/komodo-cli hemppay.app/Contents/MacOS/
 $QT_PATH/bin/macdeployqt hemppay.app 
 echo "[OK]"
 

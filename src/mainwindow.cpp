@@ -426,7 +426,7 @@ void MainWindow::setupStatusBar() {
                     url = "https://explorer.testnet.z.cash/tx/" + txid;
                 }
                 else {
-                    url = "https://explorer.myhush.org/tx/" + txid;
+                    url = "https://thc.explorer.dexstats.info/tx/" + txid;
                 }
                 QDesktopServices::openUrl(QUrl(url));
             });
@@ -612,12 +612,12 @@ void MainWindow::addressBook() {
 }
 
 void MainWindow::discord() {
-    QString url = "https://myhush.org/discord/";
+    QString url = "https://hempcoin.org/discord/";
     QDesktopServices::openUrl(QUrl(url));
 }
 
 void MainWindow::website() {
-    QString url = "https://myhush.org";
+    QString url = "https://hempcoin.org";
     QDesktopServices::openUrl(QUrl(url));
 }
 
@@ -629,7 +629,7 @@ void MainWindow::donate() {
     ui->Amount1->setText("0.00");
     ui->MemoTxt1->setText(tr("Some feedback about HempPAY or Hush..."));
 
-    ui->statusBar->showMessage(tr("Send Duke some private and shielded feedback about ") % Settings::getTokenName() % tr(" or HempPAY"));
+    ui->statusBar->showMessage(tr("Send Boba some private and shielded feedback about ") % Settings::getTokenName() % tr(" or HempPAY"));
 
     // And switch to the send tab.
     ui->tabWidget->setCurrentIndex(1);
@@ -867,8 +867,8 @@ void MainWindow::payZcashURI(QString uri, QString myAddr) {
 
     // If there was no URI passed, ask the user for one.
     if (uri.isEmpty()) {
-        uri = QInputDialog::getText(this, tr("Paste HUSH URI"),
-            "HUSH URI" + QString(" ").repeated(180));
+        uri = QInputDialog::getText(this, tr("Paste THC URI"),
+            "THC URI" + QString(" ").repeated(180));
     }
 
     // If there's no URI, just exit
@@ -1162,9 +1162,9 @@ void MainWindow::setupBalancesTab() {
                 QString url;
                 if (Settings::getInstance()->isTestnet()) {
                     //TODO
-                    url = "https://explorer.testnet.myhush.org/address/" + addr;
+                    url = "https://explorer.testnet.dexstats.info/address/" + addr;
                 } else {
-                    url = "https://explorer.myhush.org/address/" + addr;
+                    url = "https://thc.explorer.dexstats.info/address/" + addr;
                 }
                 QDesktopServices::openUrl(QUrl(url));
             });
@@ -1177,7 +1177,7 @@ void MainWindow::setupBalancesTab() {
 
             menu.addAction(tr("Convert Address"), [=] () {
                 QString url;
-                url = "https://dexstats.info/addressconverter.php?fromcoin=HUSH3&address=" + addr;
+                url = "https://dexstats.info/addressconverter.php?fromcoin=THC&address=" + addr;
                 QDesktopServices::openUrl(QUrl(url));
             });
         }
@@ -1241,9 +1241,9 @@ void MainWindow::setupTransactionsTab() {
         menu.addAction(tr("View on block explorer"), [=] () {
             QString url;
             if (Settings::getInstance()->isTestnet()) {
-                url = "https://explorer.testnet.myhush.org/tx/" + txid;
+                url = "https://explorer.testnet.dexstats.info/tx/" + txid;
             } else {
-                url = "https://explorer.myhush.org/tx/" + txid;
+                url = "https://thc.explorer.dexstats.info/tx/" + txid;
             }
             QDesktopServices::openUrl(QUrl(url));
         });

@@ -594,7 +594,7 @@ bool MainWindow::confirmTx(Tx tx) {
             Addr->setText(fnSplitAddressForWrap(toAddr.addr));
             confirm.gridLayout->addWidget(Addr, row, 0, 1, 1);
 
-            // Amount (HUSH)
+            // Amount (THC)
             auto Amt = new QLabel(confirm.sendToAddrs);
             Amt->setObjectName(QString("Amt") % QString::number(i + 1));
             Amt->setText(Settings::getZECDisplayFormat(toAddr.amount));

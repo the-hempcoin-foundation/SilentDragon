@@ -1379,7 +1379,7 @@
   </action>
   <action name="actionDonate">
    <property name="text">
-    <string>&amp;Send Duke Feedback</string>
+    <string>&amp;Send Boba Feedback</string>
    </property>
   </action>
   <action name="actionDiscord">
@@ -1443,7 +1443,7 @@
   </action>
   <action name="actionPay_URI">
    <property name="text">
-    <string>Pay HUSH &amp;URI...</string>
+    <string>Pay THC &amp;URI...</string>
    </property>
   </action>
   <action name="actionConnect_Mobile_App">
@@ -1456,7 +1456,7 @@
   </action>
   <action name="actionRequest_zcash">
    <property name="text">
-    <string>Request HUSH...</string>
+    <string>Request THC...</string>
    </property>
   </action>
   <action name="actionValidate_Address">
