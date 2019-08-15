@@ -10,8 +10,7 @@ This is experimental software under active development!
 HempPAY contacts a few different external websites to get various
 bits of data.
     * coingecko.com for price data API
-    * XXX for explorer links
-    * dexstats.info for address utilities
+    * dexstats.info for address utilities + explorer links
 
 This means your IP address is known to these servers. Enable Tor setting
 in HempPAY to prevent this, or better yet, use TAILS: https://tails.boum.org/
@@ -26,7 +25,7 @@ HempPay needs a Hush full node running. If you already have a full node running,
 
 If you don't have one, HempPay will start its embedded komodod node.
 
-Additionally, if this is the first time you're running HempPAY or a komodod daemon, HempPAY will find Sapling params (~50 MB) and configure `HUSH3.conf` for you. 
+Additionally, if this is the first time you're running HempPAY or a komodod daemon, HempPAY will find Sapling params (~50 MB) and configure `THC.conf` for you. 
 
 Pass `--no-embedded` to disable the embedded komodod and force HempPAY to connect to an external node.
 

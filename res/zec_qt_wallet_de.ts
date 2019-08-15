@@ -1560,7 +1560,7 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     <name>createZcashConf</name>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="14"/>
-        <source>Configure HUSH3.conf</source>
+        <source>Configure THC.conf</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

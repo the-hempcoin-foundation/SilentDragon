@@ -977,11 +977,11 @@ doesn&apos;t look like a z-address</source>
         <location filename="../src/connection.cpp" line="77"/>
         <source>You have komodod set to start as a daemon, which can cause problems with SlientDragon
 
-.Please remove the following line from your HUSH3.conf and restart SlientDragon
+.Please remove the following line from your THC.conf and restart SlientDragon
 daemon=1</source>
         <translation>你已经将komodod设置为守护进程启动，这可能会导致SlientDragon出现问题
 
-。请从HUSH3.conf中删除以下行并重新启动SlientDragon
+。请从THC.conf中删除以下行并重新启动SlientDragon
 daemon=1</translation>
     </message>
     <message>
@@ -990,14 +990,14 @@ daemon=1</translation>
 
 Please try restarting.
 
-If you previously started komodod with custom arguments, you might need to reset HUSH3.conf.
+If you previously started komodod with custom arguments, you might need to reset THC.conf.
 
 If all else fails, please run komodod manually.</source>
         <translation>无法启动内嵌的komodod。
 
 请尝试重新启动。
 
-如果您之前使用自定义参数启动了komodod，则可能需要重置HUSH3.conf。
+如果您之前使用自定义参数启动了komodod，则可能需要重置THC.conf。
 
 如果所有其他方法都失败了，请手动运行komodod。</translation>
     </message>
@@ -1008,10 +1008,10 @@ If all else fails, please run komodod manually.</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="93"/>
-        <source>Couldn&apos;t connect to komodod configured in HUSH3.conf.
+        <source>Couldn&apos;t connect to komodod configured in THC.conf.
 
 Not starting embedded komodod because --no-embedded was passed</source>
-        <translation>无法连接到HUSH3.conf中配置的komodod。
+        <translation>无法连接到THC.conf中配置的komodod。
 
 没有启动内嵌的komodod，因为已经传了--no-embedded参数</translation>
     </message>

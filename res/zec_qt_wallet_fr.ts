@@ -1593,8 +1593,8 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     <name>createZcashConf</name>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="14"/>
-        <source>Configure HUSH3.conf</source>
-        <translation>Configuration du fichier HUSH3.conf</translation>
+        <source>Configure THC.conf</source>
+        <translation>Configuration du fichier THC.conf</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="61"/>
