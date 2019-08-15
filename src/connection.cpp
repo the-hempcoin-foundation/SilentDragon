@@ -79,11 +79,11 @@ void ConnectionLoader::doAutoConnect(bool tryEzcashdStart) {
                     if (config->zcashDaemon) {
                         explanation = QString() % QObject::tr("You have komodod set to start as a daemon, which can cause problems "
                             "with HempPAY\n\n."
-                            "Please remove the following line from your HUSH3.conf and restart HempPAY\n"
+                            "Please remove the following line from your THC.conf and restart HempPAY\n"
                             "daemon=1");
                     } else {
                         explanation = QString() % QObject::tr("Couldn't start the embedded komodod.\n\n" 
-                            "Please try restarting.\n\nIf you previously started komodod with custom arguments, you might need to  reset HUSH3.conf.\n\n" 
+                            "Please try restarting.\n\nIf you previously started komodod with custom arguments, you might need to  reset THC.conf.\n\n" 
                             "If all else fails, please run komodod manually.") %  
                             (ezcashd ? QObject::tr("The process returned") + ":\n\n" % ezcashd->errorString() : QString(""));
                     }
@@ -91,16 +91,16 @@ void ConnectionLoader::doAutoConnect(bool tryEzcashdStart) {
                     this->showError(explanation);
                 }                
             } else {
-                // HUSH3.conf exists, there's no connection, and the user asked us not to start komodod. Error!
+                // THC.conf exists, there's no connection, and the user asked us not to start komodod. Error!
                 main->logger->write("Not using embedded and couldn't connect to komodod");
-                QString explanation = QString() % QObject::tr("Couldn't connect to komodod configured in HUSH3.conf.\n\n" 
+                QString explanation = QString() % QObject::tr("Couldn't connect to komodod configured in THC.conf.\n\n" 
                                       "Not starting embedded komodod because --no-embedded was passed");
                 this->showError(explanation);
             }
         });
     } else {
         if (Settings::getInstance()->useEmbedded()) {
-            // HUSH3.conf was not found, so create one
+            // THC.conf was not found, so create one
             createZcashConf();
         } else {
             // Fall back to manual connect
@@ -127,7 +127,7 @@ QString randomPassword() {
 }
 
 /**
- * This will create a new HUSH3.conf, download Zcash parameters.
+ * This will create a new THC.conf, download Zcash parameters.
  */ 
 void ConnectionLoader::createZcashConf() {
     main->logger->write("createZcashConf");
@@ -178,9 +178,9 @@ void ConnectionLoader::createZcashConf() {
 
     QFile file(confLocation);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
-        main->logger->write("Could not create HUSH3.conf, returning");
+        main->logger->write("Could not create THC.conf, returning");
 
-        QString explanation = QString() % QObject::tr("Could not create HUSH3.conf.");
+        QString explanation = QString() % QObject::tr("Could not create THC.conf.");
         this->showError(explanation);
         return;
     }
@@ -208,7 +208,7 @@ void ConnectionLoader::createZcashConf() {
 
     file.close();
 
-    // Now that HUSH3.conf exists, try to autoconnect again
+    // Now that THC.conf exists, try to autoconnect again
     this->doAutoConnect();
 }
 
@@ -536,7 +536,7 @@ QString ConnectionLoader::locateZcashConfFile() {
     auto confLocation = QStandardPaths::locate(QStandardPaths::AppDataLocation, "../../Komodo/THC/THC.conf");
 #endif
 
-    main->logger->write("Found HUSH3.conf at " + QDir::cleanPath(confLocation));
+    main->logger->write("Found THC.conf at " + QDir::cleanPath(confLocation));
     return QDir::cleanPath(confLocation);
 }
 
@@ -549,7 +549,7 @@ QString ConnectionLoader::zcashConfWritableLocation() {
     auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("../../Komodo/THC/THC.conf");
 #endif
 
-    main->logger->write("Found HUSH3.conf at " + QDir::cleanPath(confLocation));
+    main->logger->write("Found THC.conf at " + QDir::cleanPath(confLocation));
     return QDir::cleanPath(confLocation);
 }
 
