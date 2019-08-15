@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>SilentDragon</string>
+   <string>HempPAY</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../application.qrc">
@@ -938,7 +938,7 @@
 
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
-        <string>hushd</string>
+        <string>komodod</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>

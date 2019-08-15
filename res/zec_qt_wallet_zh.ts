@@ -248,7 +248,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="908"/>
-        <source>hushd</source>
+        <source>komodod</source>
         <translation>节点</translation>
     </message>
     <message>
@@ -424,23 +424,23 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="277"/>
-        <source>hushd is not yet ready. Please wait for the UI to load</source>
-        <translation>hushd尚未准备好。 请等待UI加载</translation>
+        <source>komodod is not yet ready. Please wait for the UI to load</source>
+        <translation>komodod尚未准备好。 请等待UI加载</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="498"/>
-        <source>Tor configuration is available only when running an embedded hushd.</source>
-        <translation>Tor配置仅在运行嵌入的hushd时可用。</translation>
+        <source>Tor configuration is available only when running an embedded komodod.</source>
+        <translation>Tor配置仅在运行嵌入的komodod时可用。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="537"/>
-        <source>You&apos;re using an external hushd. Please restart hushd with -rescan</source>
-        <translation>你正在使用外部hushd。 请使用-rescan参数重新启动hushd</translation>
+        <source>You&apos;re using an external komodod. Please restart komodod with -rescan</source>
+        <translation>你正在使用外部komodod。 请使用-rescan参数重新启动komodod</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="540"/>
-        <source>You&apos;re using an external hushd. Please restart hushd with -reindex</source>
-        <translation>你正在使用外部hushd。 请使用-reindex重新启动hushd</translation>
+        <source>You&apos;re using an external komodod. Please restart komodod with -reindex</source>
+        <translation>你正在使用外部komodod。 请使用-reindex重新启动komodod</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="565"/>
@@ -530,8 +530,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="887"/>
-        <source>The keys will be imported into your connected hushd node</source>
-        <translation>密钥将导入已连接的hushd节点</translation>
+        <source>The keys will be imported into your connected komodod node</source>
+        <translation>密钥将导入已连接的komodod节点</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="908"/>
@@ -560,8 +560,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="951"/>
-        <source>You need to back it up from the machine hushd is running on</source>
-        <translation>你需要从运行hushd的机器备份它</translation>
+        <source>You need to back it up from the machine komodod is running on</source>
+        <translation>你需要从运行komodod的机器备份它</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="955"/>
@@ -803,8 +803,8 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/migration.ui" line="81"/>
-        <source>If enabled, hushd will slowly migrate your Sprout shielded funds to your Sapling address. </source>
-        <translation>如果启用，hushd将慢慢将您的Sprout屏蔽资金迁移到您的Sapling地址。 </translation>
+        <source>If enabled, komodod will slowly migrate your Sprout shielded funds to your Sapling address. </source>
+        <translation>如果启用，komodod将慢慢将您的Sprout屏蔽资金迁移到您的Sapling地址。 </translation>
     </message>
 </context>
 <context>
@@ -960,46 +960,46 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="52"/>
-        <source>Starting embedded hushd</source>
-        <translation>启动内嵌的hushd</translation>
+        <source>Starting embedded komodod</source>
+        <translation>启动内嵌的komodod</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>hushd is set to run as daemon</source>
-        <translation>hushd设置为作为守护进程运行</translation>
+        <source>komodod is set to run as daemon</source>
+        <translation>komodod设置为作为守护进程运行</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>Waiting for hushd</source>
-        <translation>等待hushd</translation>
+        <source>Waiting for komodod</source>
+        <translation>等待komodod</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="77"/>
-        <source>You have hushd set to start as a daemon, which can cause problems with SlientDragon
+        <source>You have komodod set to start as a daemon, which can cause problems with SlientDragon
 
 .Please remove the following line from your HUSH3.conf and restart SlientDragon
 daemon=1</source>
-        <translation>你已经将hushd设置为守护进程启动，这可能会导致SlientDragon出现问题
+        <translation>你已经将komodod设置为守护进程启动，这可能会导致SlientDragon出现问题
 
 。请从HUSH3.conf中删除以下行并重新启动SlientDragon
 daemon=1</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="82"/>
-        <source>Couldn&apos;t start the embedded hushd.
+        <source>Couldn&apos;t start the embedded komodod.
 
 Please try restarting.
 
-If you previously started hushd with custom arguments, you might need to reset HUSH3.conf.
+If you previously started komodod with custom arguments, you might need to reset HUSH3.conf.
 
-If all else fails, please run hushd manually.</source>
-        <translation>无法启动内嵌的hushd。
+If all else fails, please run komodod manually.</source>
+        <translation>无法启动内嵌的komodod。
 
 请尝试重新启动。
 
-如果您之前使用自定义参数启动了hushd，则可能需要重置HUSH3.conf。
+如果您之前使用自定义参数启动了komodod，则可能需要重置HUSH3.conf。
 
-如果所有其他方法都失败了，请手动运行hushd。</translation>
+如果所有其他方法都失败了，请手动运行komodod。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="85"/>
@@ -1008,12 +1008,12 @@ If all else fails, please run hushd manually.</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="93"/>
-        <source>Couldn&apos;t connect to hushd configured in HUSH3.conf.
+        <source>Couldn&apos;t connect to komodod configured in HUSH3.conf.
 
-Not starting embedded hushd because --no-embedded was passed</source>
-        <translation>无法连接到HUSH3.conf中配置的hushd。
+Not starting embedded komodod because --no-embedded was passed</source>
+        <translation>无法连接到HUSH3.conf中配置的komodod。
 
-没有启动内嵌的hushd，因为已经传了--no-embedded参数</translation>
+没有启动内嵌的komodod，因为已经传了--no-embedded参数</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="146"/>
@@ -1068,8 +1068,8 @@ Not starting embedded hushd because --no-embedded was passed</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="332"/>
-        <source>hushd error</source>
-        <translation>hushd 出错</translation>
+        <source>komodod error</source>
+        <translation>komodod 出错</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="399"/>
@@ -1082,22 +1082,22 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/connection.cpp" line="411"/>
-        <source>Could not connect to hushd configured in settings.
+        <source>Could not connect to komodod configured in settings.
 
 Please set the host/port and user/password in the Edit-&gt;Settings menu.</source>
-        <translation>无法连接到设置中配置的hushd。
+        <translation>无法连接到设置中配置的komodod。
 
 请在编辑 - &gt;设置菜单中设置主机/端口和用户/密码。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="472"/>
-        <source>Authentication failed. The username / password you specified was not accepted by hushd. Try changing it in the Edit-&gt;Settings menu</source>
-        <translation>验证失败。 hushd不接受您指定的用户名/密码。 请在编辑 - &gt;设置菜单中更改它</translation>
+        <source>Authentication failed. The username / password you specified was not accepted by komodod. Try changing it in the Edit-&gt;Settings menu</source>
+        <translation>验证失败。 komodod不接受您指定的用户名/密码。 请在编辑 - &gt;设置菜单中更改它</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="487"/>
-        <source>Your hushd is starting up. Please wait.</source>
-        <translation>你的hushd正在启动。 请耐心等待。</translation>
+        <source>Your komodod is starting up. Please wait.</source>
+        <translation>你的komodod正在启动。 请耐心等待。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="504"/>
@@ -1223,18 +1223,18 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="673"/>
-        <source>Connected to hushd</source>
-        <translation>连接到hushd</translation>
+        <source>Connected to komodod</source>
+        <translation>连接到komodod</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="676"/>
-        <source>hushd has no peer connections</source>
-        <translation>hushd没有节点可连接</translation>
+        <source>komodod has no peer connections</source>
+        <translation>komodod没有节点可连接</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="695"/>
-        <source>There was an error connecting to hushd. The error was</source>
-        <translation>连接到hushd时出错。 错误是</translation>
+        <source>There was an error connecting to komodod. The error was</source>
+        <translation>连接到komodod时出错。 错误是</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1032"/>
@@ -1272,8 +1272,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1183"/>
-        <source>Waiting for hushd to exit</source>
-        <translation>等待hushd退出</translation>
+        <source>Waiting for komodod to exit</source>
+        <translation>等待komodod退出</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
@@ -1616,8 +1616,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/settings.ui" line="33"/>
-        <source>hushd connection</source>
-        <translation>hushd连接</translation>
+        <source>komodod connection</source>
+        <translation>komodod连接</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="62"/>
@@ -1882,8 +1882,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/confirm.ui" line="183"/>
-        <source>hushd doesn&apos;t seem to have any peers. You might not be connected to the internet, so this transaction might not work.</source>
-        <translation>hushd似乎没有任何可连接的节点。 您可能没有连接到互联网，因此此交易可能无效。</translation>
+        <source>komodod doesn&apos;t seem to have any peers. You might not be connected to the internet, so this transaction might not work.</source>
+        <translation>komodod似乎没有任何可连接的节点。 您可能没有连接到互联网，因此此交易可能无效。</translation>
     </message>
     <message>
         <location filename="../src/confirm.ui" line="196"/>

@@ -52,49 +52,49 @@ void ConnectionLoader::doAutoConnect(bool tryEzcashdStart) {
             // Refused connection. So try and start embedded zcashd
             if (Settings::getInstance()->useEmbedded()) {
                 if (tryEzcashdStart) {
-                    this->showInformation(QObject::tr("Starting embedded hushd"));
+                    this->showInformation(QObject::tr("Starting embedded komodod"));
                     if (this->startEmbeddedZcashd()) {
                         // Embedded zcashd started up. Wait a second and then refresh the connection
-                        main->logger->write("Embedded hushd started up, trying autoconnect in 1 sec");
+                        main->logger->write("Embedded komodod started up, trying autoconnect in 1 sec");
                         QTimer::singleShot(1000, [=]() { doAutoConnect(); } );
                     } else {
                         if (config->zcashDaemon) {
-                            // hushd is configured to run as a daemon, so we must wait for a few seconds
+                            // komodod is configured to run as a daemon, so we must wait for a few seconds
                             // to let it start up. 
-                            main->logger->write("hushd is daemon=1. Waiting for it to start up");
-                            this->showInformation(QObject::tr("hushd is set to run as daemon"), QObject::tr("Waiting for hushd"));
-                            QTimer::singleShot(5000, [=]() { doAutoConnect(/* don't attempt to start ehushd */ false); });
+                            main->logger->write("komodod is daemon=1. Waiting for it to start up");
+                            this->showInformation(QObject::tr("komodod is set to run as daemon"), QObject::tr("Waiting for komodod"));
+                            QTimer::singleShot(5000, [=]() { doAutoConnect(/* don't attempt to start ekomodod */ false); });
                         } else {
                             // Something is wrong. 
                             // We're going to attempt to connect to the one in the background one last time
                             // and see if that works, else throw an error
-                            main->logger->write("Unknown problem while trying to start hushd!");
+                            main->logger->write("Unknown problem while trying to start komodod!");
                             QTimer::singleShot(2000, [=]() { doAutoConnect(/* don't attempt to start ezcashd */ false); });
                         }
                     }
                 } else {
                     // We tried to start ezcashd previously, and it didn't work. So, show the error. 
-                    main->logger->write("Couldn't start embedded hushd for unknown reason");
+                    main->logger->write("Couldn't start embedded komodod for unknown reason");
                     QString explanation;
                     if (config->zcashDaemon) {
-                        explanation = QString() % QObject::tr("You have hushd set to start as a daemon, which can cause problems "
-                            "with SilentDragon\n\n."
-                            "Please remove the following line from your HUSH3.conf and restart SilentDragon\n"
+                        explanation = QString() % QObject::tr("You have komodod set to start as a daemon, which can cause problems "
+                            "with HempPAY\n\n."
+                            "Please remove the following line from your HUSH3.conf and restart HempPAY\n"
                             "daemon=1");
                     } else {
-                        explanation = QString() % QObject::tr("Couldn't start the embedded hushd.\n\n" 
-                            "Please try restarting.\n\nIf you previously started hushd with custom arguments, you might need to  reset HUSH3.conf.\n\n" 
-                            "If all else fails, please run hushd manually.") %  
+                        explanation = QString() % QObject::tr("Couldn't start the embedded komodod.\n\n" 
+                            "Please try restarting.\n\nIf you previously started komodod with custom arguments, you might need to  reset HUSH3.conf.\n\n" 
+                            "If all else fails, please run komodod manually.") %  
                             (ezcashd ? QObject::tr("The process returned") + ":\n\n" % ezcashd->errorString() : QString(""));
                     }
                     
                     this->showError(explanation);
                 }                
             } else {
-                // HUSH3.conf exists, there's no connection, and the user asked us not to start hushd. Error!
-                main->logger->write("Not using embedded and couldn't connect to hushd");
-                QString explanation = QString() % QObject::tr("Couldn't connect to hushd configured in HUSH3.conf.\n\n" 
-                                      "Not starting embedded hushd because --no-embedded was passed");
+                // HUSH3.conf exists, there's no connection, and the user asked us not to start komodod. Error!
+                main->logger->write("Not using embedded and couldn't connect to komodod");
+                QString explanation = QString() % QObject::tr("Couldn't connect to komodod configured in HUSH3.conf.\n\n" 
+                                      "Not starting embedded komodod because --no-embedded was passed");
                 this->showError(explanation);
             }
         });
@@ -319,7 +319,7 @@ bool ConnectionLoader::startEmbeddedZcashd() {
     if (!Settings::getInstance()->useEmbedded()) 
         return false;
     
-    main->logger->write("Trying to start embedded hushd");
+    main->logger->write("Trying to start embedded komodod");
 
     // Static because it needs to survive even after this method returns.
     static QString processStdErrOutput;
@@ -327,7 +327,7 @@ bool ConnectionLoader::startEmbeddedZcashd() {
     if (ezcashd != nullptr) {
         if (ezcashd->state() == QProcess::NotRunning) {
             if (!processStdErrOutput.isEmpty()) {
-                QMessageBox::critical(main, QObject::tr("hushd error"), "hushd said: " + processStdErrOutput, 
+                QMessageBox::critical(main, QObject::tr("komodod error"), "komodod said: " + processStdErrOutput, 
                                       QMessageBox::Ok);
             }
             return false;
@@ -336,57 +336,57 @@ bool ConnectionLoader::startEmbeddedZcashd() {
         }        
     }
 
-    // Finally, start hushd
+    // Finally, start komodod
     QDir appPath(QCoreApplication::applicationDirPath());
 #ifdef Q_OS_LINUX
-    auto hushdProgram = appPath.absoluteFilePath("hushd");
-    if (!QFile(hushdProgram).exists()) {
-        hushdProgram = appPath.absoluteFilePath("hushd");
+    auto komododProgram = appPath.absoluteFilePath("komodod");
+    if (!QFile(komododProgram).exists()) {
+        komododProgram = appPath.absoluteFilePath("komodod");
     }
 #elif defined(Q_OS_DARWIN)
-    auto hushdProgram = appPath.absoluteFilePath("hushd");
+    auto komododProgram = appPath.absoluteFilePath("komodod");
 #elif defined(Q_OS_WIN64)
-    auto hushdProgram = appPath.absoluteFilePath("hushd.bat");
+    auto komododProgram = appPath.absoluteFilePath("komodod.bat");
 #else
     //TODO: Not Linux + not darwin DOES NOT EQUAL windows!!!
-    auto hushdProgram = appPath.absoluteFilePath("hushd");
+    auto komododProgram = appPath.absoluteFilePath("komodod");
 #endif
     
-    if (!QFile(hushdProgram).exists()) {
-        qDebug() << "Can't find hushd at " << hushdProgram;
-        main->logger->write("Can't find hushd at " + hushdProgram); 
+    if (!QFile(komododProgram).exists()) {
+        qDebug() << "Can't find komodod at " << komododProgram;
+        main->logger->write("Can't find komodod at " + komododProgram); 
         return false;
     }
 
     ezcashd = std::shared_ptr<QProcess>(new QProcess(main));
     QObject::connect(ezcashd.get(), &QProcess::started, [=] () {
-        qDebug() << "Embedded hushd started via " + hushdProgram;
+        qDebug() << "Embedded komodod started via " + komododProgram;
     });
 
     QObject::connect(ezcashd.get(), QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
                         [=](int exitCode, QProcess::ExitStatus exitStatus) {
-        qDebug() << "hushd finished with code " << exitCode << "," << exitStatus;
+        qDebug() << "komodod finished with code " << exitCode << "," << exitStatus;
     });
 
     QObject::connect(ezcashd.get(), &QProcess::errorOccurred, [&] (QProcess::ProcessError error) {
-        qDebug() << "Couldn't start hushd at " + hushdProgram << error;
+        qDebug() << "Couldn't start komodod at " + komododProgram << error;
     });
 
     std::weak_ptr<QProcess> weak_obj(ezcashd);
     auto ptr_main(main);
     QObject::connect(ezcashd.get(), &QProcess::readyReadStandardError, [weak_obj, ptr_main]() {
         auto output = weak_obj.lock()->readAllStandardError();
-        ptr_main->logger->write("hushd stderr:" + output);
+        ptr_main->logger->write("komodod stderr:" + output);
         processStdErrOutput.append(output);
     });
 
 #ifdef Q_OS_LINUX
-    ezcashd->start(hushdProgram);
+    ezcashd->start(komododProgram);
 #elif defined(Q_OS_DARWIN)
-    ezcashd->start(hushdProgram);
+    ezcashd->start(komododProgram);
 #else
     ezcashd->setWorkingDirectory(appPath.absolutePath());
-    ezcashd->start(hushdProgram);
+    ezcashd->start(komododProgram);
 #endif // Q_OS_LINUX
 
 
@@ -411,7 +411,7 @@ void ConnectionLoader::doManualConnect() {
     auto connection = makeConnection(config);
     refreshZcashdState(connection, [=] () {
         QString explanation = QString()
-                % QObject::tr("Could not connect to hushd configured in settings.\n\n" 
+                % QObject::tr("Could not connect to komodod configured in settings.\n\n" 
                 "Please set the host/port and user/password in the Edit->Settings menu.");
 
         showError(explanation);
@@ -460,7 +460,7 @@ void ConnectionLoader::refreshZcashdState(Connection* connection, std::function<
     connection->doRPC(payload,
         [=] (auto) {
             // Success
-            main->logger->write("hushd is online!");
+            main->logger->write("komodod is online!");
             // Delay 1 second to ensure loading (splash) is seen at least 1 second.
             QTimer::singleShot(1000, [=]() { this->doRPCSetConnection(connection); });
         },
@@ -475,7 +475,7 @@ void ConnectionLoader::refreshZcashdState(Connection* connection, std::function<
                 main->logger->write("Authentication failed");
                 QString explanation = QString() % 
                         QObject::tr("Authentication failed. The username / password you specified was "
-                        "not accepted by hushd. Try changing it in the Edit->Settings menu");
+                        "not accepted by komodod. Try changing it in the Edit->Settings menu");
 
                 this->showError(explanation);
             } else if (err == QNetworkReply::NetworkError::InternalServerError && 
@@ -489,8 +489,8 @@ void ConnectionLoader::refreshZcashdState(Connection* connection, std::function<
                     if (dots > 3)
                         dots = 0;
                 }
-                this->showInformation(QObject::tr("Your hushd is starting up. Please wait."), status);
-                main->logger->write("Waiting for hushd to come online.");
+                this->showInformation(QObject::tr("Your komodod is starting up. Please wait."), status);
+                main->logger->write("Waiting for komodod to come online.");
                 // Refresh after one second
                 QTimer::singleShot(1000, [=]() { this->refreshZcashdState(connection, refused); });
             }

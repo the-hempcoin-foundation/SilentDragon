@@ -307,12 +307,12 @@ QString Settings::paymentURIPretty(PaymentURI uri) {
 PaymentURI Settings::parseURI(QString uri) {
     PaymentURI ans;
 
-    if (!uri.startsWith("hush:")) {
+    if (!uri.startsWith("thc:")) {
         ans.error = "Not a HUSH payment URI";
         return ans;
     }
 
-    uri = uri.right(uri.length() - QString("hush:").length());
+    uri = uri.right(uri.length() - QString("thc:").length());
     
     QRegExp re("([a-zA-Z0-9]+)");
     int pos;

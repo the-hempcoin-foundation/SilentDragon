@@ -24,19 +24,19 @@ Head over to the releases page and grab the latest installers or binary. XXXX
 
 HempPay needs a Hush full node running. If you already have a full node running, this wallet will connect to it.
 
-If you don't have one, HempPay will start its embedded hushd node.
+If you don't have one, HempPay will start its embedded komodod node.
 
-Additionally, if this is the first time you're running HempPAY or a hushd daemon, HempPAY will find Sapling params (~50 MB) and configure `HUSH3.conf` for you. 
+Additionally, if this is the first time you're running HempPAY or a komodod daemon, HempPAY will find Sapling params (~50 MB) and configure `HUSH3.conf` for you. 
 
-Pass `--no-embedded` to disable the embedded hushd and force HempPAY to connect to an external node.
+Pass `--no-embedded` to disable the embedded komodod and force HempPAY to connect to an external node.
 
 ## Compiling from source
 
 HempPAY is written in C++ 14, and can be compiled with g++/clang++/visual
 c++. It also depends on Qt5, which you can get from
 [here](https://www.qt.io/download). Note that if you are compiling from source,
-you won't get the embedded hushd by default. You can either run an external
-hushd, or compile hushd as well.
+you won't get the embedded komodod by default. You can either run an external
+komodod, or compile komodod as well.
 
 
 ### Building on Linux

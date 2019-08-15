@@ -81,7 +81,7 @@ void RPC::setEZcashd(std::shared_ptr<QProcess> p) {
     }
 }
 
-// Called when a connection to hushd is available. 
+// Called when a connection to komodod is available. 
 void RPC::setConnection(Connection* c) {
     if (c == nullptr) return;
 
@@ -711,10 +711,10 @@ void RPC::getInfoThenRefresh(bool force) {
             auto zecPrice = Settings::getUSDFormat(1);
             QString tooltip;
             if (connections > 0) {
-                tooltip = QObject::tr("Connected to hushd");
+                tooltip = QObject::tr("Connected to komodod");
             }
             else {
-                tooltip = QObject::tr("hushd has no peer connections! Network issues?");
+                tooltip = QObject::tr("komodod has no peer connections! Network issues?");
             }
             tooltip = tooltip % "(v " % QString::number(Settings::getInstance()->getZcashdVersion()) % ")";
 
@@ -726,14 +726,14 @@ void RPC::getInfoThenRefresh(bool force) {
         });
 
     }, [=](QNetworkReply* reply, const json&) {
-        // hushd has probably disappeared.
+        // komodod has probably disappeared.
         this->noConnection();
 
         // Prevent multiple dialog boxes, because these are called async
         static bool shown = false;
         if (!shown && prevCallSucceeded) { // show error only first time
             shown = true;
-            QMessageBox::critical(main, QObject::tr("Connection Error"), QObject::tr("There was an error connecting to hushd. The error was") + ": \n\n"
+            QMessageBox::critical(main, QObject::tr("Connection Error"), QObject::tr("There was an error connecting to komodod. The error was") + ": \n\n"
                 + reply->errorString(), QMessageBox::StandardButton::Ok);
             shown = false;
         }
@@ -1045,7 +1045,7 @@ void RPC::checkForUpdate(bool silent) {
     if  (conn == nullptr) 
         return noConnection();
 
-    QUrl cmcURL("https://api.github.com/repos/MyHush/SilentDragon/releases");
+    QUrl cmcURL("https://api.github.com/repos/MyHush/HempPAY/releases");
 
     QNetworkRequest req;
     req.setUrl(cmcURL);
@@ -1089,7 +1089,7 @@ void RPC::checkForUpdate(bool silent) {
                             .arg(currentVersion.toString()),
                         QMessageBox::Yes, QMessageBox::Cancel);
                     if (ans == QMessageBox::Yes) {
-                        QDesktopServices::openUrl(QUrl("https://github.com/MyHush/SilentDragon/releases"));
+                        QDesktopServices::openUrl(QUrl("https://github.com/MyHush/HempPAY/releases"));
                     } else {
                         // If the user selects cancel, don't bother them again for this version
                         s.setValue("update/lastversion", maxVersion.toString());
@@ -1190,8 +1190,8 @@ void RPC::shutdownZcashd() {
     Ui_ConnectionDialog connD;
     connD.setupUi(&d);
     connD.topIcon->setBasePixmap(QIcon(":/icons/res/icon.ico").pixmap(256, 256));
-    connD.status->setText(QObject::tr("Please wait for SilentDragon to exit"));
-    connD.statusDetail->setText(QObject::tr("Waiting for hushd to exit"));
+    connD.status->setText(QObject::tr("Please wait for HempPAY to exit"));
+    connD.statusDetail->setText(QObject::tr("Waiting for komodod to exit"));
 
     QTimer waiter(main);
 

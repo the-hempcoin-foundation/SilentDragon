@@ -245,8 +245,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="878"/>
-        <source>hushd</source>
-        <translation>hushd</translation>
+        <source>komodod</source>
+        <translation>komodod</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="908"/>
@@ -406,17 +406,17 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="479"/>
-        <source>Tor configuration is available only when running an embedded hushd.</source>
+        <source>Tor configuration is available only when running an embedded komodod.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="518"/>
-        <source>You&apos;re using an external hushd. Please restart hushd with -rescan</source>
+        <source>You&apos;re using an external komodod. Please restart komodod with -rescan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="521"/>
-        <source>You&apos;re using an external hushd. Please restart hushd with -reindex</source>
+        <source>You&apos;re using an external komodod. Please restart komodod with -reindex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -512,8 +512,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="859"/>
-        <source>The keys will be imported into your connected hushd node</source>
-        <translation>As chaves serão importadas em seu nó hushd conectado</translation>
+        <source>The keys will be imported into your connected komodod node</source>
+        <translation>As chaves serão importadas em seu nó komodod conectado</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="899"/>
@@ -537,8 +537,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="923"/>
-        <source>You need to back it up from the machine hushd is running on</source>
-        <translation>Você precisar salvar a partir da máquina que hushd está rodando</translation>
+        <source>You need to back it up from the machine komodod is running on</source>
+        <translation>Você precisar salvar a partir da máquina que komodod está rodando</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="927"/>
@@ -812,52 +812,52 @@ não se parece com um z-Address</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="52"/>
-        <source>Starting embedded hushd</source>
-        <translation>Iniciando hushd acoplado</translation>
+        <source>Starting embedded komodod</source>
+        <translation>Iniciando komodod acoplado</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>hushd is set to run as daemon</source>
-        <translation>erro no hushd</translation>
+        <source>komodod is set to run as daemon</source>
+        <translation>erro no komodod</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>Waiting for hushd</source>
-        <translation>Esperando pelo hushd</translation>
+        <source>Waiting for komodod</source>
+        <translation>Esperando pelo komodod</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="77"/>
-        <source>You have hushd set to start as a daemon, which can cause problems with ZecWallet
+        <source>You have komodod set to start as a daemon, which can cause problems with ZecWallet
 
 .Please remove the following line from your zcash.conf and restart ZecWallet
 daemon=1</source>
-        <translation>Você tem hushd configurado como daemon, o que pode causar problemas com a ZecWallet
+        <translation>Você tem komodod configurado como daemon, o que pode causar problemas com a ZecWallet
  Por favor, remova a seguinte linha do seu zcash.conf e reinicie a ZecWallet:
 daemon=1</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="82"/>
-        <source>Couldn&apos;t start the embedded hushd.
+        <source>Couldn&apos;t start the embedded komodod.
 
 Please try restarting.
 
-If you previously started hushd with custom arguments, you might need to reset zcash.conf.
+If you previously started komodod with custom arguments, you might need to reset zcash.conf.
 
-If all else fails, please run hushd manually.</source>
-        <translation>Não foi possível iniciar o hushd acoplado.
+If all else fails, please run komodod manually.</source>
+        <translation>Não foi possível iniciar o komodod acoplado.
 Por favor, tenta reiniciar.
-Se você iniciou hushd anteriormente com parâmetros customizados você pode precisar resetar seu zcash.conf.
+Se você iniciou komodod anteriormente com parâmetros customizados você pode precisar resetar seu zcash.conf.
 
-Se ainda assim não der certo, por favor rode hushd manualmente.</translation>
+Se ainda assim não der certo, por favor rode komodod manualmente.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="93"/>
-        <source>Couldn&apos;t connect to hushd configured in zcash.conf.
+        <source>Couldn&apos;t connect to komodod configured in zcash.conf.
 
-Not starting embedded hushd because --no-embedded was passed</source>
-        <translation>Não foi possível conectar ao hushd configurado em zcash.conf.
+Not starting embedded komodod because --no-embedded was passed</source>
+        <translation>Não foi possível conectar ao komodod configurado em zcash.conf.
 
-Não iniciando hushd acoplado porque nenhum foi passado como parâmetro</translation>
+Não iniciando komodod acoplado porque nenhum foi passado como parâmetro</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="146"/>
@@ -937,18 +937,18 @@ Não iniciando hushd acoplado porque nenhum foi passado como parâmetro</transla
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="645"/>
-        <source>Connected to hushd</source>
-        <translation>Conectado ao hushd</translation>
+        <source>Connected to komodod</source>
+        <translation>Conectado ao komodod</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="648"/>
-        <source>hushd has no peer connections</source>
+        <source>komodod has no peer connections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="667"/>
-        <source>There was an error connecting to hushd. The error was</source>
-        <translation>Ocorreu um erro conectando ao hushd. O erro foi</translation>
+        <source>There was an error connecting to komodod. The error was</source>
+        <translation>Ocorreu um erro conectando ao komodod. O erro foi</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="730"/>
@@ -1012,8 +1012,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1111"/>
-        <source>Waiting for hushd to exit</source>
-        <translation>Esperando hushd finalizar</translation>
+        <source>Waiting for komodod to exit</source>
+        <translation>Esperando komodod finalizar</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="295"/>
@@ -1022,8 +1022,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="319"/>
-        <source>hushd error</source>
-        <translation>erro no hushd</translation>
+        <source>komodod error</source>
+        <translation>erro no komodod</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="386"/>
@@ -1036,22 +1036,22 @@ Por favor, coloque o host/porta e usuário/senha no menu Editar&gt;Preferências
     </message>
     <message>
         <location filename="../src/connection.cpp" line="398"/>
-        <source>Could not connect to hushd configured in settings.
+        <source>Could not connect to komodod configured in settings.
 
 Please set the host/port and user/password in the Edit-&gt;Settings menu.</source>
-        <translation>Não foi possível conectar ao hushd configurado nas preferências.
+        <translation>Não foi possível conectar ao komodod configurado nas preferências.
 
 Por favor, coloque o host/porta e usuário/senha no menu Editar&gt;Preferências.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="459"/>
-        <source>Authentication failed. The username / password you specified was not accepted by hushd. Try changing it in the Edit-&gt;Settings menu</source>
-        <translation>Autenticação falhou. O usuário/senha especificado não foi aceitado pelo hushd. Tente alterá-los em Editar-&gt;Preferências</translation>
+        <source>Authentication failed. The username / password you specified was not accepted by komodod. Try changing it in the Edit-&gt;Settings menu</source>
+        <translation>Autenticação falhou. O usuário/senha especificado não foi aceitado pelo komodod. Tente alterá-los em Editar-&gt;Preferências</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="474"/>
-        <source>Your hushd is starting up. Please wait.</source>
-        <translation>Seu hushd está iniciando. Por favor aguarde.</translation>
+        <source>Your komodod is starting up. Please wait.</source>
+        <translation>Seu komodod está iniciando. Por favor aguarde.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="491"/>
@@ -1321,8 +1321,8 @@ Você possui fundos não confirmados ou o saldo é muito baixo para uma migraç�
     </message>
     <message>
         <location filename="../src/settings.ui" line="33"/>
-        <source>hushd connection</source>
-        <translation>Conexão com hushd</translation>
+        <source>komodod connection</source>
+        <translation>Conexão com komodod</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="62"/>
@@ -1557,7 +1557,7 @@ Você possui fundos não confirmados ou o saldo é muito baixo para uma migraç�
     </message>
     <message>
         <location filename="../src/confirm.ui" line="155"/>
-        <source>hushd doesn&apos;t seem to have any peers. You might not be connected to the internet, so this Transaction might not work.</source>
+        <source>komodod doesn&apos;t seem to have any peers. You might not be connected to the internet, so this Transaction might not work.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

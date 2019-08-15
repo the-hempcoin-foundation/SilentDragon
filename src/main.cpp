@@ -156,7 +156,7 @@ public:
         parser.addOption(headlessOption);
 
         // No embedded will disable the embedded zcashd node
-        QCommandLineOption noembeddedOption(QStringList() << "no-embedded", "Disable embedded hushd");
+        QCommandLineOption noembeddedOption(QStringList() << "no-embedded", "Disable embedded komodod");
         parser.addOption(noembeddedOption);
 
         // Positional argument will specify a zcash payment URI
@@ -174,7 +174,7 @@ public:
         } 
 
         QCoreApplication::setOrganizationName("Hush");
-        QCoreApplication::setApplicationName("SilentDragon");
+        QCoreApplication::setApplicationName("HempPAY");
 
         QString locale = QLocale::system().name();
         locale.truncate(locale.lastIndexOf('_'));   // Get the language code
@@ -219,7 +219,7 @@ public:
         }
 
         w = new MainWindow();
-        w->setWindowTitle("SilentDragon v" + QString(APP_VERSION));
+        w->setWindowTitle("HempPAY v" + QString(APP_VERSION));
 
         // If there was a payment URI on the command line, pay it
         if (parser.positionalArguments().length() > 0) {
