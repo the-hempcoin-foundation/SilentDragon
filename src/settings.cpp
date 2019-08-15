@@ -201,9 +201,9 @@ const QString Settings::txidStatusMessage = QString(QObject::tr("Tx submitted (r
 
 QString Settings::getTokenName() {
     if (Settings::getInstance()->isTestnet()) {
-        return "HUSHT";
+        return "THCT";
     } else {
-        return "HUSH";
+        return "THC";
     }
 }
 
@@ -308,7 +308,7 @@ PaymentURI Settings::parseURI(QString uri) {
     PaymentURI ans;
 
     if (!uri.startsWith("thc:")) {
-        ans.error = "Not a HUSH payment URI";
+        ans.error = "Not a THC payment URI";
         return ans;
     }
 
