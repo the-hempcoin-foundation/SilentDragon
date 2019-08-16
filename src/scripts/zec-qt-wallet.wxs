@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="hemppay vRELEASE_VERSION" Language="1033" Version="RELEASE_VERSION" Manufacturer="hush-org" UpgradeCode="fb9bf166-b55f-46b5-a990-9189bdf64533">
+	<Product Id="*" Name="hemppay vRELEASE_VERSION" Language="1033" Version="RELEASE_VERSION" Manufacturer="thc-org" UpgradeCode="fb9bf166-b55f-46b5-a990-9189bdf64533">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -65,9 +65,9 @@
                 <File Source="komodo-cli.exe" />
                 <File Source="README.md" />
 
-                <RegistryKey Root="HKCR" Key="hush">
+                <RegistryKey Root="HKCR" Key="thc">
                     <RegistryValue Type="string" Name="URL Protocol" Value=""/>
-                    <RegistryValue Type="string" Value="URL:hush URI protocol"/>
+                    <RegistryValue Type="string" Value="URL:thc URI protocol"/>
                     <RegistryKey Key="DefaultIcon">
                     <RegistryValue Type="string" Value="hemppay.exe" />
                     </RegistryKey>

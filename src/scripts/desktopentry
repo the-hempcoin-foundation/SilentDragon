@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=HempPAY
-Comment=Full node and wallet for Hush
+Comment=Full node and wallet for THC
 GenericName=Wallet
 Exec=/usr/local/bin/hemppay %u
 Icon=hemppay.xpm
@@ -8,6 +8,6 @@ Type=Application
 StartupNotify=true
 StartupWMClass=hemppay
 Categories=Utility;
-MimeType=x-scheme-handler/hush;
+MimeType=x-scheme-handler/thc;
 Keywords=hemppay;
 
