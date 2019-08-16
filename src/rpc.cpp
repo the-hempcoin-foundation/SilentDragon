@@ -1115,7 +1115,7 @@ void RPC::refreshZECPrice() {
         return noConnection();
 
     // TODO: use/render all this data
-    QUrl cmcURL("https://api.coingecko.com/api/v3/simple/price?ids=hush&vs_currencies=btc%2Cusd%2Ceur&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true");
+    QUrl cmcURL("https://api.coingecko.com/api/v3/simple/price?ids=thc&vs_currencies=btc%2Cusd%2Ceur&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true");
     QNetworkRequest req;
     req.setUrl(cmcURL);
     QNetworkReply *reply = conn->restclient->get(req);
@@ -1146,18 +1146,18 @@ void RPC::refreshZECPrice() {
             qDebug() << "Parsed JSON";
 
             const json& item  = parsed.get<json::object_t>();
-            const json& hush  = item["hush"].get<json::object_t>();
+            const json& thc  = item["thc"].get<json::object_t>();
 
-            if (hush["usd"] >= 0) {
-                qDebug() << "Found hush key in price json";
+            if (thc["usd"] >= 0) {
+                qDebug() << "Found thc key in price json";
                 // TODO: support BTC/EUR prices as well
-                //QString price = QString::fromStdString(hush["usd"].get<json::string_t>());
-                qDebug() << "THC = $" << QString::number((double)hush["usd"]);
-                Settings::getInstance()->setZECPrice( hush["usd"] );
+                //QString price = QString::fromStdString(thc["usd"].get<json::string_t>());
+                qDebug() << "THC = $" << QString::number((double)thc["usd"]);
+                Settings::getInstance()->setZECPrice( thc["usd"] );
 
                 return;
             } else {
-                qDebug() << "No hush key found in JSON! API might be down or we are rate-limited\n";
+                qDebug() << "No thc key found in JSON! API might be down or we are rate-limited\n";
             }
         } catch (const std::exception& e) {
             // If anything at all goes wrong, just set the price to 0 and move on.
