@@ -88,7 +88,7 @@ void RPC::setConnection(Connection* c) {
     delete conn;
     this->conn = c;
 
-    ui->statusBar->showMessage("Ready! Thank you for helping secure the Hush network by running a full node.");
+    ui->statusBar->showMessage("Ja bless and thanks for helping secure the THC network by running a full node!");
 
     // See if we need to remove the reindex/rescan flags from the zcash.conf file
     auto zcashConfLocation = Settings::getInstance()->getZcashdConfLocation();
@@ -1045,7 +1045,7 @@ void RPC::checkForUpdate(bool silent) {
     if  (conn == nullptr) 
         return noConnection();
 
-    QUrl cmcURL("https://api.github.com/repos/MyHush/HempPAY/releases");
+    QUrl cmcURL("https://api.github.com/repos/the-hemp-foundation/HempPAY/releases");
 
     QNetworkRequest req;
     req.setUrl(cmcURL);
@@ -1089,7 +1089,7 @@ void RPC::checkForUpdate(bool silent) {
                             .arg(currentVersion.toString()),
                         QMessageBox::Yes, QMessageBox::Cancel);
                     if (ans == QMessageBox::Yes) {
-                        QDesktopServices::openUrl(QUrl("https://github.com/MyHush/HempPAY/releases"));
+                        QDesktopServices::openUrl(QUrl("https://github.com/the-hempcoin-foundation/HempPAY/releases"));
                     } else {
                         // If the user selects cancel, don't bother them again for this version
                         s.setValue("update/lastversion", maxVersion.toString());

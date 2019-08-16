@@ -83,7 +83,7 @@
    <item row="2" column="1">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Your Hush node will be configured for you automatically</string>
+      <string>Your THC node will be configured for you automatically</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

@@ -12,7 +12,7 @@ case $key in
     shift # past argument
     shift # past value
     ;;
-    -h|--hush_path)
+    -h|--thc_path)
     THC_DIR="$2"
     shift # past argument
     shift # past value
@@ -81,8 +81,8 @@ mkdir artifacts >/dev/null 2>&1
 rm -f artifcats/hemppay.dmg >/dev/null 2>&1
 rm -f artifacts/rw* >/dev/null 2>&1
 cp $THC_DIR/src/komodod hemppay.app/Contents/MacOS/
-cp $THC_DIR/src/hush-cli hemppay.app/Contents/MacOS/
-cp $THC_DIR/src/komodod hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/thc-cli hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/thcd hemppay.app/Contents/MacOS/
 cp $THC_DIR/src/komodo-cli hemppay.app/Contents/MacOS/
 $QT_PATH/bin/macdeployqt hemppay.app 
 echo "[OK]"

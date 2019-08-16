@@ -4,6 +4,6 @@ Section: base
 Priority: optional
 Architecture: amd64
 Maintainer: Duke Leto <duke@leto.net>
-Description: HempPAY is a full node and UI wallet for Hush.
- HempPAY is a full node and UI wallet for Hush. It comes with 
- full support for shielded addresses and many apps for Hush.
+Description: HempPAY is a full node and UI wallet for Hempcoin.
+ HempPAY is a full node and UI wallet for Hempcoin. It comes with 
+ full support for shielded addresses and many apps for Hempcoin.

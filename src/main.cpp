@@ -148,7 +148,7 @@ public:
 
         // Command line parser
         QCommandLineParser parser;
-        parser.setApplicationDescription("Shielded desktop wallet and embedded full node for Hush");
+        parser.setApplicationDescription("Shielded desktop wallet and embedded full node for Hempcoin");
         parser.addHelpOption();
 
         // A boolean option for running it headless
@@ -173,7 +173,7 @@ public:
             return 0;            
         } 
 
-        QCoreApplication::setOrganizationName("Hush");
+        QCoreApplication::setOrganizationName("Hempcoin");
         QCoreApplication::setApplicationName("HempPAY");
 
         QString locale = QLocale::system().name();
@@ -187,7 +187,6 @@ public:
         QIcon icon(":/icons/res/icon.ico");
         QApplication::setWindowIcon(icon);
 
-        // TODO: update for SD
         #ifdef Q_OS_LINUX
             QFontDatabase::addApplicationFont(":/fonts/res/Ubuntu-R.ttf");
             qApp->setFont(QFont("Ubuntu", 11, QFont::Normal, false));

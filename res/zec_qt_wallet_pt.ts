@@ -1095,7 +1095,7 @@ Por favor, coloque o host/porta e usuário/senha no menu Editar&gt;Preferências
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="128"/>
-        <source> doesn&apos;t seem to be a valid Hush address.</source>
+        <source> doesn&apos;t seem to be a valid THC address.</source>
         <translation> não aparenter ser um endereço válido de HUSH.</translation>
     </message>
     <message>
@@ -1585,7 +1585,7 @@ Você possui fundos não confirmados ou o saldo é muito baixo para uma migraç�
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="86"/>
-        <source>Your Hush node will be configured for you automatically</source>
+        <source>Your THC node will be configured for you automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

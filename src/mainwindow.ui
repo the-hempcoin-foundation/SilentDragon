@@ -944,7 +944,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_14">
           <item>
-           <widget class="FilledIconLabel" name="hushlogo">
+           <widget class="FilledIconLabel" name="thclogo">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1384,12 +1384,12 @@
   </action>
   <action name="actionDiscord">
    <property name="text">
-    <string>&amp;Hush Discord</string>
+    <string>&amp;THC Discord</string>
    </property>
   </action>
   <action name="actionWebsite">
    <property name="text">
-    <string>&amp;Hush Website</string>
+    <string>&amp;THC Website</string>
    </property>
   </action>
   <action name="actionCheck_for_Updates">

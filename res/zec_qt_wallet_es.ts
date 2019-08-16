@@ -1138,7 +1138,7 @@ El saldo es insuficiente para una migración automática.
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="128"/>
-        <source> doesn&apos;t seem to be a valid Hush address.</source>
+        <source> doesn&apos;t seem to be a valid THC address.</source>
         <translation>no parece ser una dirección HUSH válida</translation>
     </message>
     <message>
@@ -1586,7 +1586,7 @@ El saldo es insuficiente para una migración automática.
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="86"/>
-        <source>Your Hush node will be configured for you automatically</source>
+        <source>Your THC node will be configured for you automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

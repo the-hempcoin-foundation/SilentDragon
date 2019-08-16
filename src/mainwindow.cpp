@@ -54,12 +54,12 @@ MainWindow::MainWindow(QWidget *parent) :
         rpc->checkForUpdate(false);
     });
 
-    // Request hush
+    // Request THC
     QObject::connect(ui->actionRequest_zcash, &QAction::triggered, [=]() {
         RequestDialog::showRequestZcash(this);
     });
 
-    // Pay Zcash URI
+    // Pay URI
     QObject::connect(ui->actionPay_URI, &QAction::triggered, [=] () {
         payZcashURI();
     });
@@ -627,7 +627,7 @@ void MainWindow::donate() {
     ui->Address1->setText(Settings::getDonationAddr(true));
     ui->Address1->setCursorPosition(0);
     ui->Amount1->setText("0.00");
-    ui->MemoTxt1->setText(tr("Some feedback about HempPAY or Hush..."));
+    ui->MemoTxt1->setText(tr("Some feedback about HempPAY ..."));
 
     ui->statusBar->showMessage(tr("Send Boba some private and shielded feedback about ") % Settings::getTokenName() % tr(" or HempPAY"));
 
@@ -833,7 +833,7 @@ void MainWindow::balancesReady() {
     // There is a pending URI payment (from the command line, or from a secondary instance),
     // process it.
     if (!pendingURIPayment.isEmpty()) {
-        qDebug() << "Paying hush URI";
+        qDebug() << "Paying THC URI";
         payZcashURI(pendingURIPayment);
         pendingURIPayment = "";
     }
@@ -916,7 +916,7 @@ void MainWindow::importPrivKey() {
     pui.buttonBox->button(QDialogButtonBox::Save)->setVisible(false);
     pui.helpLbl->setText(QString() %
                         tr("Please paste your private keys here, one per line") % ".\n" %
-                        tr("The keys will be imported into your connected Hush node"));  
+                        tr("The keys will be imported into your connected Hempcoin node"));  
 
     if (d.exec() == QDialog::Accepted && !pui.privKeyTxt->toPlainText().trimmed().isEmpty()) {
         auto rawkeys = pui.privKeyTxt->toPlainText().trimmed().split("\n");
@@ -957,7 +957,7 @@ void MainWindow::importPrivKey() {
  */
 void MainWindow::exportTransactions() {
     // First, get the export file name
-    QString exportName = "hush-transactions-" + QDateTime::currentDateTime().toString("yyyyMMdd") + ".csv";
+    QString exportName = "thc-transactions-" + QDateTime::currentDateTime().toString("yyyyMMdd") + ".csv";
 
     QUrl csvName = QFileDialog::getSaveFileUrl(this, 
             tr("Export transactions"), exportName, "CSV file (*.csv)");
@@ -980,7 +980,7 @@ void MainWindow::backupWalletDat() {
         return;
 
     QDir zcashdir(rpc->getConnection()->config->zcashDir);
-    QString backupDefaultName = "hush-wallet-backup-" + QDateTime::currentDateTime().toString("yyyyMMdd") + ".dat";
+    QString backupDefaultName = "thc-wallet-backup-" + QDateTime::currentDateTime().toString("yyyyMMdd") + ".dat";
 
     if (Settings::getInstance()->isTestnet()) {
         zcashdir.cd("testnet3");
@@ -1038,7 +1038,7 @@ void MainWindow::exportKeys(QString addr) {
     // Wire up save button
     QObject::connect(pui.buttonBox->button(QDialogButtonBox::Save), &QPushButton::clicked, [=] () {
         QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-                           allKeys ? "hush-all-privatekeys.txt" : "hush-privatekey.txt");
+                           allKeys ? "thc-all-privatekeys.txt" : "thc-privatekey.txt");
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly)) {
             QMessageBox::information(this, tr("Unable to open file"), file.errorString());
@@ -1182,7 +1182,7 @@ void MainWindow::setupBalancesTab() {
             });
         }
 
-        //TODO: No sprout UTXOs on the Hush chain, should we remove all turnstile code?
+        //TODO: No sprout UTXOs on the THC chain, should we remove all turnstile code?
         if (Settings::getInstance()->isSproutAddress(addr)) {
             menu.addAction(tr("Migrate to Sapling"), [=] () {
                 this->turnstileDoMigration(addr);
@@ -1194,7 +1194,7 @@ void MainWindow::setupBalancesTab() {
 }
 
 void MainWindow::setupZcashdTab() {    
-    ui->hushlogo->setBasePixmap(QPixmap(":/img/res/zcashdlogo.gif"));
+    ui->thclogo->setBasePixmap(QPixmap(":/img/res/zcashdlogo.gif"));
 }
 
 void MainWindow::setupTransactionsTab() {

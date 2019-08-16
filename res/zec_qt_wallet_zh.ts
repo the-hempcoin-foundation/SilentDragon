@@ -389,8 +389,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1179"/>
-        <source>Pay Hush &amp;URI...</source>
-        <translation>支付hush &amp;URI ...</translation>
+        <source>Pay THC &amp;URI...</source>
+        <translation>支付thc &amp;URI ...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1184"/>
@@ -409,8 +409,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1197"/>
-        <source>Request Hush...</source>
-        <translation>请求 Hush...</translation>
+        <source>Request THC...</source>
+        <translation>请求 THC...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1202"/>
@@ -510,13 +510,13 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="837"/>
-        <source>Paste Hush URI</source>
-        <translation>粘贴Hush URI</translation>
+        <source>Paste THC URI</source>
+        <translation>粘贴THC URI</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="849"/>
-        <source>Error paying hush URI</source>
-        <translation>支付hush URI时出错</translation>
+        <source>Error paying thc URI</source>
+        <translation>支付thc URI时出错</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="850"/>
@@ -905,8 +905,8 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="135"/>
-        <source>%1 doesn&apos;t seem to be a valid Hush address.</source>
-        <translation>%1 似乎不是有效的Hush地址。</translation>
+        <source>%1 doesn&apos;t seem to be a valid THC address.</source>
+        <translation>%1 似乎不是有效的THC地址。</translation>
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="143"/>
@@ -1573,13 +1573,13 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="219"/>
-        <source>Request payment from a Sapling address. You&apos;ll send a HUSH 0.0001 transaction to the address with a hush payment URI. The memo will be included in the transaction when the address pays you.</source>
-        <translation>要求从树苗地址付款。 您将使用hush支付URI将ZEC 0.0001交易发送到该地址。 当地址付款时，备注将包含在交易中。</translation>
+        <source>Request payment from a Sapling address. You&apos;ll send a HUSH 0.0001 transaction to the address with a thc payment URI. The memo will be included in the transaction when the address pays you.</source>
+        <translation>要求从树苗地址付款。 您将使用thc支付URI将THC 0.0001交易发送到该地址。 当地址付款时，备注将包含在交易中。</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="50"/>
-        <source>Error paying hush URI</source>
-        <translation>支付hush URI时出错</translation>
+        <source>Error paying thc URI</source>
+        <translation>支付thc URI时出错</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="51"/>
@@ -1701,13 +1701,13 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/settings.ui" line="273"/>
-        <source>Connect to the internet to fetch ZEC prices</source>
-        <translation>连接到互联网以获取ZEC价格</translation>
+        <source>Connect to the internet to fetch THC prices</source>
+        <translation>连接到互联网以获取THC价格</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="280"/>
-        <source>Fetch ZEC / USD prices</source>
-        <translation>获取 ZEC/USD 价格</translation>
+        <source>Fetch THC / USD prices</source>
+        <translation>获取 THC/USD 价格</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="288"/>
@@ -1900,13 +1900,13 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     <name>createZcashConf</name>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="14"/>
-        <source>Configure hush.conf</source>
-        <translation>配置 hush.conf</translation>
+        <source>Configure THC.conf</source>
+        <translation>配置 THC.conf</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="20"/>
-        <source>Your Hush node will be configured for you automatically</source>
-        <translation>您的hush节点将自动为您配置</translation>
+        <source>Your THC node will be configured for you automatically</source>
+        <translation>您的thc节点将自动为您配置</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="30"/>
@@ -1920,8 +1920,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="112"/>
-        <source>Allow connections to the internet to check for updates, get ZEC/USD prices etc...</source>
-        <translation>允许连接到互联网检查更新，获得ZEC/USD价格等…</translation>
+        <source>Allow connections to the internet to check for updates, get THC/USD prices etc...</source>
+        <translation>允许连接到互联网检查更新，获得THC/USD价格等…</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="119"/>

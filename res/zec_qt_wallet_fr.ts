@@ -1113,7 +1113,7 @@ Veuillez configurer l&apos;hôte/port et utilisateur/mot de passe dans le menu E
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="128"/>
-        <source> doesn&apos;t seem to be a valid Hush address.</source>
+        <source> doesn&apos;t seem to be a valid THC address.</source>
         <translation> ne semble pas être une adresse HUSH valide.</translation>
     </message>
     <message>
@@ -1603,8 +1603,8 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="86"/>
-        <source>Your Hush node will be configured for you automatically</source>
-        <translation>Votre nœud Hush sera configuré pour vous automatiquement</translation>
+        <source>Your THC node will be configured for you automatically</source>
+        <translation>Votre nœud THC sera configuré pour vous automatiquement</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="102"/>
