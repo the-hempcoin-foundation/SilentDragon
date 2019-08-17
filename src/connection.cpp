@@ -191,7 +191,7 @@ void ConnectionLoader::createZcashConf() {
     out << "server=1\n";
     out << "rpcuser=thc\n";
     out << "rpcpassword=" % randomPassword() << "\n";
-    out << "rpcport=18031\n";
+    out << "rpcport=36790\n";
     out << "txindex=1\n";
     out << "addressindex=1\n";
     out << "spentindex=1\n";
@@ -658,7 +658,7 @@ std::shared_ptr<ConnectionConfig> ConnectionLoader::autoDetectZcashConf() {
     }
 
     // If rpcport is not in the file, and it was not set by the testnet=1 flag, then go to default
-    if (zcashconf->port.isEmpty()) zcashconf->port = "18031";
+    if (zcashconf->port.isEmpty()) zcashconf->port = "36790";
     file.close();
 
     // In addition to the THC/THC.conf file, also double check the params. 
