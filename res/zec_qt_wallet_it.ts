@@ -1016,9 +1016,9 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1110"/>
-        <source>Please wait for SilentDragon to exit</source>
+        <source>Please wait for HempPAY to exit</source>
         <translatorcomment>controllare, senza contesto potrebbe voler dire  &quot;attendere zec qt wallet per uscire&quot; o altro, non ho contesto</translatorcomment>
-        <translation>Si prega di attendere che SilentDragon finisca la procedura di uscita</translation>
+        <translation>Si prega di attendere che HempPAY finisca la procedura di uscita</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1111"/>
@@ -1192,7 +1192,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/websockets.cpp" line="345"/>
-        <source>Connected over the internet via SilentDragon wormhole service</source>
+        <source>Connected over the internet via HempPAY wormhole service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1386,7 +1386,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/settings.ui" line="287"/>
-        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart SilentDragon for this to take effect</source>
+        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart HempPAY for this to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1396,7 +1396,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/settings.ui" line="331"/>
-        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart SilentDragon for this to take effect</source>
+        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart HempPAY for this to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

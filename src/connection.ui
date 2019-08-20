@@ -55,7 +55,7 @@
    <item>
     <widget class="QLabel" name="status">
      <property name="text">
-      <string>The Dragon Awakens...</string>
+      <string>Spinning Up A THC Node...</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

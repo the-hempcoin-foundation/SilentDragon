@@ -32,7 +32,7 @@
     <message>
         <location filename="../src/connection.ui" line="17"/>
         <source>ZecWallet</source>
-        <translation>SilentDragon</translation>
+        <translation>HempPAY</translation>
     </message>
     <message>
         <location filename="../src/connection.ui" line="58"/>
@@ -45,7 +45,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
         <source>ZecWallet</source>
-        <translation>SilentDragon</translation>
+        <translation>HempPAY</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="29"/>
@@ -446,8 +446,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="612"/>
-        <source>Thanks for supporting SilentDragon!</source>
-        <translation>Merci de supporter SilentDragon !</translation>
+        <source>Thanks for supporting HempPAY!</source>
+        <translation>Merci de supporter HempPAY !</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="614"/>
@@ -456,8 +456,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="614"/>
-        <source> to support SilentDragon</source>
-        <translation> pour supporter SilentDragon</translation>
+        <source> to support HempPAY</source>
+        <translation> pour supporter HempPAY</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="651"/>
@@ -487,13 +487,13 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="580"/>
-        <source>SilentDragon needs to restart to rescan/reindex. SilentDragon will now close, please restart SilentDragon to continue</source>
-        <translation>SilentDragon doit redémarrer pour rescan/reindex. SilentDragon va maintenant fermer, veuillez redémarrer SilentDragon pour continuer</translation>
+        <source>HempPAY needs to restart to rescan/reindex. HempPAY will now close, please restart HempPAY to continue</source>
+        <translation>HempPAY doit redémarrer pour rescan/reindex. HempPAY va maintenant fermer, veuillez redémarrer HempPAY pour continuer</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="582"/>
-        <source>Restart SilentDragon</source>
-        <translation>Redémarrer SilentDragon</translation>
+        <source>Restart HempPAY</source>
+        <translation>Redémarrer HempPAY</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="822"/>
@@ -1025,8 +1025,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1110"/>
-        <source>Please wait for SilentDragon to exit</source>
-        <translation>Veuillez patienter. Fermeture de SilentDragon en cours</translation>
+        <source>Please wait for HempPAY to exit</source>
+        <translation>Veuillez patienter. Fermeture de HempPAY en cours</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1111"/>
@@ -1200,8 +1200,8 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     </message>
     <message>
         <location filename="../src/websockets.cpp" line="345"/>
-        <source>Connected over the internet via SilentDragon wormhole service</source>
-        <translation>Connecté sur Internet via le service SilentDragon Wormhole</translation>
+        <source>Connected over the internet via HempPAY wormhole service</source>
+        <translation>Connecté sur Internet via le service HempPAY Wormhole</translation>
     </message>
     <message>
         <location filename="../src/websockets.cpp" line="646"/>
@@ -1394,8 +1394,8 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     </message>
     <message>
         <location filename="../src/settings.ui" line="287"/>
-        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart SilentDragon for this to take effect</source>
-        <translation>Rescanner la blockchain pour détecter toute transaction de portefeuille manquante et corriger le solde de votre portefeuille. Cela peut prendre plusieurs heures. Vous devez redémarrer SilentDragon pour que cela prenne effet</translation>
+        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart HempPAY for this to take effect</source>
+        <translation>Rescanner la blockchain pour détecter toute transaction de portefeuille manquante et corriger le solde de votre portefeuille. Cela peut prendre plusieurs heures. Vous devez redémarrer HempPAY pour que cela prenne effet</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="297"/>
@@ -1404,8 +1404,8 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     </message>
     <message>
         <location filename="../src/settings.ui" line="331"/>
-        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart SilentDragon for this to take effect</source>
-        <translation>Reconstruisez l&apos;intégralité de la blockchain à partir du bloc genesis en analysant à nouveau tous les fichiers de bloc Cela peut prendre plusieurs heures à plusieurs jours, selon votre matériel. Vous devez redémarrer SilentDragon pour que cela prenne effet</translation>
+        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart HempPAY for this to take effect</source>
+        <translation>Reconstruisez l&apos;intégralité de la blockchain à partir du bloc genesis en analysant à nouveau tous les fichiers de bloc Cela peut prendre plusieurs heures à plusieurs jours, selon votre matériel. Vous devez redémarrer HempPAY pour que cela prenne effet</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="161"/>

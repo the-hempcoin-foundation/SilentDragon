@@ -997,7 +997,7 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1110"/>
-        <source>Please wait for SilentDragon to exit</source>
+        <source>Please wait for HempPAY to exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1167,7 +1167,7 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/websockets.cpp" line="345"/>
-        <source>Connected over the internet via SilentDragon wormhole service</source>
+        <source>Connected over the internet via HempPAY wormhole service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1361,7 +1361,7 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/settings.ui" line="287"/>
-        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart SilentDragon for this to take effect</source>
+        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart HempPAY for this to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1371,7 +1371,7 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/settings.ui" line="331"/>
-        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart SilentDragon for this to take effect</source>
+        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart HempPAY for this to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
