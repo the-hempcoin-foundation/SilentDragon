@@ -222,6 +222,11 @@ void ConnectionLoader::downloadParams(std::function<void(void)> cb) {
 
     downloadQueue->enqueue(QUrl("https://z.cash/downloads/sapling-output.params"));
     downloadQueue->enqueue(QUrl("https://z.cash/downloads/sapling-spend.params"));
+    /* TODO not actually needed, but komodod changes are needed */
+    downloadQueue->enqueue(QUrl("https://z.cash/downloads/sprout-groth16.params"));
+    downloadQueue->enqueue(QUrl("https://z.cash/downloads/sprout-proving.key"));
+    downloadQueue->enqueue(QUrl("https://z.cash/downloads/sprout-verifying.key"));
+
 
     doNextDownload(cb);    
 }
@@ -577,29 +582,16 @@ bool ConnectionLoader::verifyParams() {
 
     qDebug() << "Verifying sapling param files exist";
 
+    /* TODO avoid sprout by using librustzcash from Hush */
+    if (!QFile(paramsDir.filePath("sapling-output.params")).exists()) return false;
+    if (!QFile(paramsDir.filePath("sapling-spend.params")).exists()) return false;
+    if (!QFile(paramsDir.filePath("sprout-groth16.params")).exists()) return false;
+    if (!QFile(paramsDir.filePath("sprout-proving.key")).exists()) return false;
+    if (!QFile(paramsDir.filePath("sprout-verifying.key")).exists()) return false;
 
-    if( QFile( QDir(".").filePath("sapling-output.params") ).exists() && QFile( QDir(".").filePath("sapling-output.params") ).exists() ) {
-        qDebug() << "Found params in .";
-        return true;
-    }
 
-    if( QFile( QDir("..").filePath("sapling-output.params") ).exists() && QFile( QDir("..").filePath("sapling-output.params") ).exists() ) {
-        qDebug() << "Found params in ..";
-        return true;
-    }
-
-    if( QFile( QDir("..").filePath("hush3/sapling-output.params") ).exists() && QFile( QDir("..").filePath("hush3/sapling-output.params") ).exists() ) {
-        qDebug() << "Found params in ../hush3";
-        return true;
-    }
-
-    if (QFile(paramsDir.filePath("sapling-output.params")).exists() && QFile(paramsDir.filePath("sapling-spend.params")).exists()) {
-        qDebug() << "Found params in " << paramsDir;
-        return true;
-    }
-
-    qDebug() << "Did not find Sapling params!";
-    return false;
+    qDebug() << "Found all params!";
+    return true;
 }
 
 /**
@@ -609,7 +601,7 @@ std::shared_ptr<ConnectionConfig> ConnectionLoader::autoDetectZcashConf() {
     auto confLocation = locateZcashConfFile();
 
     if (confLocation.isNull()) {
-        // No Zcash file, just return with nothing
+        // No conf file, just return with nothing
         return nullptr;
     }
 
