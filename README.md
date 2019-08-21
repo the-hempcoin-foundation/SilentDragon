@@ -21,7 +21,7 @@ Head over to the releases page and grab the latest installers or binary. XXXX
 
 ## thcd
 
-HempPay needs a Hush full node running. If you already have a full node running, this wallet will connect to it.
+HempPay needs a THC full node running. If you already have a full node running, this wallet will connect to it.
 
 If you don't have one, HempPay will start its embedded komodod node.
 

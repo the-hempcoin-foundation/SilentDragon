@@ -391,8 +391,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1147"/>
-        <source>Pay HUSH URI...</source>
-        <translation>Payer une URI en HUSH</translation>
+        <source>Pay THC URI...</source>
+        <translation>Payer une URI en THC</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1152"/>
@@ -406,8 +406,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1160"/>
-        <source>Request HUSH...</source>
-        <translation>Demander un paiement en HUSH</translation>
+        <source>Request THC...</source>
+        <translation>Demander un paiement en THC</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="479"/>
@@ -497,8 +497,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="822"/>
-        <source>Error paying HUSH URI</source>
-        <translation>Erreur lors du payement du URI HUSH</translation>
+        <source>Error paying THC URI</source>
+        <translation>Erreur lors du payement du URI THC</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="823"/>
@@ -507,8 +507,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="810"/>
-        <source>Paste HUSH URI</source>
-        <translation>Coller le URI HUSH</translation>
+        <source>Paste THC URI</source>
+        <translation>Coller le URI THC</translation>
     </message>
     <message>
         <source>Could not understand address</source>
@@ -1114,7 +1114,7 @@ Veuillez configurer l&apos;hôte/port et utilisateur/mot de passe dans le menu E
     <message>
         <location filename="../src/addressbook.cpp" line="128"/>
         <source> doesn&apos;t seem to be a valid THC address.</source>
-        <translation> ne semble pas être une adresse HUSH valide.</translation>
+        <translation> ne semble pas être une adresse THC valide.</translation>
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="138"/>
@@ -1296,13 +1296,13 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="219"/>
-        <source>Request payment from a Sapling address. You&apos;ll send a HUSH 0.0001 transaction to the address with a HUSH payment URI. The memo will be included in the transaction when the address pays you.</source>
-        <translation>Demander un paiement depuis une adresse Sapling. Vous enverrez une transaction HUSH 0.0001 à l&apos;adresse avec un URI de paiement HUSH. Le mémo sera inclus dans la transaction lorsque vous serez payé.</translation>
+        <source>Request payment from a Sapling address. You&apos;ll send a THC 0.0001 transaction to the address with a THC payment URI. The memo will be included in the transaction when the address pays you.</source>
+        <translation>Demander un paiement depuis une adresse Sapling. Vous enverrez une transaction THC 0.0001 à l&apos;adresse avec un URI de paiement THC. Le mémo sera inclus dans la transaction lorsque vous serez payé.</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="50"/>
-        <source>Error paying HUSH URI</source>
-        <translation type="unfinished">Erreur lors du payement du URI HUSH</translation>
+        <source>Error paying THC URI</source>
+        <translation type="unfinished">Erreur lors du payement du URI THC</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="51"/>

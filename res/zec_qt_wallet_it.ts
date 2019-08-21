@@ -1106,7 +1106,7 @@ Impostare host/porta e utente/password nel menu Modifica-&gt; Impostazioni.</tra
     <message>
         <location filename="../src/addressbook.cpp" line="128"/>
         <source> doesn&apos;t seem to be a valid THC address.</source>
-        <translation> Non sembra un indirizzo HUSH Valido.</translation>
+        <translation> Non sembra un indirizzo THC Valido.</translation>
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="138"/>
@@ -1288,12 +1288,12 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="219"/>
-        <source>Request payment from a Sapling address. You&apos;ll send a HUSH 0.0001 transaction to the address with a HUSH payment URI. The memo will be included in the transaction when the address pays you.</source>
+        <source>Request payment from a Sapling address. You&apos;ll send a THC 0.0001 transaction to the address with a THC payment URI. The memo will be included in the transaction when the address pays you.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="50"/>
-        <source>Error paying HUSH URI</source>
+        <source>Error paying THC URI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
