@@ -250,8 +250,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="878"/>
-        <source>komodod</source>
-        <translation>komodod</translation>
+        <source>thcd</source>
+        <translation>thcd</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="908"/>
@@ -411,18 +411,18 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="479"/>
-        <source>Tor configuration is available only when running an embedded komodod.</source>
-        <translation>La configuration de Tor est disponible uniquement lors de l&apos;exécution du processus komodod intégré. </translation>
+        <source>Tor configuration is available only when running an embedded thcd.</source>
+        <translation>La configuration de Tor est disponible uniquement lors de l&apos;exécution du processus thcd intégré. </translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="518"/>
-        <source>You&apos;re using an external komodod. Please restart komodod with -rescan</source>
-        <translation>Vous utilisez un komodod externe. Veuillez redémarrer komodod avec -rescan</translation>
+        <source>You&apos;re using an external thcd. Please restart thcd with -rescan</source>
+        <translation>Vous utilisez un thcd externe. Veuillez redémarrer thcd avec -rescan</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="521"/>
-        <source>You&apos;re using an external komodod. Please restart komodod with -reindex</source>
-        <translation>Vous utilisez un komodod externe. Veuillez redémarrer komodod avec -reindex</translation>
+        <source>You&apos;re using an external thcd. Please restart thcd with -reindex</source>
+        <translation>Vous utilisez un thcd externe. Veuillez redémarrer thcd avec -reindex</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="540"/>
@@ -525,8 +525,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="859"/>
-        <source>The keys will be imported into your connected komodod node</source>
-        <translation>Les clef seront importées dans votre noeud komodod connecté</translation>
+        <source>The keys will be imported into your connected thcd node</source>
+        <translation>Les clef seront importées dans votre noeud thcd connecté</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="899"/>
@@ -550,8 +550,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="923"/>
-        <source>You need to back it up from the machine komodod is running on</source>
-        <translation>Vous devez effectuer la sauvegarde depuis la machine sur laquelle komodod est en cours d&apos;exécution</translation>
+        <source>You need to back it up from the machine thcd is running on</source>
+        <translation>Vous devez effectuer la sauvegarde depuis la machine sur laquelle thcd est en cours d&apos;exécution</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="927"/>
@@ -829,53 +829,53 @@ Cette adresse ne semble pas être de type z-Adresse</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="52"/>
-        <source>Starting embedded komodod</source>
-        <translation>Démarrage de komodod intégré</translation>
+        <source>Starting embedded thcd</source>
+        <translation>Démarrage de thcd intégré</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>komodod is set to run as daemon</source>
-        <translation>komodod est configuré pour s&apos;exécuter en tant que démon</translation>
+        <source>thcd is set to run as daemon</source>
+        <translation>thcd est configuré pour s&apos;exécuter en tant que démon</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>Waiting for komodod</source>
-        <translation>En attente de komodod</translation>
+        <source>Waiting for thcd</source>
+        <translation>En attente de thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="77"/>
-        <source>You have komodod set to start as a daemon, which can cause problems with ZecWallet
+        <source>You have thcd set to start as a daemon, which can cause problems with ZecWallet
 
 .Please remove the following line from your zcash.conf and restart ZecWallet
 daemon=1</source>
-        <translation>vous avez komodod configuré pour démarrer en tant que démon ce qui peut causer des problèmes avec ZecWallet
+        <translation>vous avez thcd configuré pour démarrer en tant que démon ce qui peut causer des problèmes avec ZecWallet
 
  Veuillez enlever la ligne suivante de votre fichier &quot;zcash.conf&quot; et redémarrer ZecWallet:
 daemon=1</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="82"/>
-        <source>Couldn&apos;t start the embedded komodod.
+        <source>Couldn&apos;t start the embedded thcd.
 
 Please try restarting.
 
-If you previously started komodod with custom arguments, you might need to reset zcash.conf.
+If you previously started thcd with custom arguments, you might need to reset zcash.conf.
 
-If all else fails, please run komodod manually.</source>
-        <translation>Impossible de démarrer le komodod intégré.
+If all else fails, please run thcd manually.</source>
+        <translation>Impossible de démarrer le thcd intégré.
 
 Veuillez essayer de redémarrer.
 
-Si vous avez précédemment démarré komodod avec des arguments, vous devrez peut-être réinitialiser le fichier zcash.conf.
+Si vous avez précédemment démarré thcd avec des arguments, vous devrez peut-être réinitialiser le fichier zcash.conf.
 
-Si tout échoue, exécutez komodod manuellement.</translation>
+Si tout échoue, exécutez thcd manuellement.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="93"/>
-        <source>Couldn&apos;t connect to komodod configured in zcash.conf.
+        <source>Couldn&apos;t connect to thcd configured in zcash.conf.
 
-Not starting embedded komodod because --no-embedded was passed</source>
-        <translation>Le démarrage de komodod n&apos;a pas eu lieu car l&apos;argument --no-embedded a été utilisé au lancement</translation>
+Not starting embedded thcd because --no-embedded was passed</source>
+        <translation>Le démarrage de thcd n&apos;a pas eu lieu car l&apos;argument --no-embedded a été utilisé au lancement</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="146"/>
@@ -955,18 +955,18 @@ Not starting embedded komodod because --no-embedded was passed</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="645"/>
-        <source>Connected to komodod</source>
-        <translation>Connecté à komodod</translation>
+        <source>Connected to thcd</source>
+        <translation>Connecté à thcd</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="648"/>
-        <source>komodod has no peer connections</source>
-        <translation>komodod n&apos;a aucune connexion à un pair</translation>
+        <source>thcd has no peer connections</source>
+        <translation>thcd n&apos;a aucune connexion à un pair</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="667"/>
-        <source>There was an error connecting to komodod. The error was</source>
-        <translation>Une erreur est survenue lors de la connection à komodod. L&apos;erreur est</translation>
+        <source>There was an error connecting to thcd. The error was</source>
+        <translation>Une erreur est survenue lors de la connection à thcd. L&apos;erreur est</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="730"/>
@@ -1030,8 +1030,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1111"/>
-        <source>Waiting for komodod to exit</source>
-        <translation>Attente de la fermeture de komodod</translation>
+        <source>Waiting for thcd to exit</source>
+        <translation>Attente de la fermeture de thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="295"/>
@@ -1040,8 +1040,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="319"/>
-        <source>komodod error</source>
-        <translation>erreur komodod</translation>
+        <source>thcd error</source>
+        <translation>erreur thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="386"/>
@@ -1054,22 +1054,22 @@ Veuillez configurer l&apos;hôte/port et utilisateur/mot de passe dans le menu E
     </message>
     <message>
         <location filename="../src/connection.cpp" line="398"/>
-        <source>Could not connect to komodod configured in settings.
+        <source>Could not connect to thcd configured in settings.
 
 Please set the host/port and user/password in the Edit-&gt;Settings menu.</source>
-        <translation>Impossible de se connecter au komodod configuré dans les préférences.
+        <translation>Impossible de se connecter au thcd configuré dans les préférences.
 
 Veuillez configurer l&apos;hôte/port et utilisateur/mot de passe dans le menu Edition-&gt;Préférences.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="459"/>
-        <source>Authentication failed. The username / password you specified was not accepted by komodod. Try changing it in the Edit-&gt;Settings menu</source>
-        <translation>Authentification échouée. Le nom d&apos;utilisateur / mot de passe que vous avez spécifié n&apos;a pas été accepté par komodod. Essayez de le changer dans le menu Edition-&gt; Préférences</translation>
+        <source>Authentication failed. The username / password you specified was not accepted by thcd. Try changing it in the Edit-&gt;Settings menu</source>
+        <translation>Authentification échouée. Le nom d&apos;utilisateur / mot de passe que vous avez spécifié n&apos;a pas été accepté par thcd. Essayez de le changer dans le menu Edition-&gt; Préférences</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="474"/>
-        <source>Your komodod is starting up. Please wait.</source>
-        <translation>Votre komodod est en cours de démarrage. Veuillez patienter.</translation>
+        <source>Your thcd is starting up. Please wait.</source>
+        <translation>Votre thcd est en cours de démarrage. Veuillez patienter.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="491"/>
@@ -1339,8 +1339,8 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     </message>
     <message>
         <location filename="../src/settings.ui" line="33"/>
-        <source>komodod connection</source>
-        <translation>connection komodod</translation>
+        <source>thcd connection</source>
+        <translation>connection thcd</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="62"/>
@@ -1575,8 +1575,8 @@ Vous avez soit des fonds non confirmés soit le solde est trop petit pour une mi
     </message>
     <message>
         <location filename="../src/confirm.ui" line="155"/>
-        <source>komodod doesn&apos;t seem to have any peers. You might not be connected to the internet, so this Transaction might not work.</source>
-        <translation>komodod semble n&apos;avoir aucune connexion à un autre pair. Comme vous n&apos;êtes peut-être pas connecté à Internet, cette transaction pourrait ne pas fonctionner.</translation>
+        <source>thcd doesn&apos;t seem to have any peers. You might not be connected to the internet, so this Transaction might not work.</source>
+        <translation>thcd semble n&apos;avoir aucune connexion à un autre pair. Comme vous n&apos;êtes peut-être pas connecté à Internet, cette transaction pourrait ne pas fonctionner.</translation>
     </message>
     <message>
         <location filename="../src/confirm.ui" line="168"/>

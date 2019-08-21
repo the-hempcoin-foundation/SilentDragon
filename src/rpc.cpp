@@ -591,9 +591,6 @@ void RPC::getInfoThenRefresh(bool force) {
         int notarized           = reply["notarized"].get<json::number_integer_t>();
         int protocolversion     = reply["protocolversion"].get<json::number_integer_t>();
         int lag                 = curBlock - notarized;
-        int blocks_until_halving= 340000 - curBlock;
-        char halving_days[8];
-        sprintf(halving_days, "%.2f", (double) (blocks_until_halving * 150) / (60*60*24) );
         QString ntzhash         = QString::fromStdString( reply["notarizedhash"].get<json::string_t>() );
         QString ntztxid         = QString::fromStdString( reply["notarizedtxid"].get<json::string_t>() );
         QString kmdver          = QString::fromStdString( reply["KMDversion"].get<json::string_t>() );
@@ -608,7 +605,6 @@ void RPC::getInfoThenRefresh(bool force) {
         ui->protocolversion->setText( QString::number(protocolversion) );
         ui->p2pport->setText( QString::number(p2pport) );
         ui->rpcport->setText( QString::number(rpcport) );
-        ui->halving->setText( QString::number(blocks_until_halving) % " blocks, " % QString::fromStdString(halving_days)  % " days" );
 
         if ( force || (curBlock != lastBlock) ) {
             // Something changed, so refresh everything.
@@ -711,10 +707,10 @@ void RPC::getInfoThenRefresh(bool force) {
             auto zecPrice = Settings::getUSDFormat(1);
             QString tooltip;
             if (connections > 0) {
-                tooltip = QObject::tr("Connected to komodod");
+                tooltip = QObject::tr("Connected to thcd");
             }
             else {
-                tooltip = QObject::tr("komodod has no peer connections! Network issues?");
+                tooltip = QObject::tr("thcd has no peer connections! Network issues?");
             }
             tooltip = tooltip % "(v " % QString::number(Settings::getInstance()->getZcashdVersion()) % ")";
 
@@ -733,7 +729,7 @@ void RPC::getInfoThenRefresh(bool force) {
         static bool shown = false;
         if (!shown && prevCallSucceeded) { // show error only first time
             shown = true;
-            QMessageBox::critical(main, QObject::tr("Connection Error"), QObject::tr("There was an error connecting to komodod. The error was") + ": \n\n"
+            QMessageBox::critical(main, QObject::tr("Connection Error"), QObject::tr("There was an error connecting to thcd. The error was") + ": \n\n"
                 + reply->errorString(), QMessageBox::StandardButton::Ok);
             shown = false;
         }
@@ -1143,7 +1139,14 @@ void RPC::refreshZECPrice() {
                 return;
             }
 
-            qDebug() << "Parsed JSON";
+            qDebug() << "Parsed JSON: " << all;
+	    qDebug() << "JSON len=" << all.length();
+
+	    /* TODO hackish, improve */
+	    if (all.length() <= 2) {
+		    qDebug() << "Invalid API response";
+		    return;
+	    }
 
             const json& item  = parsed.get<json::object_t>();
             const json& thc  = item["thc"].get<json::object_t>();
@@ -1191,7 +1194,7 @@ void RPC::shutdownZcashd() {
     connD.setupUi(&d);
     connD.topIcon->setBasePixmap(QIcon(":/icons/res/icon.ico").pixmap(256, 256));
     connD.status->setText(QObject::tr("Please wait for HempPAY to exit"));
-    connD.statusDetail->setText(QObject::tr("Waiting for komodod to exit"));
+    connD.statusDetail->setText(QObject::tr("Waiting for thcd to exit"));
 
     QTimer waiter(main);
 

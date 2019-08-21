@@ -248,7 +248,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="908"/>
-        <source>komodod</source>
+        <source>thcd</source>
         <translation>节点</translation>
     </message>
     <message>
@@ -424,23 +424,23 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="277"/>
-        <source>komodod is not yet ready. Please wait for the UI to load</source>
-        <translation>komodod尚未准备好。 请等待UI加载</translation>
+        <source>thcd is not yet ready. Please wait for the UI to load</source>
+        <translation>thcd尚未准备好。 请等待UI加载</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="498"/>
-        <source>Tor configuration is available only when running an embedded komodod.</source>
-        <translation>Tor配置仅在运行嵌入的komodod时可用。</translation>
+        <source>Tor configuration is available only when running an embedded thcd.</source>
+        <translation>Tor配置仅在运行嵌入的thcd时可用。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="537"/>
-        <source>You&apos;re using an external komodod. Please restart komodod with -rescan</source>
-        <translation>你正在使用外部komodod。 请使用-rescan参数重新启动komodod</translation>
+        <source>You&apos;re using an external thcd. Please restart thcd with -rescan</source>
+        <translation>你正在使用外部thcd。 请使用-rescan参数重新启动thcd</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="540"/>
-        <source>You&apos;re using an external komodod. Please restart komodod with -reindex</source>
-        <translation>你正在使用外部komodod。 请使用-reindex重新启动komodod</translation>
+        <source>You&apos;re using an external thcd. Please restart thcd with -reindex</source>
+        <translation>你正在使用外部thcd。 请使用-reindex重新启动thcd</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="565"/>
@@ -530,8 +530,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="887"/>
-        <source>The keys will be imported into your connected komodod node</source>
-        <translation>密钥将导入已连接的komodod节点</translation>
+        <source>The keys will be imported into your connected thcd node</source>
+        <translation>密钥将导入已连接的thcd节点</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="908"/>
@@ -560,8 +560,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="951"/>
-        <source>You need to back it up from the machine komodod is running on</source>
-        <translation>你需要从运行komodod的机器备份它</translation>
+        <source>You need to back it up from the machine thcd is running on</source>
+        <translation>你需要从运行thcd的机器备份它</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="955"/>
@@ -803,8 +803,8 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/migration.ui" line="81"/>
-        <source>If enabled, komodod will slowly migrate your Sprout shielded funds to your Sapling address. </source>
-        <translation>如果启用，komodod将慢慢将您的Sprout屏蔽资金迁移到您的Sapling地址。 </translation>
+        <source>If enabled, thcd will slowly migrate your Sprout shielded funds to your Sapling address. </source>
+        <translation>如果启用，thcd将慢慢将您的Sprout屏蔽资金迁移到您的Sapling地址。 </translation>
     </message>
 </context>
 <context>
@@ -960,46 +960,46 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="52"/>
-        <source>Starting embedded komodod</source>
-        <translation>启动内嵌的komodod</translation>
+        <source>Starting embedded thcd</source>
+        <translation>启动内嵌的thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>komodod is set to run as daemon</source>
-        <translation>komodod设置为作为守护进程运行</translation>
+        <source>thcd is set to run as daemon</source>
+        <translation>thcd设置为作为守护进程运行</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>Waiting for komodod</source>
-        <translation>等待komodod</translation>
+        <source>Waiting for thcd</source>
+        <translation>等待thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="77"/>
-        <source>You have komodod set to start as a daemon, which can cause problems with SlientDragon
+        <source>You have thcd set to start as a daemon, which can cause problems with SlientDragon
 
 .Please remove the following line from your THC.conf and restart SlientDragon
 daemon=1</source>
-        <translation>你已经将komodod设置为守护进程启动，这可能会导致SlientDragon出现问题
+        <translation>你已经将thcd设置为守护进程启动，这可能会导致SlientDragon出现问题
 
 。请从THC.conf中删除以下行并重新启动SlientDragon
 daemon=1</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="82"/>
-        <source>Couldn&apos;t start the embedded komodod.
+        <source>Couldn&apos;t start the embedded thcd.
 
 Please try restarting.
 
-If you previously started komodod with custom arguments, you might need to reset THC.conf.
+If you previously started thcd with custom arguments, you might need to reset THC.conf.
 
-If all else fails, please run komodod manually.</source>
-        <translation>无法启动内嵌的komodod。
+If all else fails, please run thcd manually.</source>
+        <translation>无法启动内嵌的thcd。
 
 请尝试重新启动。
 
-如果您之前使用自定义参数启动了komodod，则可能需要重置THC.conf。
+如果您之前使用自定义参数启动了thcd，则可能需要重置THC.conf。
 
-如果所有其他方法都失败了，请手动运行komodod。</translation>
+如果所有其他方法都失败了，请手动运行thcd。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="85"/>
@@ -1008,12 +1008,12 @@ If all else fails, please run komodod manually.</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="93"/>
-        <source>Couldn&apos;t connect to komodod configured in THC.conf.
+        <source>Couldn&apos;t connect to thcd configured in THC.conf.
 
-Not starting embedded komodod because --no-embedded was passed</source>
-        <translation>无法连接到THC.conf中配置的komodod。
+Not starting embedded thcd because --no-embedded was passed</source>
+        <translation>无法连接到THC.conf中配置的thcd。
 
-没有启动内嵌的komodod，因为已经传了--no-embedded参数</translation>
+没有启动内嵌的thcd，因为已经传了--no-embedded参数</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="146"/>
@@ -1068,8 +1068,8 @@ Not starting embedded komodod because --no-embedded was passed</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="332"/>
-        <source>komodod error</source>
-        <translation>komodod 出错</translation>
+        <source>thcd error</source>
+        <translation>thcd 出错</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="399"/>
@@ -1082,22 +1082,22 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/connection.cpp" line="411"/>
-        <source>Could not connect to komodod configured in settings.
+        <source>Could not connect to thcd configured in settings.
 
 Please set the host/port and user/password in the Edit-&gt;Settings menu.</source>
-        <translation>无法连接到设置中配置的komodod。
+        <translation>无法连接到设置中配置的thcd。
 
 请在编辑 - &gt;设置菜单中设置主机/端口和用户/密码。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="472"/>
-        <source>Authentication failed. The username / password you specified was not accepted by komodod. Try changing it in the Edit-&gt;Settings menu</source>
-        <translation>验证失败。 komodod不接受您指定的用户名/密码。 请在编辑 - &gt;设置菜单中更改它</translation>
+        <source>Authentication failed. The username / password you specified was not accepted by thcd. Try changing it in the Edit-&gt;Settings menu</source>
+        <translation>验证失败。 thcd不接受您指定的用户名/密码。 请在编辑 - &gt;设置菜单中更改它</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="487"/>
-        <source>Your komodod is starting up. Please wait.</source>
-        <translation>你的komodod正在启动。 请耐心等待。</translation>
+        <source>Your thcd is starting up. Please wait.</source>
+        <translation>你的thcd正在启动。 请耐心等待。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="504"/>
@@ -1223,18 +1223,18 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="673"/>
-        <source>Connected to komodod</source>
-        <translation>连接到komodod</translation>
+        <source>Connected to thcd</source>
+        <translation>连接到thcd</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="676"/>
-        <source>komodod has no peer connections</source>
-        <translation>komodod没有节点可连接</translation>
+        <source>thcd has no peer connections</source>
+        <translation>thcd没有节点可连接</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="695"/>
-        <source>There was an error connecting to komodod. The error was</source>
-        <translation>连接到komodod时出错。 错误是</translation>
+        <source>There was an error connecting to thcd. The error was</source>
+        <translation>连接到thcd时出错。 错误是</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1032"/>
@@ -1272,8 +1272,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1183"/>
-        <source>Waiting for komodod to exit</source>
-        <translation>等待komodod退出</translation>
+        <source>Waiting for thcd to exit</source>
+        <translation>等待thcd退出</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
@@ -1616,8 +1616,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/settings.ui" line="33"/>
-        <source>komodod connection</source>
-        <translation>komodod连接</translation>
+        <source>thcd connection</source>
+        <translation>thcd连接</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="62"/>
@@ -1882,8 +1882,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/confirm.ui" line="183"/>
-        <source>komodod doesn&apos;t seem to have any peers. You might not be connected to the internet, so this transaction might not work.</source>
-        <translation>komodod似乎没有任何可连接的节点。 您可能没有连接到互联网，因此此交易可能无效。</translation>
+        <source>thcd doesn&apos;t seem to have any peers. You might not be connected to the internet, so this transaction might not work.</source>
+        <translation>thcd似乎没有任何可连接的节点。 您可能没有连接到互联网，因此此交易可能无效。</translation>
     </message>
     <message>
         <location filename="../src/confirm.ui" line="196"/>
