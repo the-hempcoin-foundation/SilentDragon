@@ -175,13 +175,13 @@ void ConnectionLoader::createZcashConf() {
 
     main->logger->write("Creating file " + confLocation);
     qDebug() << "Creating file " << confLocation;
-    QDir().mkdir(fi.dir().absolutePath());
+    QDir().mkpath(fi.dir().absolutePath());
 
     QFile file(confLocation);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
         main->logger->write("Could not create THC.conf, returning");
 
-        QString explanation = QString() % QObject::tr("Could not create THC.conf.");
+        QString explanation = QString() % QObject::tr("Ooops! Could not create THC.conf!");
         this->showError(explanation);
         return;
     }
