@@ -17,7 +17,7 @@ in HempPAY to prevent this, or better yet, use TAILS: https://tails.boum.org/
 
 # Installation
 
-Head over to the releases page and grab the latest installers or binary. XXXX
+Head over to the releases page and grab the latest installers or binary.
 
 ## thcd
 
