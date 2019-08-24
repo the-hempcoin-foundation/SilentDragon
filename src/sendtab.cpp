@@ -44,11 +44,6 @@ void MainWindow::setupSendTab() {
     });
     setMemoEnabled(1, false);
 
-    // File upload button
-    QObject::connect(ui->FileBtn, &QPushButton::clicked, [=] () {
-        this->fileUploadButtonClicked(1);
-    });
-        
     // This is the damnest thing ever. If we do AddressBook::readFromStorage() directly, the whole file
     // doesn't get read. It needs to run in a timer after everything has finished to be able to read
     // the file properly. 

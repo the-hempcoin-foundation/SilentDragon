@@ -502,7 +502,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="810"/>
-        <source>Paste Zcash URI</source>
+        <source>Paste THC URI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1702,8 +1702,8 @@ El saldo es insuficiente para una migración automática.
     </message>
     <message>
         <location filename="../src/zboard.ui" line="85"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Fully anonymous and untraceable chat messages based on the ZCash blockchain. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Mensajes de chat totalmente anónimos e imposibles de rastrear basados en la cadena de bloques Zcash. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Fully anonymous and untraceable chat messages based on the THC blockchain. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Mensajes de chat totalmente anónimos e imposibles de rastrear basados en la cadena de bloques THC. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/zboard.ui" line="107"/>

@@ -476,19 +476,6 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="FileBtn">
-                      <property name="enabled">
-                       <bool>true</bool>
-                      </property>
-                      <property name="toolTip">
-                       <string/>
-                      </property>
-                      <property name="text">
-                       <string>Upload File</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
                      <widget class="QPushButton" name="MemoBtn1">
                       <property name="enabled">
                        <bool>true</bool>
