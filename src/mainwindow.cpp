@@ -626,10 +626,10 @@ void MainWindow::donate() {
 
     ui->Address1->setText(Settings::getDonationAddr(true));
     ui->Address1->setCursorPosition(0);
-    ui->Amount1->setText("0.00");
-    ui->MemoTxt1->setText(tr("Some feedback about HempPAY ..."));
+    ui->Amount1->setText("4.20");
+    ui->MemoTxt1->setText(tr("Some Boba a donation for HempPAY ..."));
 
-    ui->statusBar->showMessage(tr("Send Boba some private and shielded feedback about ") % Settings::getTokenName() % tr(" or HempPAY"));
+    ui->statusBar->showMessage(tr("Send Boba a donation + some private and shielded feedback about ") % Settings::getTokenName() % tr(" or HempPAY"));
 
     // And switch to the send tab.
     ui->tabWidget->setCurrentIndex(1);
@@ -1363,6 +1363,7 @@ void MainWindow::setupReceiveTab() {
         // Whenever the t-address is selected, we generate a new address, because we don't
         // want to reuse t-addrs
         if (checked && this->rpc->getUTXOs() != nullptr) { 
+	    qDebug() << "calling updateTAddrCombo";
             updateTAddrCombo(checked);
         } 
 
@@ -1422,6 +1423,7 @@ void MainWindow::setupReceiveTab() {
         if (ui->rdioZSAddr->isChecked()) {
             addNewZaddr(true);
         } else if (ui->rdioTAddr->isChecked()) {
+	    qDebug() << "new taddr checked";
             addNewTAddr();
         }
     });
