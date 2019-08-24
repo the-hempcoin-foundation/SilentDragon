@@ -30,7 +30,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     logger = new Logger(this, QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("HempPAY.log"));
+    qDebug() << "Logging to " << QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("HempPAY.log");
 
     // Status Bar
     setupStatusBar();
