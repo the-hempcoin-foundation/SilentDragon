@@ -23,9 +23,9 @@ Head over to the releases page and grab the latest installers or binary. XXXX
 
 HempPay needs a THC full node running. If you already have a full node running, this wallet will connect to it.
 
-If you don't have one, HempPay will start its embedded komodod node.
+If you don't have one, HempPay will start its embedded THC full node.
 
-Additionally, if this is the first time you're running HempPAY or a komodod daemon, HempPAY will find Sapling params (~50 MB) and configure `THC.conf` for you. 
+Additionally, if this is the first time you're running HempPAY or a THC full node daemon, HempPAY will download Sprout + Sapling params (1.6GB) and configure `THC.conf` for you. 
 
 Pass `--no-embedded` to disable the embedded komodod and force HempPAY to connect to an external node.
 
@@ -93,6 +93,3 @@ these four files in your Git repo:
 
 The above assumes HempPAY and komodo git repos are in the same directory. File names on Windows will need to be tweaked.
 
-### Support
-
-...
