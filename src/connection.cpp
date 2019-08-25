@@ -52,55 +52,55 @@ void ConnectionLoader::doAutoConnect(bool tryEzcashdStart) {
             // Refused connection. So try and start embedded zcashd
             if (Settings::getInstance()->useEmbedded()) {
                 if (tryEzcashdStart) {
-                    this->showInformation(QObject::tr("Starting embedded hushd"));
+                    this->showInformation(QObject::tr("Starting embedded thcd"));
                     if (this->startEmbeddedZcashd()) {
                         // Embedded zcashd started up. Wait a second and then refresh the connection
-                        main->logger->write("Embedded hushd started up, trying autoconnect in 1 sec");
+                        main->logger->write("Embedded thcd started up, trying autoconnect in 1 sec");
                         QTimer::singleShot(1000, [=]() { doAutoConnect(); } );
                     } else {
                         if (config->zcashDaemon) {
-                            // hushd is configured to run as a daemon, so we must wait for a few seconds
+                            // komodod is configured to run as a daemon, so we must wait for a few seconds
                             // to let it start up. 
-                            main->logger->write("hushd is daemon=1. Waiting for it to start up");
-                            this->showInformation(QObject::tr("hushd is set to run as daemon"), QObject::tr("Waiting for hushd"));
-                            QTimer::singleShot(5000, [=]() { doAutoConnect(/* don't attempt to start ehushd */ false); });
+                            main->logger->write("thcd is daemon=1. Waiting for it to start up");
+                            this->showInformation(QObject::tr("thcd is set to run as daemon"), QObject::tr("Waiting for thcd"));
+                            QTimer::singleShot(5000, [=]() { doAutoConnect(/* don't attempt to start ekomodod */ false); });
                         } else {
                             // Something is wrong. 
                             // We're going to attempt to connect to the one in the background one last time
                             // and see if that works, else throw an error
-                            main->logger->write("Unknown problem while trying to start hushd!");
+                            main->logger->write("Unknown problem while trying to start thcd!");
                             QTimer::singleShot(2000, [=]() { doAutoConnect(/* don't attempt to start ezcashd */ false); });
                         }
                     }
                 } else {
                     // We tried to start ezcashd previously, and it didn't work. So, show the error. 
-                    main->logger->write("Couldn't start embedded hushd for unknown reason");
+                    main->logger->write("Couldn't start embedded thcd for unknown reason");
                     QString explanation;
                     if (config->zcashDaemon) {
-                        explanation = QString() % QObject::tr("You have hushd set to start as a daemon, which can cause problems "
-                            "with SilentDragon\n\n."
-                            "Please remove the following line from your HUSH3.conf and restart SilentDragon\n"
+                        explanation = QString() % QObject::tr("You have thcd set to start as a daemon, which can cause problems "
+                            "with HempPAY\n\n."
+                            "Please remove the following line from your THC.conf and restart HempPAY\n"
                             "daemon=1");
                     } else {
-                        explanation = QString() % QObject::tr("Couldn't start the embedded hushd.\n\n" 
-                            "Please try restarting.\n\nIf you previously started hushd with custom arguments, you might need to  reset HUSH3.conf.\n\n" 
-                            "If all else fails, please run hushd manually.") %  
+                        explanation = QString() % QObject::tr("Couldn't start the embedded thcd.\n\n" 
+                            "Please try restarting.\n\nIf you previously started thcd with custom arguments, you might need to  reset THC.conf.\n\n" 
+                            "If all else fails, please run thcd manually.") %  
                             (ezcashd ? QObject::tr("The process returned") + ":\n\n" % ezcashd->errorString() : QString(""));
                     }
                     
                     this->showError(explanation);
                 }                
             } else {
-                // HUSH3.conf exists, there's no connection, and the user asked us not to start hushd. Error!
-                main->logger->write("Not using embedded and couldn't connect to hushd");
-                QString explanation = QString() % QObject::tr("Couldn't connect to hushd configured in HUSH3.conf.\n\n" 
-                                      "Not starting embedded hushd because --no-embedded was passed");
+                // THC.conf exists, there's no connection, and the user asked us not to start komodod. Error!
+                main->logger->write("Not using embedded and couldn't connect to thcd");
+                QString explanation = QString() % QObject::tr("Couldn't connect to thcd configured in THC.conf.\n\n" 
+                                      "Not starting embedded thcd because --no-embedded was passed");
                 this->showError(explanation);
             }
         });
     } else {
         if (Settings::getInstance()->useEmbedded()) {
-            // HUSH3.conf was not found, so create one
+            // THC.conf was not found, so create one
             createZcashConf();
         } else {
             // Fall back to manual connect
@@ -127,7 +127,7 @@ QString randomPassword() {
 }
 
 /**
- * This will create a new HUSH3.conf, download Zcash parameters.
+ * This will create a new THC.conf, download Zcash parameters.
  */ 
 void ConnectionLoader::createZcashConf() {
     main->logger->write("createZcashConf");
@@ -174,24 +174,25 @@ void ConnectionLoader::createZcashConf() {
     }
 
     main->logger->write("Creating file " + confLocation);
-    QDir().mkdir(fi.dir().absolutePath());
+    qDebug() << "Creating file " << confLocation;
+    QDir().mkpath(fi.dir().absolutePath());
 
     QFile file(confLocation);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
-        main->logger->write("Could not create HUSH3.conf, returning");
+        main->logger->write("Could not create THC.conf, returning");
 
-        QString explanation = QString() % QObject::tr("Could not create HUSH3.conf.");
+        QString explanation = QString() % QObject::tr("Ooops! Could not create THC.conf!");
         this->showError(explanation);
         return;
     }
 
     QTextStream out(&file);
 
-    out << "# Autogenerated by Silent Dragon\n";
+    out << "# Autogenerated by HempPAY\n";
     out << "server=1\n";
-    out << "rpcuser=hush\n";
+    out << "rpcuser=thc\n";
     out << "rpcpassword=" % randomPassword() << "\n";
-    out << "rpcport=18031\n";
+    out << "rpcport=36790\n";
     out << "txindex=1\n";
     out << "addressindex=1\n";
     out << "spentindex=1\n";
@@ -208,7 +209,7 @@ void ConnectionLoader::createZcashConf() {
 
     file.close();
 
-    // Now that HUSH3.conf exists, try to autoconnect again
+    // Now that THC.conf exists, try to autoconnect again
     this->doAutoConnect();
 }
 
@@ -221,6 +222,11 @@ void ConnectionLoader::downloadParams(std::function<void(void)> cb) {
 
     downloadQueue->enqueue(QUrl("https://z.cash/downloads/sapling-output.params"));
     downloadQueue->enqueue(QUrl("https://z.cash/downloads/sapling-spend.params"));
+    /* TODO not actually needed, but komodod changes are needed */
+    downloadQueue->enqueue(QUrl("https://z.cash/downloads/sprout-groth16.params"));
+    downloadQueue->enqueue(QUrl("https://z.cash/downloads/sprout-proving.key"));
+    downloadQueue->enqueue(QUrl("https://z.cash/downloads/sprout-verifying.key"));
+
 
     doNextDownload(cb);    
 }
@@ -319,7 +325,7 @@ bool ConnectionLoader::startEmbeddedZcashd() {
     if (!Settings::getInstance()->useEmbedded()) 
         return false;
     
-    main->logger->write("Trying to start embedded hushd");
+    main->logger->write("Trying to start embedded komodod");
 
     // Static because it needs to survive even after this method returns.
     static QString processStdErrOutput;
@@ -327,7 +333,7 @@ bool ConnectionLoader::startEmbeddedZcashd() {
     if (ezcashd != nullptr) {
         if (ezcashd->state() == QProcess::NotRunning) {
             if (!processStdErrOutput.isEmpty()) {
-                QMessageBox::critical(main, QObject::tr("hushd error"), "hushd said: " + processStdErrOutput, 
+                QMessageBox::critical(main, QObject::tr("komodod error"), "komodod said: " + processStdErrOutput, 
                                       QMessageBox::Ok);
             }
             return false;
@@ -336,57 +342,58 @@ bool ConnectionLoader::startEmbeddedZcashd() {
         }        
     }
 
-    // Finally, start hushd
+    // Finally, start komodod
     QDir appPath(QCoreApplication::applicationDirPath());
 #ifdef Q_OS_LINUX
-    auto hushdProgram = appPath.absoluteFilePath("hushd");
-    if (!QFile(hushdProgram).exists()) {
-        hushdProgram = appPath.absoluteFilePath("hushd");
+    auto thcdProgram = appPath.absoluteFilePath("thcd");
+    if (!QFile(thcdProgram).exists()) {
+        thcdProgram = appPath.absoluteFilePath("thcd");
     }
 #elif defined(Q_OS_DARWIN)
-    auto hushdProgram = appPath.absoluteFilePath("hushd");
+    auto thcdProgram = appPath.absoluteFilePath("thcd");
 #elif defined(Q_OS_WIN64)
-    auto hushdProgram = appPath.absoluteFilePath("hushd.bat");
+    /* TODO write this */
+    auto thcdProgram = appPath.absoluteFilePath("thcd.bat");
 #else
     //TODO: Not Linux + not darwin DOES NOT EQUAL windows!!!
-    auto hushdProgram = appPath.absoluteFilePath("hushd");
+    auto thcdProgram = appPath.absoluteFilePath("thcd");
 #endif
     
-    if (!QFile(hushdProgram).exists()) {
-        qDebug() << "Can't find hushd at " << hushdProgram;
-        main->logger->write("Can't find hushd at " + hushdProgram); 
+    if (!QFile(thcdProgram).exists()) {
+        qDebug() << "Can't find thcd at " << thcdProgram;
+        main->logger->write("Can't find thcd at " + thcdProgram); 
         return false;
     }
 
     ezcashd = std::shared_ptr<QProcess>(new QProcess(main));
     QObject::connect(ezcashd.get(), &QProcess::started, [=] () {
-        qDebug() << "Embedded hushd started via " + hushdProgram;
+        qDebug() << "Embedded thcd started via " + thcdProgram;
     });
 
     QObject::connect(ezcashd.get(), QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
                         [=](int exitCode, QProcess::ExitStatus exitStatus) {
-        qDebug() << "hushd finished with code " << exitCode << "," << exitStatus;
+        qDebug() << "thcd finished with code " << exitCode << "," << exitStatus;
     });
 
     QObject::connect(ezcashd.get(), &QProcess::errorOccurred, [&] (QProcess::ProcessError error) {
-        qDebug() << "Couldn't start hushd at " + hushdProgram << error;
+        qDebug() << "Couldn't start thcd at " + thcdProgram << error;
     });
 
     std::weak_ptr<QProcess> weak_obj(ezcashd);
     auto ptr_main(main);
     QObject::connect(ezcashd.get(), &QProcess::readyReadStandardError, [weak_obj, ptr_main]() {
         auto output = weak_obj.lock()->readAllStandardError();
-        ptr_main->logger->write("hushd stderr:" + output);
+        ptr_main->logger->write("thcd stderr:" + output);
         processStdErrOutput.append(output);
     });
 
 #ifdef Q_OS_LINUX
-    ezcashd->start(hushdProgram);
+    ezcashd->start(thcdProgram);
 #elif defined(Q_OS_DARWIN)
-    ezcashd->start(hushdProgram);
+    ezcashd->start(thcdProgram);
 #else
     ezcashd->setWorkingDirectory(appPath.absolutePath());
-    ezcashd->start(hushdProgram);
+    ezcashd->start(thcdProgram);
 #endif // Q_OS_LINUX
 
 
@@ -411,7 +418,7 @@ void ConnectionLoader::doManualConnect() {
     auto connection = makeConnection(config);
     refreshZcashdState(connection, [=] () {
         QString explanation = QString()
-                % QObject::tr("Could not connect to hushd configured in settings.\n\n" 
+                % QObject::tr("Could not connect to thcd configured in settings.\n\n" 
                 "Please set the host/port and user/password in the Edit->Settings menu.");
 
         showError(explanation);
@@ -460,9 +467,9 @@ void ConnectionLoader::refreshZcashdState(Connection* connection, std::function<
     connection->doRPC(payload,
         [=] (auto) {
             // Success
-            main->logger->write("hushd is online!");
-            // Delay 1 second to ensure loading (splash) is seen at least 1 second.
-            QTimer::singleShot(1000, [=]() { this->doRPCSetConnection(connection); });
+            main->logger->write("thcd is online! Smokem if ya gottem");
+            // Delay 2 seconds to ensure loading (splash) is seen at least 1 second.
+            QTimer::singleShot(2000, [=]() { this->doRPCSetConnection(connection); });
         },
         [=] (auto reply, auto res) {            
             // Failed, see what it is. 
@@ -475,7 +482,7 @@ void ConnectionLoader::refreshZcashdState(Connection* connection, std::function<
                 main->logger->write("Authentication failed");
                 QString explanation = QString() % 
                         QObject::tr("Authentication failed. The username / password you specified was "
-                        "not accepted by hushd. Try changing it in the Edit->Settings menu");
+                        "not accepted by thcd. Try changing it in the Edit->Settings menu");
 
                 this->showError(explanation);
             } else if (err == QNetworkReply::NetworkError::InternalServerError && 
@@ -489,8 +496,8 @@ void ConnectionLoader::refreshZcashdState(Connection* connection, std::function<
                     if (dots > 3)
                         dots = 0;
                 }
-                this->showInformation(QObject::tr("Your hushd is starting up. Please wait."), status);
-                main->logger->write("Waiting for hushd to come online.");
+                this->showInformation(QObject::tr("Your thcd is starting up. Please wait."), status);
+                main->logger->write("Waiting for thcd to come online.");
                 // Refresh after one second
                 QTimer::singleShot(1000, [=]() { this->refreshZcashdState(connection, refused); });
             }
@@ -529,27 +536,27 @@ void ConnectionLoader::showError(QString explanation) {
 
 QString ConnectionLoader::locateZcashConfFile() {
 #ifdef Q_OS_LINUX
-    auto confLocation = QStandardPaths::locate(QStandardPaths::HomeLocation, ".komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QStandardPaths::locate(QStandardPaths::HomeLocation, ".komodo/THC/THC.conf");
 #elif defined(Q_OS_DARWIN)
-    auto confLocation = QStandardPaths::locate(QStandardPaths::HomeLocation, "Library/Application Support/Komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QStandardPaths::locate(QStandardPaths::HomeLocation, "Library/Application Support/Komodo/THC/THC.conf");
 #else
-    auto confLocation = QStandardPaths::locate(QStandardPaths::AppDataLocation, "../../Komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QStandardPaths::locate(QStandardPaths::AppDataLocation, "../../Komodo/THC/THC.conf");
 #endif
 
-    main->logger->write("Found HUSH3.conf at " + QDir::cleanPath(confLocation));
+    main->logger->write("Found THC.conf at " + QDir::cleanPath(confLocation));
     return QDir::cleanPath(confLocation);
 }
 
 QString ConnectionLoader::zcashConfWritableLocation() {
 #ifdef Q_OS_LINUX
-    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)).filePath(".komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)).filePath(".komodo/THC/THC.conf");
 #elif defined(Q_OS_DARWIN)
-    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)).filePath("Library/Application Support/Komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)).filePath("Library/Application Support/Komodo/THC/THC.conf");
 #else
-    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("../../Komodo/HUSH3/HUSH3.conf");
+    auto confLocation = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("../../Komodo/THC/THC.conf");
 #endif
 
-    main->logger->write("Found HUSH3.conf at " + QDir::cleanPath(confLocation));
+    main->logger->write("Found THC.conf at " + QDir::cleanPath(confLocation));
     return QDir::cleanPath(confLocation);
 }
 
@@ -576,39 +583,26 @@ bool ConnectionLoader::verifyParams() {
 
     qDebug() << "Verifying sapling param files exist";
 
+    /* TODO avoid sprout by using librustzcash from Hush */
+    if (!QFile(paramsDir.filePath("sapling-output.params")).exists()) return false;
+    if (!QFile(paramsDir.filePath("sapling-spend.params")).exists()) return false;
+    if (!QFile(paramsDir.filePath("sprout-groth16.params")).exists()) return false;
+    if (!QFile(paramsDir.filePath("sprout-proving.key")).exists()) return false;
+    if (!QFile(paramsDir.filePath("sprout-verifying.key")).exists()) return false;
 
-    if( QFile( QDir(".").filePath("sapling-output.params") ).exists() && QFile( QDir(".").filePath("sapling-output.params") ).exists() ) {
-        qDebug() << "Found params in .";
-        return true;
-    }
 
-    if( QFile( QDir("..").filePath("sapling-output.params") ).exists() && QFile( QDir("..").filePath("sapling-output.params") ).exists() ) {
-        qDebug() << "Found params in ..";
-        return true;
-    }
-
-    if( QFile( QDir("..").filePath("hush3/sapling-output.params") ).exists() && QFile( QDir("..").filePath("hush3/sapling-output.params") ).exists() ) {
-        qDebug() << "Found params in ../hush3";
-        return true;
-    }
-
-    if (QFile(paramsDir.filePath("sapling-output.params")).exists() && QFile(paramsDir.filePath("sapling-spend.params")).exists()) {
-        qDebug() << "Found params in " << paramsDir;
-        return true;
-    }
-
-    qDebug() << "Did not find Sapling params!";
-    return false;
+    qDebug() << "Found all params!";
+    return true;
 }
 
 /**
- * Try to automatically detect a HUSH3/HUSH3.conf file in the correct location and load parameters
+ * Try to automatically detect a THC/THC.conf file in the correct location and load parameters
  */ 
 std::shared_ptr<ConnectionConfig> ConnectionLoader::autoDetectZcashConf() {    
     auto confLocation = locateZcashConfFile();
 
     if (confLocation.isNull()) {
-        // No Zcash file, just return with nothing
+        // No conf file, just return with nothing
         return nullptr;
     }
 
@@ -658,10 +652,10 @@ std::shared_ptr<ConnectionConfig> ConnectionLoader::autoDetectZcashConf() {
     }
 
     // If rpcport is not in the file, and it was not set by the testnet=1 flag, then go to default
-    if (zcashconf->port.isEmpty()) zcashconf->port = "18031";
+    if (zcashconf->port.isEmpty()) zcashconf->port = "36790";
     file.close();
 
-    // In addition to the HUSH3/HUSH3.conf file, also double check the params. 
+    // In addition to the THC/THC.conf file, also double check the params. 
 
     return std::shared_ptr<ConnectionConfig>(zcashconf);
 }
@@ -726,13 +720,15 @@ void Connection::doRPC(const json& payload, const std::function<void(json)>& cb,
         }
         
         if (reply->error() != QNetworkReply::NoError) {
+	    qDebug() << "RPC error detected: " << reply->readAll();
             auto parsed = json::parse(reply->readAll(), nullptr, false);
             ne(reply, parsed);
             
             return;
         } 
-        
+	//qDebug() << "about to parse RPC response";
         auto parsed = json::parse(reply->readAll(), nullptr, false);
+	//qDebug() << "response=" << reply->readAll();
         if (parsed.is_discarded()) {
             ne(reply, "Unknown error");
         }

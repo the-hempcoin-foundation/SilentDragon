@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./komodo-cli -ac_name=THC $@

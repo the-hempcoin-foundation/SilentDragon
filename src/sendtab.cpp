@@ -44,11 +44,6 @@ void MainWindow::setupSendTab() {
     });
     setMemoEnabled(1, false);
 
-    // File upload button
-    QObject::connect(ui->FileBtn, &QPushButton::clicked, [=] () {
-        this->fileUploadButtonClicked(1);
-    });
-        
     // This is the damnest thing ever. If we do AddressBook::readFromStorage() directly, the whole file
     // doesn't get read. It needs to run in a timer after everything has finished to be able to read
     // the file properly. 
@@ -594,7 +589,7 @@ bool MainWindow::confirmTx(Tx tx) {
             Addr->setText(fnSplitAddressForWrap(toAddr.addr));
             confirm.gridLayout->addWidget(Addr, row, 0, 1, 1);
 
-            // Amount (HUSH)
+            // Amount (THC)
             auto Amt = new QLabel(confirm.sendToAddrs);
             Amt->setObjectName(QString("Amt") % QString::number(i + 1));
             Amt->setText(Settings::getZECDisplayFormat(toAddr.amount));

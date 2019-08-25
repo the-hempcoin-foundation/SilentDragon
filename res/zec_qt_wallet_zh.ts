@@ -31,7 +31,7 @@
     <name>ConnectionDialog</name>
     <message>
         <location filename="../src/connection.ui" line="17"/>
-        <source>SilentDragon</source>
+        <source>HempPAY</source>
         <translation>沉默的龙</translation>
     </message>
     <message>
@@ -44,7 +44,7 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <source>SilentDragon</source>
+        <source>HempPAY</source>
         <translation>沉默的龙</translation>
     </message>
     <message>
@@ -248,7 +248,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="908"/>
-        <source>hushd</source>
+        <source>thcd</source>
         <translation>节点</translation>
     </message>
     <message>
@@ -389,8 +389,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1179"/>
-        <source>Pay Hush &amp;URI...</source>
-        <translation>支付hush &amp;URI ...</translation>
+        <source>Pay THC &amp;URI...</source>
+        <translation>支付thc &amp;URI ...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1184"/>
@@ -409,8 +409,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1197"/>
-        <source>Request Hush...</source>
-        <translation>请求 Hush...</translation>
+        <source>Request THC...</source>
+        <translation>请求 THC...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="1202"/>
@@ -424,23 +424,23 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="277"/>
-        <source>hushd is not yet ready. Please wait for the UI to load</source>
-        <translation>hushd尚未准备好。 请等待UI加载</translation>
+        <source>thcd is not yet ready. Please wait for the UI to load</source>
+        <translation>thcd尚未准备好。 请等待UI加载</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="498"/>
-        <source>Tor configuration is available only when running an embedded hushd.</source>
-        <translation>Tor配置仅在运行嵌入的hushd时可用。</translation>
+        <source>Tor configuration is available only when running an embedded thcd.</source>
+        <translation>Tor配置仅在运行嵌入的thcd时可用。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="537"/>
-        <source>You&apos;re using an external hushd. Please restart hushd with -rescan</source>
-        <translation>你正在使用外部hushd。 请使用-rescan参数重新启动hushd</translation>
+        <source>You&apos;re using an external thcd. Please restart thcd with -rescan</source>
+        <translation>你正在使用外部thcd。 请使用-rescan参数重新启动thcd</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="540"/>
-        <source>You&apos;re using an external hushd. Please restart hushd with -reindex</source>
-        <translation>你正在使用外部hushd。 请使用-reindex重新启动hushd</translation>
+        <source>You&apos;re using an external thcd. Please restart thcd with -reindex</source>
+        <translation>你正在使用外部thcd。 请使用-reindex重新启动thcd</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="565"/>
@@ -449,8 +449,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="566"/>
-        <source>Connection over Tor has been enabled. To use this feature, you need to restart SilentDragon.</source>
-        <translation>已启用Tor上的连接。 要使用此功能，您需要重新启动SilentDragon。</translation>
+        <source>Connection over Tor has been enabled. To use this feature, you need to restart HempPAY.</source>
+        <translation>已启用Tor上的连接。 要使用此功能，您需要重新启动HempPAY。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="575"/>
@@ -459,12 +459,12 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="576"/>
-        <source>Connection over Tor has been disabled. To fully disconnect from Tor, you need to restart SilentDragon.</source>
-        <translation>Tor上的连接已被禁用。 要完全断开与Tor的连接，您需要重新启动SilentDragon。</translation>
+        <source>Connection over Tor has been disabled. To fully disconnect from Tor, you need to restart HempPAY.</source>
+        <translation>Tor上的连接已被禁用。 要完全断开与Tor的连接，您需要重新启动HempPAY。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="605"/>
-        <source>SilentDragon needs to restart to rescan/reindex. SilentDragon will now close, please restart SilentDragon to continue</source>
+        <source>HempPAY needs to restart to rescan/reindex. HempPAY will now close, please restart HempPAY to continue</source>
         <translation>SlientDragon需要重新启动才能重新扫描/重新索引。 SlientDragon现在关闭，请重启SlientDragon以继续</translation>
     </message>
     <message>
@@ -510,18 +510,18 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="837"/>
-        <source>Paste Hush URI</source>
-        <translation>粘贴Hush URI</translation>
+        <source>Paste THC URI</source>
+        <translation>粘贴THC URI</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="849"/>
-        <source>Error paying hush URI</source>
-        <translation>支付hush URI时出错</translation>
+        <source>Error paying thc URI</source>
+        <translation>支付thc URI时出错</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="850"/>
-        <source>URI should be of the form &apos;hush:&lt;addr&gt;?amt=x&amp;memo=y</source>
-        <translation>URI的格式应为 &apos;hush:&lt;addr&gt;?amt=x&amp;memo=y&apos;</translation>
+        <source>URI should be of the form &apos;thc:&lt;addr&gt;?amt=x&amp;memo=y</source>
+        <translation>URI的格式应为 &apos;thc:&lt;addr&gt;?amt=x&amp;memo=y&apos;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="886"/>
@@ -530,8 +530,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="887"/>
-        <source>The keys will be imported into your connected hushd node</source>
-        <translation>密钥将导入已连接的hushd节点</translation>
+        <source>The keys will be imported into your connected thcd node</source>
+        <translation>密钥将导入已连接的thcd节点</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="908"/>
@@ -560,8 +560,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="951"/>
-        <source>You need to back it up from the machine hushd is running on</source>
-        <translation>你需要从运行hushd的机器备份它</translation>
+        <source>You need to back it up from the machine thcd is running on</source>
+        <translation>你需要从运行thcd的机器备份它</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="955"/>
@@ -803,8 +803,8 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/migration.ui" line="81"/>
-        <source>If enabled, hushd will slowly migrate your Sprout shielded funds to your Sapling address. </source>
-        <translation>如果启用，hushd将慢慢将您的Sprout屏蔽资金迁移到您的Sapling地址。 </translation>
+        <source>If enabled, thcd will slowly migrate your Sprout shielded funds to your Sapling address. </source>
+        <translation>如果启用，thcd将慢慢将您的Sprout屏蔽资金迁移到您的Sapling地址。 </translation>
     </message>
 </context>
 <context>
@@ -905,8 +905,8 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="135"/>
-        <source>%1 doesn&apos;t seem to be a valid Hush address.</source>
-        <translation>%1 似乎不是有效的Hush地址。</translation>
+        <source>%1 doesn&apos;t seem to be a valid THC address.</source>
+        <translation>%1 似乎不是有效的THC地址。</translation>
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="143"/>
@@ -960,46 +960,46 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="52"/>
-        <source>Starting embedded hushd</source>
-        <translation>启动内嵌的hushd</translation>
+        <source>Starting embedded thcd</source>
+        <translation>启动内嵌的thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>hushd is set to run as daemon</source>
-        <translation>hushd设置为作为守护进程运行</translation>
+        <source>thcd is set to run as daemon</source>
+        <translation>thcd设置为作为守护进程运行</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>Waiting for hushd</source>
-        <translation>等待hushd</translation>
+        <source>Waiting for thcd</source>
+        <translation>等待thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="77"/>
-        <source>You have hushd set to start as a daemon, which can cause problems with SlientDragon
+        <source>You have thcd set to start as a daemon, which can cause problems with SlientDragon
 
-.Please remove the following line from your HUSH3.conf and restart SlientDragon
+.Please remove the following line from your THC.conf and restart SlientDragon
 daemon=1</source>
-        <translation>你已经将hushd设置为守护进程启动，这可能会导致SlientDragon出现问题
+        <translation>你已经将thcd设置为守护进程启动，这可能会导致SlientDragon出现问题
 
-。请从HUSH3.conf中删除以下行并重新启动SlientDragon
+。请从THC.conf中删除以下行并重新启动SlientDragon
 daemon=1</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="82"/>
-        <source>Couldn&apos;t start the embedded hushd.
+        <source>Couldn&apos;t start the embedded thcd.
 
 Please try restarting.
 
-If you previously started hushd with custom arguments, you might need to reset HUSH3.conf.
+If you previously started thcd with custom arguments, you might need to reset THC.conf.
 
-If all else fails, please run hushd manually.</source>
-        <translation>无法启动内嵌的hushd。
+If all else fails, please run thcd manually.</source>
+        <translation>无法启动内嵌的thcd。
 
 请尝试重新启动。
 
-如果您之前使用自定义参数启动了hushd，则可能需要重置HUSH3.conf。
+如果您之前使用自定义参数启动了thcd，则可能需要重置THC.conf。
 
-如果所有其他方法都失败了，请手动运行hushd。</translation>
+如果所有其他方法都失败了，请手动运行thcd。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="85"/>
@@ -1008,12 +1008,12 @@ If all else fails, please run hushd manually.</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="93"/>
-        <source>Couldn&apos;t connect to hushd configured in HUSH3.conf.
+        <source>Couldn&apos;t connect to thcd configured in THC.conf.
 
-Not starting embedded hushd because --no-embedded was passed</source>
-        <translation>无法连接到HUSH3.conf中配置的hushd。
+Not starting embedded thcd because --no-embedded was passed</source>
+        <translation>无法连接到THC.conf中配置的thcd。
 
-没有启动内嵌的hushd，因为已经传了--no-embedded参数</translation>
+没有启动内嵌的thcd，因为已经传了--no-embedded参数</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="146"/>
@@ -1068,8 +1068,8 @@ Not starting embedded hushd because --no-embedded was passed</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="332"/>
-        <source>hushd error</source>
-        <translation>hushd 出错</translation>
+        <source>thcd error</source>
+        <translation>thcd 出错</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="399"/>
@@ -1082,22 +1082,22 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/connection.cpp" line="411"/>
-        <source>Could not connect to hushd configured in settings.
+        <source>Could not connect to thcd configured in settings.
 
 Please set the host/port and user/password in the Edit-&gt;Settings menu.</source>
-        <translation>无法连接到设置中配置的hushd。
+        <translation>无法连接到设置中配置的thcd。
 
 请在编辑 - &gt;设置菜单中设置主机/端口和用户/密码。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="472"/>
-        <source>Authentication failed. The username / password you specified was not accepted by hushd. Try changing it in the Edit-&gt;Settings menu</source>
-        <translation>验证失败。 hushd不接受您指定的用户名/密码。 请在编辑 - &gt;设置菜单中更改它</translation>
+        <source>Authentication failed. The username / password you specified was not accepted by thcd. Try changing it in the Edit-&gt;Settings menu</source>
+        <translation>验证失败。 thcd不接受您指定的用户名/密码。 请在编辑 - &gt;设置菜单中更改它</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="487"/>
-        <source>Your hushd is starting up. Please wait.</source>
-        <translation>你的hushd正在启动。 请耐心等待。</translation>
+        <source>Your thcd is starting up. Please wait.</source>
+        <translation>你的thcd正在启动。 请耐心等待。</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="504"/>
@@ -1155,8 +1155,8 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/recurring.cpp" line="469"/>
-        <source>No HUSH price was available to convert from USD</source>
-        <translation>HUSH的美元价格无法获取</translation>
+        <source>No THC price was available to convert from USD</source>
+        <translation>THC的美元价格无法获取</translation>
     </message>
     <message>
         <location filename="../src/recurring.cpp" line="518"/>
@@ -1223,18 +1223,18 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="673"/>
-        <source>Connected to hushd</source>
-        <translation>连接到hushd</translation>
+        <source>Connected to thcd</source>
+        <translation>连接到thcd</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="676"/>
-        <source>hushd has no peer connections</source>
-        <translation>hushd没有节点可连接</translation>
+        <source>thcd has no peer connections</source>
+        <translation>thcd没有节点可连接</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="695"/>
-        <source>There was an error connecting to hushd. The error was</source>
-        <translation>连接到hushd时出错。 错误是</translation>
+        <source>There was an error connecting to thcd. The error was</source>
+        <translation>连接到thcd时出错。 错误是</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1032"/>
@@ -1272,8 +1272,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1183"/>
-        <source>Waiting for hushd to exit</source>
-        <translation>等待hushd退出</translation>
+        <source>Waiting for thcd to exit</source>
+        <translation>等待thcd退出</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
@@ -1573,18 +1573,18 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="219"/>
-        <source>Request payment from a Sapling address. You&apos;ll send a HUSH 0.0001 transaction to the address with a hush payment URI. The memo will be included in the transaction when the address pays you.</source>
-        <translation>要求从树苗地址付款。 您将使用hush支付URI将ZEC 0.0001交易发送到该地址。 当地址付款时，备注将包含在交易中。</translation>
+        <source>Request payment from a Sapling address. You&apos;ll send a THC 0.0001 transaction to the address with a thc payment URI. The memo will be included in the transaction when the address pays you.</source>
+        <translation>要求从树苗地址付款。 您将使用thc支付URI将THC 0.0001交易发送到该地址。 当地址付款时，备注将包含在交易中。</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="50"/>
-        <source>Error paying hush URI</source>
-        <translation>支付hush URI时出错</translation>
+        <source>Error paying thc URI</source>
+        <translation>支付thc URI时出错</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="51"/>
-        <source>URI should be of the form &apos;hush:&lt;addr&gt;?amt=x&amp;memo=y</source>
-        <translation>URI的格式应为&apos;hush:&lt;addr&gt;?amt=x&amp;memo=y‘</translation>
+        <source>URI should be of the form &apos;thc:&lt;addr&gt;?amt=x&amp;memo=y</source>
+        <translation>URI的格式应为&apos;thc:&lt;addr&gt;?amt=x&amp;memo=y‘</translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="65"/>
@@ -1616,8 +1616,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/settings.ui" line="33"/>
-        <source>hushd connection</source>
-        <translation>hushd连接</translation>
+        <source>thcd connection</source>
+        <translation>thcd连接</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="62"/>
@@ -1701,13 +1701,13 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/settings.ui" line="273"/>
-        <source>Connect to the internet to fetch ZEC prices</source>
-        <translation>连接到互联网以获取ZEC价格</translation>
+        <source>Connect to the internet to fetch THC prices</source>
+        <translation>连接到互联网以获取THC价格</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="280"/>
-        <source>Fetch ZEC / USD prices</source>
-        <translation>获取 ZEC/USD 价格</translation>
+        <source>Fetch THC / USD prices</source>
+        <translation>获取 THC/USD 价格</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="288"/>
@@ -1882,8 +1882,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/confirm.ui" line="183"/>
-        <source>hushd doesn&apos;t seem to have any peers. You might not be connected to the internet, so this transaction might not work.</source>
-        <translation>hushd似乎没有任何可连接的节点。 您可能没有连接到互联网，因此此交易可能无效。</translation>
+        <source>thcd doesn&apos;t seem to have any peers. You might not be connected to the internet, so this transaction might not work.</source>
+        <translation>thcd似乎没有任何可连接的节点。 您可能没有连接到互联网，因此此交易可能无效。</translation>
     </message>
     <message>
         <location filename="../src/confirm.ui" line="196"/>
@@ -1900,13 +1900,13 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     <name>createZcashConf</name>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="14"/>
-        <source>Configure hush.conf</source>
-        <translation>配置 hush.conf</translation>
+        <source>Configure THC.conf</source>
+        <translation>配置 THC.conf</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="20"/>
-        <source>Your Hush node will be configured for you automatically</source>
-        <translation>您的hush节点将自动为您配置</translation>
+        <source>Your THC node will be configured for you automatically</source>
+        <translation>您的thc节点将自动为您配置</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="30"/>
@@ -1920,8 +1920,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="112"/>
-        <source>Allow connections to the internet to check for updates, get ZEC/USD prices etc...</source>
-        <translation>允许连接到互联网检查更新，获得ZEC/USD价格等…</translation>
+        <source>Allow connections to the internet to check for updates, get THC/USD prices etc...</source>
+        <translation>允许连接到互联网检查更新，获得THC/USD价格等…</translation>
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="119"/>
@@ -2041,8 +2041,8 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/zboard.ui" line="85"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Fully anonymous and untraceable chat messages based on the ZCash blockchain. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard：基于ZCash区块链的完全匿名且无法追踪的聊天消息。 &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Fully anonymous and untraceable chat messages based on the THC blockchain. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard：基于THC区块链的完全匿名且无法追踪的聊天消息。 &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/zboard.ui" line="107"/>

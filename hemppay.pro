@@ -13,7 +13,7 @@ PRECOMPILED_HEADER = src/precompiled.h
 QT += widgets
 QT += websockets
 
-TARGET = silentdragon
+TARGET = HempPAY
 
 TEMPLATE = app
 

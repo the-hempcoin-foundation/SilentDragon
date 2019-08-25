@@ -1,13 +1,13 @@
 [Desktop Entry]
-Name=SilentDragon
-Comment=Full node and wallet for Hush
+Name=HempPAY
+Comment=Full node and wallet for THC
 GenericName=Wallet
-Exec=/usr/local/bin/silentdragon %u
-Icon=silentdragon.xpm
+Exec=/usr/local/bin/hemppay %u
+Icon=hemppay.xpm
 Type=Application
 StartupNotify=true
-StartupWMClass=silentdragon
+StartupWMClass=hemppay
 Categories=Utility;
-MimeType=x-scheme-handler/hush;
-Keywords=silentdragon;
+MimeType=x-scheme-handler/thc;
+Keywords=hemppay;
 

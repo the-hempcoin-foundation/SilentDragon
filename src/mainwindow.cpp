@@ -30,7 +30,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    logger = new Logger(this, QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("SilentDragon.log"));
+
+    logger = new Logger(this, QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("HempPAY.log"));
+    qDebug() << "Logging to " << QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).filePath("HempPAY.log");
 
     // Status Bar
     setupStatusBar();
@@ -54,12 +56,12 @@ MainWindow::MainWindow(QWidget *parent) :
         rpc->checkForUpdate(false);
     });
 
-    // Request hush
+    // Request THC
     QObject::connect(ui->actionRequest_zcash, &QAction::triggered, [=]() {
         RequestDialog::showRequestZcash(this);
     });
 
-    // Pay Zcash URI
+    // Pay URI
     QObject::connect(ui->actionPay_URI, &QAction::triggered, [=] () {
         payZcashURI();
     });
@@ -112,7 +114,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // The zcashd tab is hidden by default, and only later added in if the embedded zcashd is started
     //zcashdtab = ui->tabWidget->widget(4);
     //ui->tabWidget->removeTab(4);
-    // TODO: setting to decide whether to auto-close embedded hushd when closing SilentDragon
+    // TODO: setting to decide whether to auto-close embedded komodod when closing HempPAY
 
     setupSendTab();
     setupTransactionsTab();
@@ -426,7 +428,7 @@ void MainWindow::setupStatusBar() {
                     url = "https://explorer.testnet.z.cash/tx/" + txid;
                 }
                 else {
-                    url = "https://explorer.myhush.org/tx/" + txid;
+                    url = "https://thc.explorer.dexstats.info/tx/" + txid;
                 }
                 QDesktopServices::openUrl(QUrl(url));
             });
@@ -462,7 +464,7 @@ void MainWindow::setupSettingsModal() {
         // Setup clear button
         QObject::connect(settings.btnClearSaved, &QCheckBox::clicked, [=]() {
             if (QMessageBox::warning(this, "Clear saved history?",
-                "Shielded z-Address transactions are stored locally in your wallet, outside hushd. You may delete this saved information safely any time for your privacy.\nDo you want to delete the saved shielded transactions now?",
+                "Shielded z-Address transactions are stored locally in your wallet, outside komodod. You may delete this saved information safely any time for your privacy.\nDo you want to delete the saved shielded transactions now?",
                 QMessageBox::Yes, QMessageBox::Cancel)) {
                     SentTxStore::deleteHistory();
                     // Reload after the clear button so existing txs disappear
@@ -488,7 +490,7 @@ void MainWindow::setupSettingsModal() {
         if (rpc->getEZcashD() == nullptr) {
             settings.chkTor->setEnabled(false);
             settings.lblTor->setEnabled(false);
-            QString tooltip = tr("Tor configuration is available only when running an embedded hushd.");
+            QString tooltip = tr("Tor configuration is available only when running an embedded komodod.");
             settings.chkTor->setToolTip(tooltip);
             settings.lblTor->setToolTip(tooltip);
         }
@@ -497,7 +499,7 @@ void MainWindow::setupSettingsModal() {
         QIntValidator validator(0, 65535);
         settings.port->setValidator(&validator);
 
-        // If values are coming from HUSH3.conf, then disable all the fields
+        // If values are coming from THC.conf, then disable all the fields
         auto zcashConfLocation = Settings::getInstance()->getZcashdConfLocation();
         if (!zcashConfLocation.isEmpty()) {
             settings.confMsg->setText("Settings are being read from \n" + zcashConfLocation);
@@ -506,7 +508,7 @@ void MainWindow::setupSettingsModal() {
             settings.rpcuser->setEnabled(false);
             settings.rpcpassword->setEnabled(false);
         } else {
-            settings.confMsg->setText("No local HUSH3.conf found. Please configure connection manually.");
+            settings.confMsg->setText("No local THC.conf found. Please configure connection manually.");
             settings.hostname->setEnabled(true);
             settings.port->setEnabled(true);
             settings.rpcuser->setEnabled(true);
@@ -523,13 +525,13 @@ void MainWindow::setupSettingsModal() {
         // Connection tab by default
         settings.tabWidget->setCurrentIndex(0);
 
-        // Enable the troubleshooting options only if using embedded hushd
+        // Enable the troubleshooting options only if using embedded komodod
         if (!rpc->isEmbedded()) {
             settings.chkRescan->setEnabled(false);
-            settings.chkRescan->setToolTip(tr("You're using an external hushd. Please restart hushd with -rescan"));
+            settings.chkRescan->setToolTip(tr("You're using an external komodod. Please restart komodod with -rescan"));
 
             settings.chkReindex->setEnabled(false);
-            settings.chkReindex->setToolTip(tr("You're using an external hushd. Please restart hushd with -reindex"));
+            settings.chkReindex->setToolTip(tr("You're using an external komodod. Please restart komodod with -reindex"));
         }
 
         if (settingsDialog.exec() == QDialog::Accepted) {
@@ -549,7 +551,7 @@ void MainWindow::setupSettingsModal() {
                 rpc->getConnection()->config->proxy = "proxy=127.0.0.1:9050";
 
                 QMessageBox::information(this, tr("Enable Tor"), 
-                    tr("Connection over Tor has been enabled. To use this feature, you need to restart SilentDragon."), 
+                    tr("Connection over Tor has been enabled. To use this feature, you need to restart HempPAY."), 
                     QMessageBox::Ok);
             }
 
@@ -559,7 +561,7 @@ void MainWindow::setupSettingsModal() {
                 rpc->getConnection()->config->proxy.clear();
 
                 QMessageBox::information(this, tr("Disable Tor"),
-                    tr("Connection over Tor has been disabled. To fully disconnect from Tor, you need to restart SilentDragon."),
+                    tr("Connection over Tor has been disabled. To fully disconnect from Tor, you need to restart HempPAY."),
                     QMessageBox::Ok);
             }
 
@@ -588,9 +590,9 @@ void MainWindow::setupSettingsModal() {
             }
 
             if (showRestartInfo) {
-                auto desc = tr("SilentDragon needs to restart to rescan/reindex. SilentDragon will now close, please restart SilentDragon to continue");
+                auto desc = tr("HempPAY needs to restart to rescan/reindex. HempPAY will now close, please restart HempPAY to continue");
                 
-                QMessageBox::information(this, tr("Restart SilentDragon"), desc, QMessageBox::Ok);
+                QMessageBox::information(this, tr("Restart HempPAY"), desc, QMessageBox::Ok);
                 QTimer::singleShot(1, [=]() { this->close(); });
             }
         }
@@ -612,12 +614,12 @@ void MainWindow::addressBook() {
 }
 
 void MainWindow::discord() {
-    QString url = "https://myhush.org/discord/";
+    QString url = "https://hempcoin.org/discord/";
     QDesktopServices::openUrl(QUrl(url));
 }
 
 void MainWindow::website() {
-    QString url = "https://myhush.org";
+    QString url = "https://hempcoin.org";
     QDesktopServices::openUrl(QUrl(url));
 }
 
@@ -626,10 +628,10 @@ void MainWindow::donate() {
 
     ui->Address1->setText(Settings::getDonationAddr(true));
     ui->Address1->setCursorPosition(0);
-    ui->Amount1->setText("0.00");
-    ui->MemoTxt1->setText(tr("Some feedback about SilentDragon or Hush..."));
+    ui->Amount1->setText("4.20");
+    ui->MemoTxt1->setText(tr("Some Boba a donation for HempPAY ..."));
 
-    ui->statusBar->showMessage(tr("Send Duke some private and shielded feedback about ") % Settings::getTokenName() % tr(" or SilentDragon"));
+    ui->statusBar->showMessage(tr("Send Boba a donation + some private and shielded feedback about ") % Settings::getTokenName() % tr(" or HempPAY"));
 
     // And switch to the send tab.
     ui->tabWidget->setCurrentIndex(1);
@@ -833,7 +835,7 @@ void MainWindow::balancesReady() {
     // There is a pending URI payment (from the command line, or from a secondary instance),
     // process it.
     if (!pendingURIPayment.isEmpty()) {
-        qDebug() << "Paying hush URI";
+        qDebug() << "Paying THC URI";
         payZcashURI(pendingURIPayment);
         pendingURIPayment = "";
     }
@@ -867,8 +869,8 @@ void MainWindow::payZcashURI(QString uri, QString myAddr) {
 
     // If there was no URI passed, ask the user for one.
     if (uri.isEmpty()) {
-        uri = QInputDialog::getText(this, tr("Paste HUSH URI"),
-            "HUSH URI" + QString(" ").repeated(180));
+        uri = QInputDialog::getText(this, tr("Paste THC URI"),
+            "THC URI" + QString(" ").repeated(180));
     }
 
     // If there's no URI, just exit
@@ -880,7 +882,7 @@ void MainWindow::payZcashURI(QString uri, QString myAddr) {
     PaymentURI paymentInfo = Settings::parseURI(uri);
     if (!paymentInfo.error.isEmpty()) {
         QMessageBox::critical(this, tr("Error paying pirate URI"), 
-                tr("URI should be of the form 'hush:<addr>?amt=x&memo=y") + "\n" + paymentInfo.error);
+                tr("URI should be of the form 'thc:<addr>?amt=x&memo=y") + "\n" + paymentInfo.error);
         return;
     }
 
@@ -916,7 +918,7 @@ void MainWindow::importPrivKey() {
     pui.buttonBox->button(QDialogButtonBox::Save)->setVisible(false);
     pui.helpLbl->setText(QString() %
                         tr("Please paste your private keys here, one per line") % ".\n" %
-                        tr("The keys will be imported into your connected Hush node"));  
+                        tr("The keys will be imported into your connected Hempcoin node"));  
 
     if (d.exec() == QDialog::Accepted && !pui.privKeyTxt->toPlainText().trimmed().isEmpty()) {
         auto rawkeys = pui.privKeyTxt->toPlainText().trimmed().split("\n");
@@ -957,7 +959,7 @@ void MainWindow::importPrivKey() {
  */
 void MainWindow::exportTransactions() {
     // First, get the export file name
-    QString exportName = "hush-transactions-" + QDateTime::currentDateTime().toString("yyyyMMdd") + ".csv";
+    QString exportName = "thc-transactions-" + QDateTime::currentDateTime().toString("yyyyMMdd") + ".csv";
 
     QUrl csvName = QFileDialog::getSaveFileUrl(this, 
             tr("Export transactions"), exportName, "CSV file (*.csv)");
@@ -973,14 +975,14 @@ void MainWindow::exportTransactions() {
 
 /**
  * Backup the wallet.dat file. This is kind of a hack, since it has to read from the filesystem rather than an RPC call
- * This might fail for various reasons - Remote hushd, non-standard locations, custom params passed to hushd, many others
+ * This might fail for various reasons - Remote komodod, non-standard locations, custom params passed to komodod, many others
 */
 void MainWindow::backupWalletDat() {
     if (!rpc->getConnection())
         return;
 
     QDir zcashdir(rpc->getConnection()->config->zcashDir);
-    QString backupDefaultName = "hush-wallet-backup-" + QDateTime::currentDateTime().toString("yyyyMMdd") + ".dat";
+    QString backupDefaultName = "thc-wallet-backup-" + QDateTime::currentDateTime().toString("yyyyMMdd") + ".dat";
 
     if (Settings::getInstance()->isTestnet()) {
         zcashdir.cd("testnet3");
@@ -990,7 +992,7 @@ void MainWindow::backupWalletDat() {
     QFile wallet(zcashdir.filePath("wallet.dat"));
     if (!wallet.exists()) {
         QMessageBox::critical(this, tr("No wallet.dat"), tr("Couldn't find the wallet.dat on this computer") + "\n" +
-            tr("You need to back it up from the machine hushd is running on"), QMessageBox::Ok);
+            tr("You need to back it up from the machine komodod is running on"), QMessageBox::Ok);
         return;
     }
     
@@ -1038,7 +1040,7 @@ void MainWindow::exportKeys(QString addr) {
     // Wire up save button
     QObject::connect(pui.buttonBox->button(QDialogButtonBox::Save), &QPushButton::clicked, [=] () {
         QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-                           allKeys ? "hush-all-privatekeys.txt" : "hush-privatekey.txt");
+                           allKeys ? "thc-all-privatekeys.txt" : "thc-privatekey.txt");
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly)) {
             QMessageBox::information(this, tr("Unable to open file"), file.errorString());
@@ -1162,9 +1164,9 @@ void MainWindow::setupBalancesTab() {
                 QString url;
                 if (Settings::getInstance()->isTestnet()) {
                     //TODO
-                    url = "https://explorer.testnet.myhush.org/address/" + addr;
+                    url = "https://explorer.testnet.dexstats.info/address/" + addr;
                 } else {
-                    url = "https://explorer.myhush.org/address/" + addr;
+                    url = "https://thc.explorer.dexstats.info/address/" + addr;
                 }
                 QDesktopServices::openUrl(QUrl(url));
             });
@@ -1177,12 +1179,12 @@ void MainWindow::setupBalancesTab() {
 
             menu.addAction(tr("Convert Address"), [=] () {
                 QString url;
-                url = "https://dexstats.info/addressconverter.php?fromcoin=HUSH3&address=" + addr;
+                url = "https://dexstats.info/addressconverter.php?fromcoin=THC&address=" + addr;
                 QDesktopServices::openUrl(QUrl(url));
             });
         }
 
-        //TODO: No sprout UTXOs on the Hush chain, should we remove all turnstile code?
+        //TODO: No sprout UTXOs on the THC chain, should we remove all turnstile code?
         if (Settings::getInstance()->isSproutAddress(addr)) {
             menu.addAction(tr("Migrate to Sapling"), [=] () {
                 this->turnstileDoMigration(addr);
@@ -1194,7 +1196,7 @@ void MainWindow::setupBalancesTab() {
 }
 
 void MainWindow::setupZcashdTab() {    
-    ui->hushlogo->setBasePixmap(QPixmap(":/img/res/zcashdlogo.gif"));
+    ui->thclogo->setBasePixmap(QPixmap(":/img/res/zcashdlogo.gif"));
 }
 
 void MainWindow::setupTransactionsTab() {
@@ -1241,15 +1243,15 @@ void MainWindow::setupTransactionsTab() {
         menu.addAction(tr("View on block explorer"), [=] () {
             QString url;
             if (Settings::getInstance()->isTestnet()) {
-                url = "https://explorer.testnet.myhush.org/tx/" + txid;
+                url = "https://explorer.testnet.dexstats.info/tx/" + txid;
             } else {
-                url = "https://explorer.myhush.org/tx/" + txid;
+                url = "https://thc.explorer.dexstats.info/tx/" + txid;
             }
             QDesktopServices::openUrl(QUrl(url));
         });
 
         // Payment Request
-        if (!memo.isEmpty() && memo.startsWith("hush:")) {
+        if (!memo.isEmpty() && memo.startsWith("thc:")) {
             menu.addAction(tr("View Payment Request"), [=] () {
                 RequestDialog::showPaymentConfirmation(this, memo);
             });
@@ -1363,6 +1365,7 @@ void MainWindow::setupReceiveTab() {
         // Whenever the t-address is selected, we generate a new address, because we don't
         // want to reuse t-addrs
         if (checked && this->rpc->getUTXOs() != nullptr) { 
+	    qDebug() << "calling updateTAddrCombo";
             updateTAddrCombo(checked);
         } 
 
@@ -1422,6 +1425,7 @@ void MainWindow::setupReceiveTab() {
         if (ui->rdioZSAddr->isChecked()) {
             addNewZaddr(true);
         } else if (ui->rdioTAddr->isChecked()) {
+	    qDebug() << "new taddr checked";
             addNewTAddr();
         }
     });

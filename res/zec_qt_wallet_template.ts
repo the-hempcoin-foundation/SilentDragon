@@ -210,7 +210,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="834"/>
-        <source>hushd</source>
+        <source>thcd</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -391,7 +391,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="631"/>
-        <source>The keys will be imported into your connected hushd node</source>
+        <source>The keys will be imported into your connected thcd node</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -406,7 +406,7 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="671"/>
-        <source>You need to back it up from the machine hushd is running on</source>
+        <source>You need to back it up from the machine thcd is running on</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -577,22 +577,22 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="50"/>
-        <source>Starting embedded hushd</source>
+        <source>Starting embedded thcd</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="60"/>
-        <source>hushd is set to run as daemon</source>
+        <source>thcd is set to run as daemon</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="60"/>
-        <source>Waiting for hushd</source>
+        <source>Waiting for thcd</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="75"/>
-        <source>You have hushd set to start as a daemon, which can cause problems with silentdragon
+        <source>You have thcd set to start as a daemon, which can cause problems with silentdragon
 
 .Please remove the following line from your zcash.conf and restart silentdragon
 daemon=1</source>
@@ -600,20 +600,20 @@ daemon=1</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="80"/>
-        <source>Couldn&apos;t start the embedded hushd.
+        <source>Couldn&apos;t start the embedded thcd.
 
 Please try restarting.
 
-If you previously started hushd with custom arguments, you might need to reset zcash.conf.
+If you previously started thcd with custom arguments, you might need to reset zcash.conf.
 
-If all else fails, please run hushd manually.</source>
+If all else fails, please run thcd manually.</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="91"/>
-        <source>Couldn&apos;t connect to hushd configured in zcash.conf.
+        <source>Couldn&apos;t connect to thcd configured in zcash.conf.
 
-Not starting embedded hushd because --no-embedded was passed</source>
+Not starting embedded thcd because --no-embedded was passed</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -679,12 +679,12 @@ Not starting embedded hushd because --no-embedded was passed</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="593"/>
-        <source>Connected to hushd</source>
+        <source>Connected to thcd</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="609"/>
-        <source>There was an error connecting to hushd. The error was</source>
+        <source>There was an error connecting to thcd. The error was</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -719,7 +719,7 @@ Not starting embedded hushd because --no-embedded was passed</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="954"/>
-        <source>Waiting for hushd to exit</source>
+        <source>Waiting for thcd to exit</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -729,7 +729,7 @@ Not starting embedded hushd because --no-embedded was passed</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="272"/>
-        <source>hushd error</source>
+        <source>thcd error</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -741,19 +741,19 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/connection.cpp" line="351"/>
-        <source>Could not connect to hushd configured in settings.
+        <source>Could not connect to thcd configured in settings.
 
 Please set the host/port and user/password in the Edit-&gt;Settings menu.</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="411"/>
-        <source>Authentication failed. The username / password you specified was not accepted by hushd. Try changing it in the Edit-&gt;Settings menu</source>
+        <source>Authentication failed. The username / password you specified was not accepted by thcd. Try changing it in the Edit-&gt;Settings menu</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="426"/>
-        <source>Your hushd is starting up. Please wait.</source>
+        <source>Your thcd is starting up. Please wait.</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -786,7 +786,7 @@ Please set the host/port and user/password in the Edit-&gt;Settings menu.</sourc
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="127"/>
-        <source> doesn&apos;t seem to be a valid Zcash address.</source>
+        <source> doesn&apos;t seem to be a valid THC address.</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -855,7 +855,7 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/settings.ui" line="33"/>
-        <source>hushd connection</source>
+        <source>thcd connection</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
@@ -1094,7 +1094,7 @@ You either have unconfirmed funds or the balance is too low for an automatic mig
     </message>
     <message>
         <location filename="../src/zboard.ui" line="85"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Fully anonymous and untraceable chat messages based on the ZCash blockchain. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Fully anonymous and untraceable chat messages based on the THC blockchain. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished">YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>

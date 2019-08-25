@@ -249,8 +249,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="878"/>
-        <source>hushd</source>
-        <translation>hushd</translation>
+        <source>thcd</source>
+        <translation>thcd</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="908"/>
@@ -454,17 +454,17 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="479"/>
-        <source>Tor configuration is available only when running an embedded hushd.</source>
+        <source>Tor configuration is available only when running an embedded thcd.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="518"/>
-        <source>You&apos;re using an external hushd. Please restart hushd with -rescan</source>
+        <source>You&apos;re using an external thcd. Please restart thcd with -rescan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="521"/>
-        <source>You&apos;re using an external hushd. Please restart hushd with -reindex</source>
+        <source>You&apos;re using an external thcd. Please restart thcd with -reindex</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -519,9 +519,9 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="859"/>
-        <source>The keys will be imported into your connected hushd node</source>
+        <source>The keys will be imported into your connected thcd node</source>
         <translatorcomment>check</translatorcomment>
-        <translation>Le chiavi saranno importate nel tuo nodo hushd</translation>
+        <translation>Le chiavi saranno importate nel tuo nodo thcd</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="899"/>
@@ -545,8 +545,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="923"/>
-        <source>You need to back it up from the machine hushd is running on</source>
-        <translation>È necessario eseguire il backup dalla macchina su cui hushd è in esecuzione</translation>
+        <source>You need to back it up from the machine thcd is running on</source>
+        <translation>È necessario eseguire il backup dalla macchina su cui thcd è in esecuzione</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="927"/>
@@ -820,52 +820,52 @@ doesn&apos;t look like a z-address</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="52"/>
-        <source>Starting embedded hushd</source>
+        <source>Starting embedded thcd</source>
         <translatorcomment>check</translatorcomment>
-        <translation>Avvio demone hushd</translation>
+        <translation>Avvio demone thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>hushd is set to run as daemon</source>
-        <translation>hushd è impostato per essere eseguito come un demone</translation>
+        <source>thcd is set to run as daemon</source>
+        <translation>thcd è impostato per essere eseguito come un demone</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="62"/>
-        <source>Waiting for hushd</source>
-        <translation>In attesa di hushd</translation>
+        <source>Waiting for thcd</source>
+        <translation>In attesa di thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="77"/>
-        <source>You have hushd set to start as a daemon, which can cause problems with ZecWallet
+        <source>You have thcd set to start as a daemon, which can cause problems with ZecWallet
 
 .Please remove the following line from your zcash.conf and restart ZecWallet
 daemon=1</source>
-        <translatorcomment>Hai hushd impostato per l&apos;avvio come daemon, che può causare problemi con ZecWallet</translatorcomment>
+        <translatorcomment>Hai thcd impostato per l&apos;avvio come daemon, che può causare problemi con ZecWallet</translatorcomment>
         <translation>YOUR_TRANSLATION_HERE</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="82"/>
-        <source>Couldn&apos;t start the embedded hushd.
+        <source>Couldn&apos;t start the embedded thcd.
 
 Please try restarting.
 
-If you previously started hushd with custom arguments, you might need to reset zcash.conf.
+If you previously started thcd with custom arguments, you might need to reset zcash.conf.
 
-If all else fails, please run hushd manually.</source>
+If all else fails, please run thcd manually.</source>
         <translatorcomment>check</translatorcomment>
-        <translation>Impossibile avviare hushd integrato
+        <translation>Impossibile avviare thcd integrato
 Per favore prova a riavviare.
-Se hai precedentemente avviato hushd con parametri personalizzati, potresti dover reimpostare lo zcash.conf
-Se tutto il resto fallisce, si prega di eseguire manualmente hushd.</translation>
+Se hai precedentemente avviato thcd con parametri personalizzati, potresti dover reimpostare lo zcash.conf
+Se tutto il resto fallisce, si prega di eseguire manualmente thcd.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="93"/>
-        <source>Couldn&apos;t connect to hushd configured in zcash.conf.
+        <source>Couldn&apos;t connect to thcd configured in zcash.conf.
 
-Not starting embedded hushd because --no-embedded was passed</source>
+Not starting embedded thcd because --no-embedded was passed</source>
         <translatorcomment>Check</translatorcomment>
-        <translation>Impossibile connettersi a hushd come configurato nello zcash.conf.
-Non è stato avviato hushd integrato perché è stato passato il comando --no-embedded</translation>
+        <translation>Impossibile connettersi a thcd come configurato nello zcash.conf.
+Non è stato avviato thcd integrato perché è stato passato il comando --no-embedded</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="146"/>
@@ -946,18 +946,18 @@ Non è stato avviato hushd integrato perché è stato passato il comando --no-em
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="645"/>
-        <source>Connected to hushd</source>
-        <translation>Connesso a hushd</translation>
+        <source>Connected to thcd</source>
+        <translation>Connesso a thcd</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="648"/>
-        <source>hushd has no peer connections</source>
+        <source>thcd has no peer connections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="667"/>
-        <source>There was an error connecting to hushd. The error was</source>
-        <translation>Si è verificato un errore durante la connessione a hushd. L&apos;errore era</translation>
+        <source>There was an error connecting to thcd. The error was</source>
+        <translation>Si è verificato un errore durante la connessione a thcd. L&apos;errore era</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="730"/>
@@ -1016,15 +1016,15 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1110"/>
-        <source>Please wait for SilentDragon to exit</source>
+        <source>Please wait for HempPAY to exit</source>
         <translatorcomment>controllare, senza contesto potrebbe voler dire  &quot;attendere zec qt wallet per uscire&quot; o altro, non ho contesto</translatorcomment>
-        <translation>Si prega di attendere che SilentDragon finisca la procedura di uscita</translation>
+        <translation>Si prega di attendere che HempPAY finisca la procedura di uscita</translation>
     </message>
     <message>
         <location filename="../src/rpc.cpp" line="1111"/>
-        <source>Waiting for hushd to exit</source>
+        <source>Waiting for thcd to exit</source>
         <translatorcomment>vedi appunto precedente</translatorcomment>
-        <translation>Attendere l&apos;uscita di hushd</translation>
+        <translation>Attendere l&apos;uscita di thcd</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="295"/>
@@ -1033,8 +1033,8 @@ Would you like to visit the releases page?</source>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="319"/>
-        <source>hushd error</source>
-        <translation>hushd errore</translation>
+        <source>thcd error</source>
+        <translation>thcd errore</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="386"/>
@@ -1046,22 +1046,22 @@ Impostare host/porta e utente/password nel menu Modifica-&gt; Impostazioni.</tra
     </message>
     <message>
         <location filename="../src/connection.cpp" line="398"/>
-        <source>Could not connect to hushd configured in settings.
+        <source>Could not connect to thcd configured in settings.
 
 Please set the host/port and user/password in the Edit-&gt;Settings menu.</source>
-        <translation>Impossibile connettersi a hushd configurato nelle impostazioni.
+        <translation>Impossibile connettersi a thcd configurato nelle impostazioni.
 
 Impostare host/porta e utente/password nel menu Modifica-&gt; Impostazioni.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="459"/>
-        <source>Authentication failed. The username / password you specified was not accepted by hushd. Try changing it in the Edit-&gt;Settings menu</source>
-        <translation>Autenticazione fallita. Il nome utente/password che hai specificato non sono stati accettati da hushd. Prova a cambiarlo nel menu Modifica-&gt; Impostazioni</translation>
+        <source>Authentication failed. The username / password you specified was not accepted by thcd. Try changing it in the Edit-&gt;Settings menu</source>
+        <translation>Autenticazione fallita. Il nome utente/password che hai specificato non sono stati accettati da thcd. Prova a cambiarlo nel menu Modifica-&gt; Impostazioni</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="474"/>
-        <source>Your hushd is starting up. Please wait.</source>
-        <translation>Il tuo hushd si sta avviando. Attendere prego.</translation>
+        <source>Your thcd is starting up. Please wait.</source>
+        <translation>Il tuo thcd si sta avviando. Attendere prego.</translation>
     </message>
     <message>
         <location filename="../src/connection.cpp" line="491"/>
@@ -1105,8 +1105,8 @@ Impostare host/porta e utente/password nel menu Modifica-&gt; Impostazioni.</tra
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="128"/>
-        <source> doesn&apos;t seem to be a valid Hush address.</source>
-        <translation> Non sembra un indirizzo HUSH Valido.</translation>
+        <source> doesn&apos;t seem to be a valid THC address.</source>
+        <translation> Non sembra un indirizzo THC Valido.</translation>
     </message>
     <message>
         <location filename="../src/addressbook.cpp" line="138"/>
@@ -1192,7 +1192,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/websockets.cpp" line="345"/>
-        <source>Connected over the internet via SilentDragon wormhole service</source>
+        <source>Connected over the internet via HempPAY wormhole service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1288,17 +1288,17 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/requestdialog.ui" line="219"/>
-        <source>Request payment from a Sapling address. You&apos;ll send a HUSH 0.0001 transaction to the address with a HUSH payment URI. The memo will be included in the transaction when the address pays you.</source>
+        <source>Request payment from a Sapling address. You&apos;ll send a THC 0.0001 transaction to the address with a THC payment URI. The memo will be included in the transaction when the address pays you.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="50"/>
-        <source>Error paying HUSH URI</source>
+        <source>Error paying THC URI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/requestdialog.cpp" line="51"/>
-        <source>URI should be of the form &apos;hush:&lt;addr&gt;?amt=x&amp;memo=y</source>
+        <source>URI should be of the form &apos;thc:&lt;addr&gt;?amt=x&amp;memo=y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1331,8 +1331,8 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/settings.ui" line="33"/>
-        <source>hushd connection</source>
-        <translation>Connessione hushd</translation>
+        <source>thcd connection</source>
+        <translation>Connessione thcd</translation>
     </message>
     <message>
         <location filename="../src/settings.ui" line="62"/>
@@ -1386,7 +1386,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/settings.ui" line="287"/>
-        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart SilentDragon for this to take effect</source>
+        <source>Rescan the blockchain for any missing wallet transactions and to correct your wallet balance. This may take several hours. You need to restart HempPAY for this to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1396,7 +1396,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/settings.ui" line="331"/>
-        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart SilentDragon for this to take effect</source>
+        <source>Rebuild the entire blockchain from the genesis block, by rescanning all the block files. This may take several hours to days, depending on your hardware. You need to restart HempPAY for this to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1569,7 +1569,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/confirm.ui" line="155"/>
-        <source>hushd doesn&apos;t seem to have any peers. You might not be connected to the internet, so this Transaction might not work.</source>
+        <source>thcd doesn&apos;t seem to have any peers. You might not be connected to the internet, so this Transaction might not work.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1587,7 +1587,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     <name>createZcashConf</name>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="14"/>
-        <source>Configure HUSH3.conf</source>
+        <source>Configure THC.conf</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1597,7 +1597,7 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/createzcashconfdialog.ui" line="86"/>
-        <source>Your Hush node will be configured for you automatically</source>
+        <source>Your THC node will be configured for you automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1713,9 +1713,9 @@ Avete fondi non confermati o il saldo è troppo basso per una migrazione automat
     </message>
     <message>
         <location filename="../src/zboard.ui" line="85"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Fully anonymous and untraceable chat messages based on the ZCash blockchain. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: Fully anonymous and untraceable chat messages based on the THC blockchain. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translatorcomment>Check, no idea</translatorcomment>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: messaggi di chat completamente anonimi e non tracciabili basati sulla blockchain di ZCash. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ZBoard: messaggi di chat completamente anonimi e non tracciabili basati sulla blockchain di THC. &lt;a href=&quot;http://www.z-board.net/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.z-board.net/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/zboard.ui" line="107"/>

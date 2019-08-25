@@ -81,14 +81,14 @@ void RPC::setEZcashd(std::shared_ptr<QProcess> p) {
     }
 }
 
-// Called when a connection to hushd is available. 
+// Called when a connection to komodod is available. 
 void RPC::setConnection(Connection* c) {
     if (c == nullptr) return;
 
     delete conn;
     this->conn = c;
 
-    ui->statusBar->showMessage("Ready! Thank you for helping secure the Hush network by running a full node.");
+    ui->statusBar->showMessage("Ja bless and thanks for helping secure the THC network by running a full node!");
 
     // See if we need to remove the reindex/rescan flags from the zcash.conf file
     auto zcashConfLocation = Settings::getInstance()->getZcashdConfLocation();
@@ -208,7 +208,7 @@ void RPC::importTPrivKey(QString privkey, bool rescan, const std::function<void(
 
     // If privkey starts with 5, K or L, use old-style Hush params, same as BTC+ZEC
     if( privkey.startsWith("5") || privkey.startsWith("K") || privkey.startsWith("L") ) {
-        qDebug() << "Detected old-style HUSH WIF";
+        qDebug() << "Detected old-style THC WIF";
         payload = {
             {"jsonrpc", "1.0"},
             {"id", "someid"},
@@ -216,7 +216,7 @@ void RPC::importTPrivKey(QString privkey, bool rescan, const std::function<void(
             {"params", { privkey.toStdString(), "", "false", "0", "128" }},
         };
     } else {
-        qDebug() << "Detected new-style HUSH WIF";
+        qDebug() << "Detected new-style THC WIF";
         payload = {
             {"jsonrpc", "1.0"},
             {"id", "someid"},
@@ -591,9 +591,6 @@ void RPC::getInfoThenRefresh(bool force) {
         int notarized           = reply["notarized"].get<json::number_integer_t>();
         int protocolversion     = reply["protocolversion"].get<json::number_integer_t>();
         int lag                 = curBlock - notarized;
-        int blocks_until_halving= 340000 - curBlock;
-        char halving_days[8];
-        sprintf(halving_days, "%.2f", (double) (blocks_until_halving * 150) / (60*60*24) );
         QString ntzhash         = QString::fromStdString( reply["notarizedhash"].get<json::string_t>() );
         QString ntztxid         = QString::fromStdString( reply["notarizedtxid"].get<json::string_t>() );
         QString kmdver          = QString::fromStdString( reply["KMDversion"].get<json::string_t>() );
@@ -608,7 +605,6 @@ void RPC::getInfoThenRefresh(bool force) {
         ui->protocolversion->setText( QString::number(protocolversion) );
         ui->p2pport->setText( QString::number(p2pport) );
         ui->rpcport->setText( QString::number(rpcport) );
-        ui->halving->setText( QString::number(blocks_until_halving) % " blocks, " % QString::fromStdString(halving_days)  % " days" );
 
         if ( force || (curBlock != lastBlock) ) {
             // Something changed, so refresh everything.
@@ -705,35 +701,35 @@ void RPC::getInfoThenRefresh(bool force) {
                 (isSyncing ? ("/" % QString::number(progress*100, 'f', 2) % "%") : QString()) %
                 ") " %
                 " Notarized: " % QString::number(notarized) %
-                " HUSH/USD=$" % QString::number( (double) Settings::getInstance()->getZECPrice() );
+                " THC/USD=$" % QString::number( (double) Settings::getInstance()->getZECPrice() );
             main->statusLabel->setText(statusText);   
 
             auto zecPrice = Settings::getUSDFormat(1);
             QString tooltip;
             if (connections > 0) {
-                tooltip = QObject::tr("Connected to hushd");
+                tooltip = QObject::tr("Connected to thcd");
             }
             else {
-                tooltip = QObject::tr("hushd has no peer connections! Network issues?");
+                tooltip = QObject::tr("thcd has no peer connections! Network issues?");
             }
             tooltip = tooltip % "(v " % QString::number(Settings::getInstance()->getZcashdVersion()) % ")";
 
             if (!zecPrice.isEmpty()) {
-                tooltip = "1 HUSH = " % zecPrice % "\n" % tooltip;
+                tooltip = "1 THC = " % zecPrice % "\n" % tooltip;
             }
             main->statusLabel->setToolTip(tooltip);
             main->statusIcon->setToolTip(tooltip);
         });
 
     }, [=](QNetworkReply* reply, const json&) {
-        // hushd has probably disappeared.
+        // komodod has probably disappeared.
         this->noConnection();
 
         // Prevent multiple dialog boxes, because these are called async
         static bool shown = false;
         if (!shown && prevCallSucceeded) { // show error only first time
             shown = true;
-            QMessageBox::critical(main, QObject::tr("Connection Error"), QObject::tr("There was an error connecting to hushd. The error was") + ": \n\n"
+            QMessageBox::critical(main, QObject::tr("Connection Error"), QObject::tr("There was an error connecting to thcd. The error was") + ": \n\n"
                 + reply->errorString(), QMessageBox::StandardButton::Ok);
             shown = false;
         }
@@ -1045,7 +1041,7 @@ void RPC::checkForUpdate(bool silent) {
     if  (conn == nullptr) 
         return noConnection();
 
-    QUrl cmcURL("https://api.github.com/repos/MyHush/SilentDragon/releases");
+    QUrl cmcURL("https://api.github.com/repos/the-hemp-foundation/HempPAY/releases");
 
     QNetworkRequest req;
     req.setUrl(cmcURL);
@@ -1089,7 +1085,7 @@ void RPC::checkForUpdate(bool silent) {
                             .arg(currentVersion.toString()),
                         QMessageBox::Yes, QMessageBox::Cancel);
                     if (ans == QMessageBox::Yes) {
-                        QDesktopServices::openUrl(QUrl("https://github.com/MyHush/SilentDragon/releases"));
+                        QDesktopServices::openUrl(QUrl("https://github.com/the-hempcoin-foundation/HempPAY/releases"));
                     } else {
                         // If the user selects cancel, don't bother them again for this version
                         s.setValue("update/lastversion", maxVersion.toString());
@@ -1109,13 +1105,13 @@ void RPC::checkForUpdate(bool silent) {
     });
 }
 
-// Get the HUSH prices
+// Get the THC prices
 void RPC::refreshZECPrice() {
     if  (conn == nullptr)
         return noConnection();
 
     // TODO: use/render all this data
-    QUrl cmcURL("https://api.coingecko.com/api/v3/simple/price?ids=hush&vs_currencies=btc%2Cusd%2Ceur&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true");
+    QUrl cmcURL("https://api.coingecko.com/api/v3/simple/price?ids=hempcoin-thc&vs_currencies=btc%2Cusd%2Ceur&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true");
     QNetworkRequest req;
     req.setUrl(cmcURL);
     QNetworkReply *reply = conn->restclient->get(req);
@@ -1143,21 +1139,28 @@ void RPC::refreshZECPrice() {
                 return;
             }
 
-            qDebug() << "Parsed JSON";
+            qDebug() << "Parsed JSON: " << all;
+	    qDebug() << "JSON len=" << all.length();
+
+	    /* TODO hackish, improve */
+	    if (all.length() <= 2) {
+		    qDebug() << "Invalid API response";
+		    return;
+	    }
 
             const json& item  = parsed.get<json::object_t>();
-            const json& hush  = item["hush"].get<json::object_t>();
+            const json& thc  = item["hempcoin-thc"].get<json::object_t>();
 
-            if (hush["usd"] >= 0) {
-                qDebug() << "Found hush key in price json";
+            if (thc["usd"] >= 0) {
+                qDebug() << "Found thc key in price json";
                 // TODO: support BTC/EUR prices as well
-                //QString price = QString::fromStdString(hush["usd"].get<json::string_t>());
-                qDebug() << "HUSH = $" << QString::number((double)hush["usd"]);
-                Settings::getInstance()->setZECPrice( hush["usd"] );
+                //QString price = QString::fromStdString(thc["usd"].get<json::string_t>());
+                qDebug() << "THC = $" << QString::number((double)thc["usd"]);
+                Settings::getInstance()->setZECPrice( thc["usd"] );
 
                 return;
             } else {
-                qDebug() << "No hush key found in JSON! API might be down or we are rate-limited\n";
+                qDebug() << "No thc key found in JSON! API might be down or we are rate-limited\n";
             }
         } catch (const std::exception& e) {
             // If anything at all goes wrong, just set the price to 0 and move on.
@@ -1190,8 +1193,8 @@ void RPC::shutdownZcashd() {
     Ui_ConnectionDialog connD;
     connD.setupUi(&d);
     connD.topIcon->setBasePixmap(QIcon(":/icons/res/icon.ico").pixmap(256, 256));
-    connD.status->setText(QObject::tr("Please wait for SilentDragon to exit"));
-    connD.statusDetail->setText(QObject::tr("Waiting for hushd to exit"));
+    connD.status->setText(QObject::tr("Please wait for HempPAY to exit"));
+    connD.statusDetail->setText(QObject::tr("Waiting for thcd to exit"));
 
     QTimer waiter(main);
 

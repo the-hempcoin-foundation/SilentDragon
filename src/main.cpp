@@ -148,7 +148,7 @@ public:
 
         // Command line parser
         QCommandLineParser parser;
-        parser.setApplicationDescription("Shielded desktop wallet and embedded full node for Hush");
+        parser.setApplicationDescription("Shielded desktop wallet and embedded full node for Hempcoin");
         parser.addHelpOption();
 
         // A boolean option for running it headless
@@ -156,15 +156,15 @@ public:
         parser.addOption(headlessOption);
 
         // No embedded will disable the embedded zcashd node
-        QCommandLineOption noembeddedOption(QStringList() << "no-embedded", "Disable embedded hushd");
+        QCommandLineOption noembeddedOption(QStringList() << "no-embedded", "Disable embedded komodod");
         parser.addOption(noembeddedOption);
 
         // Positional argument will specify a zcash payment URI
-        parser.addPositionalArgument("hushURI", "An optional HUSH URI to pay");
+        parser.addPositionalArgument("thcURI", "An optional THC URI to pay");
 
         parser.process(a);
 
-        // Check for a positional argument indicating a zcash payment URI
+        // Check for a positional argument indicating a THC payment URI
         if (a.isSecondary()) {
             if (parser.positionalArguments().length() > 0) {
                 a.sendMessage(parser.positionalArguments()[0].toUtf8());    
@@ -173,8 +173,8 @@ public:
             return 0;            
         } 
 
-        QCoreApplication::setOrganizationName("Hush");
-        QCoreApplication::setApplicationName("SilentDragon");
+        QCoreApplication::setOrganizationName("Hempcoin");
+        QCoreApplication::setApplicationName("HempPAY");
 
         QString locale = QLocale::system().name();
         locale.truncate(locale.lastIndexOf('_'));   // Get the language code
@@ -187,7 +187,6 @@ public:
         QIcon icon(":/icons/res/icon.ico");
         QApplication::setWindowIcon(icon);
 
-        // TODO: update for SD
         #ifdef Q_OS_LINUX
             QFontDatabase::addApplicationFont(":/fonts/res/Ubuntu-R.ttf");
             qApp->setFont(QFont("Ubuntu", 11, QFont::Normal, false));
@@ -219,7 +218,7 @@ public:
         }
 
         w = new MainWindow();
-        w->setWindowTitle("SilentDragon v" + QString(APP_VERSION));
+        w->setWindowTitle("HempPAY v" + QString(APP_VERSION));
 
         // If there was a payment URI on the command line, pay it
         if (parser.positionalArguments().length() > 0) {

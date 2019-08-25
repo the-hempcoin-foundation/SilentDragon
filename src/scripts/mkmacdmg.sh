@@ -12,8 +12,8 @@ case $key in
     shift # past argument
     shift # past value
     ;;
-    -h|--hush_path)
-    HUSH_DIR="$2"
+    -h|--thc_path)
+    THC_DIR="$2"
     shift # past argument
     shift # past value
     ;;
@@ -35,8 +35,8 @@ if [ -z $QT_PATH ]; then
     exit 1; 
 fi
 
-if [ -z $HUSH_DIR ]; then
-    echo "HUSH_DIR is not set. Please set it to the base directory of a compiled hushd";
+if [ -z $THC_DIR ]; then
+    echo "THC_DIR is not set. Please set it to the base directory of a compiled komodod";
     exit 1;
 fi
 
@@ -45,8 +45,8 @@ if [ -z $APP_VERSION ]; then
     exit 1;
 fi
 
-if [ ! -f $HUSH_DIR/src/hushd ]; then
-    echo "Could not find compiled hushd in $HUSH_DIR/src/.";
+if [ ! -f $THC_DIR/src/komodod ]; then
+    echo "Could not find compiled komodod in $THC_DIR/src/.";
     exit 1;
 fi
 
@@ -60,14 +60,14 @@ export PATH=$PATH:/usr/local/bin
 #Clean
 echo -n "Cleaning..............."
 make distclean >/dev/null 2>&1
-rm -f artifacts/macOS-silentdragon-v$APP_VERSION.dmg
+rm -f artifacts/macOS-hemppay-v$APP_VERSION.dmg
 echo "[OK]"
 
 
 echo -n "Configuring............"
 # Build
 QT_STATIC=$QT_PATH src/scripts/dotranslations.sh >/dev/null
-$QT_PATH/bin/qmake silentdragon.pro CONFIG+=release >/dev/null
+$QT_PATH/bin/qmake hemppay.pro CONFIG+=release >/dev/null
 echo "[OK]"
 
 
@@ -78,29 +78,29 @@ echo "[OK]"
 #Qt deploy
 echo -n "Deploying.............."
 mkdir artifacts >/dev/null 2>&1
-rm -f artifcats/silentdragon.dmg >/dev/null 2>&1
+rm -f artifcats/hemppay.dmg >/dev/null 2>&1
 rm -f artifacts/rw* >/dev/null 2>&1
-cp $HUSH_DIR/src/hushd silentdragon.app/Contents/MacOS/
-cp $HUSH_DIR/src/hush-cli silentdragon.app/Contents/MacOS/
-cp $HUSH_DIR/src/komodod silentdragon.app/Contents/MacOS/
-cp $HUSH_DIR/src/komodo-cli silentdragon.app/Contents/MacOS/
-$QT_PATH/bin/macdeployqt silentdragon.app 
+cp $THC_DIR/src/komodod hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/thc-cli hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/thcd hemppay.app/Contents/MacOS/
+cp $THC_DIR/src/komodo-cli hemppay.app/Contents/MacOS/
+$QT_PATH/bin/macdeployqt hemppay.app 
 echo "[OK]"
 
 
 echo -n "Building dmg..........."
-mv silentdragon.app silentdragon.app
-create-dmg --volname "silentdragon-v$APP_VERSION" --volicon "res/logo.icns" --window-pos 200 120 --icon "silentdragon.app" 200 190  --app-drop-link 600 185 --hide-extension "silentdragon.app"  --window-size 800 400 --hdiutil-quiet --background res/dmgbg.png  artifacts/macOS-silentdragon-v$APP_VERSION.dmg silentdragon.app >/dev/null 2>&1
+mv hemppay.app hemppay.app
+create-dmg --volname "hemppay-v$APP_VERSION" --volicon "res/logo.icns" --window-pos 200 120 --icon "hemppay.app" 200 190  --app-drop-link 600 185 --hide-extension "hemppay.app"  --window-size 800 400 --hdiutil-quiet --background res/dmgbg.png  artifacts/macOS-hemppay-v$APP_VERSION.dmg hemppay.app >/dev/null 2>&1
 
 #mkdir bin/dmgbuild >/dev/null 2>&1
 #sed "s/RELEASE_VERSION/${APP_VERSION}/g" res/appdmg.json > bin/dmgbuild/appdmg.json
 #cp res/logo.icns bin/dmgbuild/
 #cp res/dmgbg.png bin/dmgbuild/
 
-#cp -r silentdragon.app bin/dmgbuild/
+#cp -r hemppay.app bin/dmgbuild/
 
-#appdmg --quiet bin/dmgbuild/appdmg.json artifacts/macOS-silentdragon-v$APP_VERSION.dmg >/dev/null
-if [ ! -f artifacts/macOS-silentdragon-v$APP_VERSION.dmg ]; then
+#appdmg --quiet bin/dmgbuild/appdmg.json artifacts/macOS-hemppay-v$APP_VERSION.dmg >/dev/null
+if [ ! -f artifacts/macOS-hemppay-v$APP_VERSION.dmg ]; then
     echo "[ERROR]"
     exit 1
 fi

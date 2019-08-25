@@ -201,9 +201,9 @@ const QString Settings::txidStatusMessage = QString(QObject::tr("Tx submitted (r
 
 QString Settings::getTokenName() {
     if (Settings::getInstance()->isTestnet()) {
-        return "HUSHT";
+        return "THCT";
     } else {
-        return "HUSH";
+        return "THC";
     }
 }
 
@@ -211,7 +211,7 @@ QString Settings::getDonationAddr(bool sapling) {
     if (Settings::getInstance()->isTestnet())  {
 	    return "ztestsaplingXXX";
     }
-    return "zs1aq4xnrkjlnxx0zesqye7jz3dfrf3rjh7q5z6u8l6mwyqqaam3gx3j2fkqakp33v93yavq46j83q";
+    return "zs1n7auhuf06gzzj6gl3f3gvelnr9ez27eafmtyj9s649fat77zg8l8mz8f937kd2nacq23veu2fc6";
 }
 
 bool Settings::addToZcashConf(QString confLocation, QString line) {
@@ -307,12 +307,12 @@ QString Settings::paymentURIPretty(PaymentURI uri) {
 PaymentURI Settings::parseURI(QString uri) {
     PaymentURI ans;
 
-    if (!uri.startsWith("hush:")) {
-        ans.error = "Not a HUSH payment URI";
+    if (!uri.startsWith("thc:")) {
+        ans.error = "Not a THC payment URI";
         return ans;
     }
 
-    uri = uri.right(uri.length() - QString("hush:").length());
+    uri = uri.right(uri.length() - QString("thc:").length());
     
     QRegExp re("([a-zA-Z0-9]+)");
     int pos;
