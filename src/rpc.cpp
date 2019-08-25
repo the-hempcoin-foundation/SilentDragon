@@ -1149,7 +1149,7 @@ void RPC::refreshZECPrice() {
 	    }
 
             const json& item  = parsed.get<json::object_t>();
-            const json& thc  = item["thc"].get<json::object_t>();
+            const json& thc  = item["hempcoin-thc"].get<json::object_t>();
 
             if (thc["usd"] >= 0) {
                 qDebug() << "Found thc key in price json";

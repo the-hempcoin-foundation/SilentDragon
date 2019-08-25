@@ -3,7 +3,8 @@
 HempPAY desktop wallet for THC ($THC) runs on Linux, Windows and macOS.
 This is experimental software under active development!
 
-![Screenshots](hemppay.png?raw=true)
+![Screenshot 1](hemppay.png?raw=true)
+![Screenshot 2](hemppay2.png?raw=true)
 
 ## PRIVACY NOTICE
 
