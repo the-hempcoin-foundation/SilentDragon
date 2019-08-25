@@ -1111,7 +1111,7 @@ void RPC::refreshZECPrice() {
         return noConnection();
 
     // TODO: use/render all this data
-    QUrl cmcURL("https://api.coingecko.com/api/v3/simple/price?ids=thc&vs_currencies=btc%2Cusd%2Ceur&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true");
+    QUrl cmcURL("https://api.coingecko.com/api/v3/simple/price?ids=hempcoin-thc&vs_currencies=btc%2Cusd%2Ceur&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true");
     QNetworkRequest req;
     req.setUrl(cmcURL);
     QNetworkReply *reply = conn->restclient->get(req);
